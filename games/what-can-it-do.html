@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>What Can It Do? — the scoreboard — games.sgit.ai</title>
+<meta name="description" content="The scoreboard game: 40 questions, five levels, scored with a proper scoring rule so that saying yes to everything loses. 17 of the 40 are things no agent can do.">
+<link rel="canonical" href="https://games.sgit.ai/games/what-can-it-do.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="games.sgit.ai">
+<meta property="og:url" content="https://games.sgit.ai/games/what-can-it-do.html">
+<meta property="og:title" content="What Can It Do? — the scoreboard — games.sgit.ai">
+<meta property="og:description" content="The scoreboard game: 40 questions, five levels, scored with a proper scoring rule so that saying yes to everything loses. 17 of the 40 are things no agent can do.">
+<meta name="twitter:card" content="summary">
+<link rel="alternate" type="text/markdown" href="what-can-it-do.md" title="This page as markdown">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="mask-icon" href="../assets/favicon.svg" color="#0f766e">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+
+<nav class="site"><div class="row">
+  <a class="brand" href="../index.html">games<span>.sgit.ai</span></a>
+  <a class="parent" href="https://sgit.ai" title="sgit.ai — the parent project: the vault layer the games ship in">↗ part of <b>sgit.ai</b></a>
+  <span class="stage-pill">research site</span>
+  <a class="ver" href="../admin/versions.html" title="Site release history">v0.1.0</a>
+  <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Menu">Menu</button>
+  <div class="nav-items">
+    <div class="ni ni-has">
+      <a class="nl here" href="../games/index.html">Games<span class="caret">&#9662;</span></a>
+      <div class="sub">
+      <a class="sl" href="../games/index.html">The catalogue</a>
+      <a class="sl here" href="../games/what-can-it-do.html">What Can It Do?</a>
+      <a class="sl" href="../games/which-agent-is-it.html">Which Agent Is It?</a>
+      <a class="sl" href="../games/ideas.html">Ideas &amp; feedback</a>
+      </div>
+    </div>
+    <div class="ni ni-has">
+      <a class="nl" href="../method/index.html">Method<span class="caret">&#9662;</span></a>
+      <div class="sub">
+      <a class="sl" href="../method/index.html">The four claims</a>
+      <a class="sl" href="../method/calibration.html">Calibration, not knowledge</a>
+      <a class="sl" href="../method/the-ceiling.html">The ceiling</a>
+      <a class="sl" href="../method/levels.html">Levels are distance</a>
+      <a class="sl" href="../method/grant-vs-mandate.html">Grant vs. mandate</a>
+      </div>
+    </div>
+    <div class="ni"><a class="nl" href="../maturity/index.html">Maturity</a></div>
+    <div class="ni ni-has">
+      <a class="nl" href="../build/index.html">Build one<span class="caret">&#9662;</span></a>
+      <div class="sub">
+      <a class="sl" href="../build/index.html">Building a game as a vault</a>
+      <a class="sl" href="../telemetry/index.html">What our games send</a>
+      </div>
+    </div>
+    <div class="ni ni-has">
+      <a class="nl" href="../admin/index.html">Site<span class="caret">&#9662;</span></a>
+      <div class="sub">
+      <a class="sl" href="../network/index.html">The network</a>
+      <a class="sl" href="../admin/versions.html">Release history</a>
+      <a class="sl" href="../admin/index.html">Admin &amp; engineering</a>
+      </div>
+    </div>
+  </div>
+  <a class="gh" href="https://github.com/SGit-AI/SGit-AI__Website__Games">&#9733; GitHub</a>
+  <script src="../assets/nav.js" defer></script>
+</div></nav>
+
+<main class="doc">
+  <p class="crumb"><a href="../index.html">Home</a> / <a href="../games/index.html">Games</a> / What Can It Do?</p>
+  <h1>What Can It Do? — the scoreboard</h1>
+  <p class="lead">You name the agent and where you run it. The board then asks, capability by capability, two questions back to back: <b>can it?</b> and <b>do you want it to?</b> The first is scored. The second quietly assembles a mandate.</p>
+  <p><a href="https://what-can-it-do.games.sgit.ai">Play it at what-can-it-do.games.sgit.ai</a> — that is the player-facing site, and the link to send to somebody who just wants to play. This page is about how it works and what it is measuring.</p>
+  <h2 id="three-marks-kept-apart-everywhere">Three marks, kept apart everywhere</h2>
+  <p>The design decision the whole game rests on is that three different things are never drawn the same way: <b>your ink</b> (what you said), <b>the board's stamp</b> (what the profile says), and <b>the mandate mark</b> (what you wanted). Most assessment tools collapse the second and third — they ask what you want and then tell you whether you are compliant. Keeping them apart is what makes the delta visible.</p>
+  <h2 id="the-scoring-stated-before-you-play">The scoring, stated before you play</h2>
+  <div class="tablewrap"><table><thead><tr><th>You answer</th><th>Scored as</th><th>If right</th><th>If wrong</th></tr></thead><tbody><tr><td>Yes</td><td>0.75 confident</td><td>+30</td><td>−50</td></tr><tr><td>No</td><td>0.25 confident</td><td>+30</td><td>−50</td></tr><tr><td>Don't know</td><td>0.5</td><td>0</td><td>0</td></tr></tbody></table></div>
+  <p>Under the hood that is a proper scoring rule — squared error, shifted so that <em>not sure</em> is worth nothing: <code>points = 160 × (¼ − (p − truth)²)</code>. The property that matters is that <b>a wrong answer costs more than a right one earns</b>, which is the only way to stop the winning strategy being <em>say yes to everything</em>. Real grants are wider than people expect, so yes-to-everything would otherwise score well while measuring nothing. The game's own self-test asserts it: answering <em>yes, definitely</em> to every question scores between −3,840 and −8,640 across the profiles in the set, against +3,840 for perfect knowledge.</p>
+  <p>There is no forced guess. <em>Don't know</em> is always available and always worth zero — the headline figure the game reports is calibration, not score, and a player who knows what they do not know should not be punished for saying so.</p>
+  <h2 id="the-mandate-points-are-a-second-separate-currency">The mandate points are a second, separate currency</h2>
+  <p>After you answer <em>can it?</em>, a <b>but…</b> tick appears — <em>…but it shouldn't be able to</em> under a yes, <em>…but I'd want it to</em> under a no. Ticking it is worth ±20 mandate points, kept apart from the calibration points and reported separately: <b>+20 for flagging a real delta, −20 for flagging one that is not there.</b></p>
+  <p>Every answer is then classed. The four delta classes are named in plain words, and the distinction inside each pair is the useful one:</p>
+  <div class="tablewrap"><table><thead><tr><th>Class</th><th>Means</th></tr></thead><tbody><tr><td>excess you flagged</td><td>It can, you don't want it to — and you knew</td></tr><tr><td>excess you did not see</td><td>It can, you don't want it to — and you also had the grant wrong</td></tr><tr><td>gap you knew of</td><td>It cannot, you would want it to — and you knew</td></tr><tr><td>gap you were counting on</td><td>It cannot, you thought it could, and you wanted it — something you are relying on that is not there</td></tr></tbody></table></div>
+  <p>That last row is the one worth the whole game. It is the only class that describes a thing you are currently depending on which does not exist.</p>
+  <h2 id="the-set-spans-both-directions">The set spans both directions</h2>
+  <p><b>17 of the 40 questions are above the ceiling</b> — things no agent in any environment in the set can do, not even one running as an administrator with every confirmation switched off. They are there so the game measures over-crediting as well as underestimating, and the game's self-test fails if their share leaves the 33–50% band. <a href="../method/the-ceiling.html">Why the ceiling exists, and what bounds it</a>.</p>
+  <h2 id="what-it-does-not-prove">What it does not prove</h2>
+  <ul><li><b>Anything about your grant.</b> It measures you against a published profile — what a vendor says a product does — which is the weakest tier of evidence there is.</li><li><b>That the levels are right.</b> The derived ones come from a mesh snapshot that records no path at all for one capability; the above-the-ceiling ones are authored by one agent on one day, and each says so in the file.</li><li><b>That the points mean anything.</b> Values and cut-points are arbitrary until there is play data to fit them against.</li><li><b>That a good score is safety.</b> Calibration is about the player, not the environment.</li></ul>
+  <div class="note"><b>Open it yourself.</b> Read key <code>f94c8b1d4235…111118:4evnlwrj</code> — the full string is on <a href="https://sgit.ai/demos/vaults/agent-permission-games/">the vault's page at sgit.ai</a>. <a href="https://dev.vault.sgraph.ai/#f94c8b1d42352d95703ac3d39032735d9b4e388d16ab5b87c948928d8e111118%3A4evnlwrj">Open it read-only in a new tab</a>, or clone it with <code>sgit clone</code>. It is a read key: it cannot write, which is what makes publishing it safe.</div>
+</main>
+
+<footer class="site"><div class="cols">
+  <div>
+    <div class="brandline">games<span>.sgit.ai</span></div>
+    <p>Why this family builds games, and the games it has. Each one ships as an encrypted vault you can open, clone and argue with — <a href="../maturity/index.html" style="display:inline;padding:0">every one carries a maturity label with a test behind it</a>.</p>
+    <p class="netline"><a href="https://sgit.ai"><b>↗ sgit.ai</b></a> — the vault layer the games ship in · <a href="https://pki.sgit.ai">↗ pki.sgit.ai</a> — the mesh and the profiles the questions come from · <a href="https://what-can-it-do.games.sgit.ai">↗ what-can-it-do.games.sgit.ai</a> — play the first game · <a href="https://sgit.ai/network/index.html">↗ the network</a></p>
+    <p class="partnote">⚠ The games on this site send anonymous usage events while you play. <a href="../telemetry/index.html" style="display:inline;padding:0">What is sent, and how to stop it</a>.</p>
+    <p class="verline">site <a href="../admin/versions.html">v0.1.0</a> · <a href="../admin/index.html">engineering</a> · <a href="../llms.txt">llms.txt</a> · CC BY 4.0 · <a href="../games/what-can-it-do.md">this page as markdown</a></p>
+  </div>
+  <div>
+    <h4>Play</h4>
+    <a href="https://what-can-it-do.games.sgit.ai">&#8594; What Can It Do?</a>
+    <a href="../games/index.html">The catalogue</a>
+    <a href="../games/which-agent-is-it.html">Which Agent Is It?</a>
+    <a href="../games/ideas.html">Ideas &amp; feedback</a>
+  </div>
+  <div>
+    <h4>The method</h4>
+    <a href="../method/calibration.html">Calibration, not knowledge</a>
+    <a href="../method/the-ceiling.html">The ceiling</a>
+    <a href="../method/levels.html">Levels are distance</a>
+    <a href="../method/grant-vs-mandate.html">Grant vs. mandate</a>
+  </div>
+  <div>
+    <h4>Build one</h4>
+    <a href="../build/index.html">Building a game as a vault</a>
+    <a href="../telemetry/index.html">What our games send</a>
+    <a href="../maturity/index.html">The maturity ladder</a>
+  </div>
+  <div>
+    <h4>Site</h4>
+    <a href="../network/index.html">The network</a>
+    <a href="../admin/versions.html">Release history</a>
+    <a href="../admin/index.html">Engineering</a>
+    <a href="../llms.txt">llms.txt</a>
+  </div>
+</div></footer>
+</body>
+</html>

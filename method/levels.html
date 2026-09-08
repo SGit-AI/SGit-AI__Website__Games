@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Levels are distance, not danger — games.sgit.ai</title>
+<meta name="description" content="A level is the number of hops from a capability to a one-way consequence, computed from the mesh — and the game says on the rail that it is distance, never a danger rating.">
+<link rel="canonical" href="https://games.sgit.ai/method/levels.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="games.sgit.ai">
+<meta property="og:url" content="https://games.sgit.ai/method/levels.html">
+<meta property="og:title" content="Levels are distance, not danger — games.sgit.ai">
+<meta property="og:description" content="A level is the number of hops from a capability to a one-way consequence, computed from the mesh — and the game says on the rail that it is distance, never a danger rating.">
+<meta name="twitter:card" content="summary">
+<link rel="alternate" type="text/markdown" href="levels.md" title="This page as markdown">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="mask-icon" href="../assets/favicon.svg" color="#0f766e">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+
+<nav class="site"><div class="row">
+  <a class="brand" href="../index.html">games<span>.sgit.ai</span></a>
+  <a class="parent" href="https://sgit.ai" title="sgit.ai — the parent project: the vault layer the games ship in">↗ part of <b>sgit.ai</b></a>
+  <span class="stage-pill">research site</span>
+  <a class="ver" href="../admin/versions.html" title="Site release history">v0.1.0</a>
+  <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Menu">Menu</button>
+  <div class="nav-items">
+    <div class="ni ni-has">
+      <a class="nl" href="../games/index.html">Games<span class="caret">&#9662;</span></a>
+      <div class="sub">
+      <a class="sl" href="../games/index.html">The catalogue</a>
+      <a class="sl" href="../games/what-can-it-do.html">What Can It Do?</a>
+      <a class="sl" href="../games/which-agent-is-it.html">Which Agent Is It?</a>
+      <a class="sl" href="../games/ideas.html">Ideas &amp; feedback</a>
+      </div>
+    </div>
+    <div class="ni ni-has">
+      <a class="nl here" href="../method/index.html">Method<span class="caret">&#9662;</span></a>
+      <div class="sub">
+      <a class="sl" href="../method/index.html">The four claims</a>
+      <a class="sl" href="../method/calibration.html">Calibration, not knowledge</a>
+      <a class="sl" href="../method/the-ceiling.html">The ceiling</a>
+      <a class="sl here" href="../method/levels.html">Levels are distance</a>
+      <a class="sl" href="../method/grant-vs-mandate.html">Grant vs. mandate</a>
+      </div>
+    </div>
+    <div class="ni"><a class="nl" href="../maturity/index.html">Maturity</a></div>
+    <div class="ni ni-has">
+      <a class="nl" href="../build/index.html">Build one<span class="caret">&#9662;</span></a>
+      <div class="sub">
+      <a class="sl" href="../build/index.html">Building a game as a vault</a>
+      <a class="sl" href="../telemetry/index.html">What our games send</a>
+      </div>
+    </div>
+    <div class="ni ni-has">
+      <a class="nl" href="../admin/index.html">Site<span class="caret">&#9662;</span></a>
+      <div class="sub">
+      <a class="sl" href="../network/index.html">The network</a>
+      <a class="sl" href="../admin/versions.html">Release history</a>
+      <a class="sl" href="../admin/index.html">Admin &amp; engineering</a>
+      </div>
+    </div>
+  </div>
+  <a class="gh" href="https://github.com/SGit-AI/SGit-AI__Website__Games">&#9733; GitHub</a>
+  <script src="../assets/nav.js" defer></script>
+</div></nav>
+
+<main class="doc">
+  <p class="crumb"><a href="../index.html">Home</a> / <a href="../method/index.html">Method</a> / Levels</p>
+  <h1>Derive the levels from the graph</h1>
+  <p class="lead">Difficulty tiers in most assessments are assigned by whoever wrote them, which means the tiers encode the author's intuition and nothing else. These are computed, and the computation is published.</p>
+  <h2 id="the-definition">The definition</h2>
+  <p>A <b>consequence</b> is a one-way exposure — an edge in the mesh marked <code>reversible: no</code>. A capability's level is the fewest hops from it to any consequence, moving through <code>at</code> edges (exposure → reach) and <code>runs-in</code> edges (reach → environment), within a single profile's exposures, minimised across every profile in the set.</p>
+  <div class="tablewrap"><table><thead><tr><th>Hops to a one-way consequence</th><th>Level</th></tr></thead><tbody><tr><td>0</td><td>1</td></tr><tr><td>2</td><td>2</td></tr><tr><td>4</td><td>3</td></tr><tr><td>6 or more</td><td>4</td></tr><tr><td>no path found</td><td>5</td></tr></tbody></table></div>
+  <p>With the current snapshot that gives <b>13 / 3 / 5 / 1 / 1</b> derived capabilities across the five levels, plus <b>8 / 4 / 4 / 1 / 0</b> authored above-the-ceiling ones. The distribution is lumpy, which is a property of the mesh rather than of the game, and a long level is played in rounds of eight with a carry-on-or-finish card in between rather than being padded out.</p>
+  <h2 id="the-sentence-on-the-rail">The sentence on the rail</h2>
+  <p>The level rail says what each level means <b>and that it is distance, not danger</b>. That caveat is not decoration. A capability zero hops from a one-way consequence is not necessarily more dangerous than one six hops away — it is closer, which is a different claim. Reading a distance as a risk rating is exactly the mistake a numbered tier invites, so the game refuses the reading in the place where the number appears.</p>
+  <h2 id="the-honest-limits">The honest limits</h2>
+  <ul><li><b>The mesh has a gap.</b> It records no path at all for one capability in the set, which lands that capability at level 5 by absence of evidence rather than by distance.</li><li><b>The data is a snapshot.</b> Taken 2026-09-06 from <a href="https://pki.sgit.ai">pki.sgit.ai</a> and vendored into the vault, with the date shown in the header of every screen. A vendored snapshot is reproducible and gets stale; a live fetch is current and unreproducible. The game vendors and stamps the date, and takes <code>?live=1</code> for the other behaviour.</li><li><b>Levels unlock, but nothing is locked.</b> A level unlocks when the one before scored ≥ 0; a locked level is dimmed and still tappable. Gating play on performance would measure persistence rather than calibration.</li></ul>
+</main>
+
+<footer class="site"><div class="cols">
+  <div>
+    <div class="brandline">games<span>.sgit.ai</span></div>
+    <p>Why this family builds games, and the games it has. Each one ships as an encrypted vault you can open, clone and argue with — <a href="../maturity/index.html" style="display:inline;padding:0">every one carries a maturity label with a test behind it</a>.</p>
+    <p class="netline"><a href="https://sgit.ai"><b>↗ sgit.ai</b></a> — the vault layer the games ship in · <a href="https://pki.sgit.ai">↗ pki.sgit.ai</a> — the mesh and the profiles the questions come from · <a href="https://what-can-it-do.games.sgit.ai">↗ what-can-it-do.games.sgit.ai</a> — play the first game · <a href="https://sgit.ai/network/index.html">↗ the network</a></p>
+    <p class="partnote">⚠ The games on this site send anonymous usage events while you play. <a href="../telemetry/index.html" style="display:inline;padding:0">What is sent, and how to stop it</a>.</p>
+    <p class="verline">site <a href="../admin/versions.html">v0.1.0</a> · <a href="../admin/index.html">engineering</a> · <a href="../llms.txt">llms.txt</a> · CC BY 4.0 · <a href="../method/levels.md">this page as markdown</a></p>
+  </div>
+  <div>
+    <h4>Play</h4>
+    <a href="https://what-can-it-do.games.sgit.ai">&#8594; What Can It Do?</a>
+    <a href="../games/index.html">The catalogue</a>
+    <a href="../games/which-agent-is-it.html">Which Agent Is It?</a>
+    <a href="../games/ideas.html">Ideas &amp; feedback</a>
+  </div>
+  <div>
+    <h4>The method</h4>
+    <a href="../method/calibration.html">Calibration, not knowledge</a>
+    <a href="../method/the-ceiling.html">The ceiling</a>
+    <a href="../method/levels.html">Levels are distance</a>
+    <a href="../method/grant-vs-mandate.html">Grant vs. mandate</a>
+  </div>
+  <div>
+    <h4>Build one</h4>
+    <a href="../build/index.html">Building a game as a vault</a>
+    <a href="../telemetry/index.html">What our games send</a>
+    <a href="../maturity/index.html">The maturity ladder</a>
+  </div>
+  <div>
+    <h4>Site</h4>
+    <a href="../network/index.html">The network</a>
+    <a href="../admin/versions.html">Release history</a>
+    <a href="../admin/index.html">Engineering</a>
+    <a href="../llms.txt">llms.txt</a>
+  </div>
+</div></footer>
+</body>
+</html>

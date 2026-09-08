@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://games.sgit.ai/index.html</loc><priority>1.0</priority></url>
+  <url><loc>https://games.sgit.ai/games/index.html</loc><priority>0.7</priority></url>
+  <url><loc>https://games.sgit.ai/games/what-can-it-do.html</loc><priority>0.7</priority></url>
+  <url><loc>https://games.sgit.ai/games/which-agent-is-it.html</loc><priority>0.7</priority></url>
+  <url><loc>https://games.sgit.ai/games/ideas.html</loc><priority>0.7</priority></url>
+  <url><loc>https://games.sgit.ai/method/index.html</loc><priority>0.7</priority></url>
+  <url><loc>https://games.sgit.ai/method/calibration.html</loc><priority>0.7</priority></url>
+  <url><loc>https://games.sgit.ai/method/the-ceiling.html</loc><priority>0.7</priority></url>
+  <url><loc>https://games.sgit.ai/method/levels.html</loc><priority>0.7</priority></url>
+  <url><loc>https://games.sgit.ai/method/grant-vs-mandate.html</loc><priority>0.7</priority></url>
+  <url><loc>https://games.sgit.ai/maturity/index.html</loc><priority>0.7</priority></url>
+  <url><loc>https://games.sgit.ai/build/index.html</loc><priority>0.7</priority></url>
+  <url><loc>https://games.sgit.ai/telemetry/index.html</loc><priority>0.7</priority></url>
+  <url><loc>https://games.sgit.ai/network/index.html</loc><priority>0.7</priority></url>
+  <url><loc>https://games.sgit.ai/admin/index.html</loc><priority>0.7</priority></url>
+  <url><loc>https://games.sgit.ai/admin/versions.html</loc><priority>0.7</priority></url>
+</urlset>

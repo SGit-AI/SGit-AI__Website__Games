@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>What our games send — games.sgit.ai</title>
+<meta name="description" content="The games send anonymous usage events over two write-only append lanes. What is in an event, what is deliberately absent, what it proves, and how to stop it.">
+<link rel="canonical" href="https://games.sgit.ai/telemetry/index.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="games.sgit.ai">
+<meta property="og:url" content="https://games.sgit.ai/telemetry/index.html">
+<meta property="og:title" content="What our games send — games.sgit.ai">
+<meta property="og:description" content="The games send anonymous usage events over two write-only append lanes. What is in an event, what is deliberately absent, what it proves, and how to stop it.">
+<meta name="twitter:card" content="summary">
+<link rel="alternate" type="text/markdown" href="index.md" title="This page as markdown">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="mask-icon" href="../assets/favicon.svg" color="#0f766e">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+
+<nav class="site"><div class="row">
+  <a class="brand" href="../index.html">games<span>.sgit.ai</span></a>
+  <a class="parent" href="https://sgit.ai" title="sgit.ai — the parent project: the vault layer the games ship in">↗ part of <b>sgit.ai</b></a>
+  <span class="stage-pill">research site</span>
+  <a class="ver" href="../admin/versions.html" title="Site release history">v0.1.0</a>
+  <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Menu">Menu</button>
+  <div class="nav-items">
+    <div class="ni ni-has">
+      <a class="nl" href="../games/index.html">Games<span class="caret">&#9662;</span></a>
+      <div class="sub">
+      <a class="sl" href="../games/index.html">The catalogue</a>
+      <a class="sl" href="../games/what-can-it-do.html">What Can It Do?</a>
+      <a class="sl" href="../games/which-agent-is-it.html">Which Agent Is It?</a>
+      <a class="sl" href="../games/ideas.html">Ideas &amp; feedback</a>
+      </div>
+    </div>
+    <div class="ni ni-has">
+      <a class="nl" href="../method/index.html">Method<span class="caret">&#9662;</span></a>
+      <div class="sub">
+      <a class="sl" href="../method/index.html">The four claims</a>
+      <a class="sl" href="../method/calibration.html">Calibration, not knowledge</a>
+      <a class="sl" href="../method/the-ceiling.html">The ceiling</a>
+      <a class="sl" href="../method/levels.html">Levels are distance</a>
+      <a class="sl" href="../method/grant-vs-mandate.html">Grant vs. mandate</a>
+      </div>
+    </div>
+    <div class="ni"><a class="nl" href="../maturity/index.html">Maturity</a></div>
+    <div class="ni ni-has">
+      <a class="nl here" href="../build/index.html">Build one<span class="caret">&#9662;</span></a>
+      <div class="sub">
+      <a class="sl" href="../build/index.html">Building a game as a vault</a>
+      <a class="sl here" href="../telemetry/index.html">What our games send</a>
+      </div>
+    </div>
+    <div class="ni ni-has">
+      <a class="nl" href="../admin/index.html">Site<span class="caret">&#9662;</span></a>
+      <div class="sub">
+      <a class="sl" href="../network/index.html">The network</a>
+      <a class="sl" href="../admin/versions.html">Release history</a>
+      <a class="sl" href="../admin/index.html">Admin &amp; engineering</a>
+      </div>
+    </div>
+  </div>
+  <a class="gh" href="https://github.com/SGit-AI/SGit-AI__Website__Games">&#9733; GitHub</a>
+  <script src="../assets/nav.js" defer></script>
+</div></nav>
+
+<main class="doc">
+  <p class="crumb"><a href="../index.html">Home</a> / What our games send</p>
+  <h1>What our games send</h1>
+  <div class="disclose"><b>These games phone home, and you should know before you play.</b> Opening a vault does not normally send anything anywhere — that is the platform default, and every other vault this family publishes honours it. These send <b>anonymous usage events</b> while you play: which screens you reach, the answers you give, your score. No name, no id, no fingerprint, no URL, no referrer. Every page carries a notice and a pause switch. <a href="../telemetry/index.html">What is sent, exactly</a>.</div>
+  <h2 id="the-default-this-breaks">The default this breaks</h2>
+  <p>Opening a vault does not normally send anything anywhere. That is the platform default and every other vault this family publishes honours it. These games do not, and the notice belongs above the fold rather than in a footnote — particularly in a vault whose own subject is informed consent.</p>
+  <h2 id="what-is-in-an-event">What is in an event</h2>
+  <div class="tablewrap"><table><thead><tr><th>Carried</th><th>Deliberately absent</th></tr></thead><tbody><tr><td>which screen you reached</td><td>your name, or any id for you</td></tr><tr><td>the answers you gave, and the points</td><td>any fingerprint</td></tr><tr><td>the profile you picked from the public list</td><td>the URL, and the referrer</td></tr><tr><td>a 16-hex session id, minted in memory when the page opened and gone when the tab closes</td><td>your IP, as far as the payload is concerned</td></tr><tr><td>a coarse form factor, a language and a host</td><td>your user-agent string and screen size</td></tr></tbody></table></div>
+  <p>The <code>profile</code> field is which <b>public</b> profile you picked from a list of nine. It is not a description of your setup — the scoring is arithmetic over a published profile, and the schema is blunt about it: <em>"Not a count of people (sessions are tabs). Not evidence."</em></p>
+  <h2 id="how-it-travels">How it travels</h2>
+  <p>Batched: one batch per flush, at most every 4 seconds, at most 40 flushes and 50 events per flush in a session. The payload is an <code>sgit pki</code> v2 envelope — RSA-OAEP-SHA256 wrapping AES-256-GCM — built with Web Crypto in the browser against a public key that ships in the vault. <b>If there is no secure context there is no Web Crypto, and the sender disables itself rather than falling back to plaintext.</b></p>
+  <p>It goes to a separate private vault over an append lane. The games hold a <b>write-only token</b>: it cannot read, list or decrypt anything on that lane, including what it just wrote.</p>
+  <h2 id="what-it-proves-which-is-the-part-most-analytics-pages-never-">What it proves — which is the part most analytics pages never write</h2>
+  <div class="note"><b>Nothing about anyone.</b> Anyone holding the games' read key holds the append token too — it is published with them, because it has to be — and could forge or flood the lane. So the receiving end treats every event as a claim, not as a fact. Counts from this lane are a lower bound on activity and evidence of nothing else.</div>
+  <h2 id="two-lanes-not-one">Two lanes, not one</h2>
+  <p>Anonymous counters travel on one token; <b>feedback you deliberately write</b> — the 👍/👎 and the form behind <em>say more</em> — travels on a second, never batched with the counters. Different retention, and the counters can be purged without losing the feedback. Nothing is sent from the feedback lane without a press.</p>
+  <p>What comes back out of it is <a href="../games/ideas.html">the ideas graph</a>: paraphrased, keyed to the question rather than to the person, naming nobody.</p>
+  <h2 id="how-to-stop-it">How to stop it</h2>
+  <p>Every page in the vault carries a <b>pause switch</b> next to the notice, and it works before the first question. <code>telemetry.html</code> inside the vault is the authoritative statement — it is reachable from every screen and it is more detailed than this page. This page exists so that a reader who never opens the vault still gets told.</p>
+  <p>This site itself sends nothing. It is static files on GitHub Pages with no analytics and no server to receive anything — the only thing that sends is the game, in its frame, on its own lanes.</p>
+</main>
+
+<footer class="site"><div class="cols">
+  <div>
+    <div class="brandline">games<span>.sgit.ai</span></div>
+    <p>Why this family builds games, and the games it has. Each one ships as an encrypted vault you can open, clone and argue with — <a href="../maturity/index.html" style="display:inline;padding:0">every one carries a maturity label with a test behind it</a>.</p>
+    <p class="netline"><a href="https://sgit.ai"><b>↗ sgit.ai</b></a> — the vault layer the games ship in · <a href="https://pki.sgit.ai">↗ pki.sgit.ai</a> — the mesh and the profiles the questions come from · <a href="https://what-can-it-do.games.sgit.ai">↗ what-can-it-do.games.sgit.ai</a> — play the first game · <a href="https://sgit.ai/network/index.html">↗ the network</a></p>
+    <p class="partnote">⚠ The games on this site send anonymous usage events while you play. <a href="../telemetry/index.html" style="display:inline;padding:0">What is sent, and how to stop it</a>.</p>
+    <p class="verline">site <a href="../admin/versions.html">v0.1.0</a> · <a href="../admin/index.html">engineering</a> · <a href="../llms.txt">llms.txt</a> · CC BY 4.0 · <a href="../telemetry/index.md">this page as markdown</a></p>
+  </div>
+  <div>
+    <h4>Play</h4>
+    <a href="https://what-can-it-do.games.sgit.ai">&#8594; What Can It Do?</a>
+    <a href="../games/index.html">The catalogue</a>
+    <a href="../games/which-agent-is-it.html">Which Agent Is It?</a>
+    <a href="../games/ideas.html">Ideas &amp; feedback</a>
+  </div>
+  <div>
+    <h4>The method</h4>
+    <a href="../method/calibration.html">Calibration, not knowledge</a>
+    <a href="../method/the-ceiling.html">The ceiling</a>
+    <a href="../method/levels.html">Levels are distance</a>
+    <a href="../method/grant-vs-mandate.html">Grant vs. mandate</a>
+  </div>
+  <div>
+    <h4>Build one</h4>
+    <a href="../build/index.html">Building a game as a vault</a>
+    <a href="../telemetry/index.html">What our games send</a>
+    <a href="../maturity/index.html">The maturity ladder</a>
+  </div>
+  <div>
+    <h4>Site</h4>
+    <a href="../network/index.html">The network</a>
+    <a href="../admin/versions.html">Release history</a>
+    <a href="../admin/index.html">Engineering</a>
+    <a href="../llms.txt">llms.txt</a>
+  </div>
+</div></footer>
+</body>
+</html>
