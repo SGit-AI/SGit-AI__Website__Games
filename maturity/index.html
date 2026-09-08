@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The maturity ladder — games.sgit.ai</title>
+<meta name="description" content="Five rungs, each with a test that moves a game up, so a label on a catalogue card is a claim rather than a mood.">
+<link rel="canonical" href="https://games.sgit.ai/maturity/index.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="games.sgit.ai">
+<meta property="og:url" content="https://games.sgit.ai/maturity/index.html">
+<meta property="og:title" content="The maturity ladder — games.sgit.ai">
+<meta property="og:description" content="Five rungs, each with a test that moves a game up, so a label on a catalogue card is a claim rather than a mood.">
+<meta name="twitter:card" content="summary">
+<link rel="alternate" type="text/markdown" href="index.md" title="This page as markdown">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="mask-icon" href="../assets/favicon.svg" color="#0f766e">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+
+<nav class="site"><div class="row">
+  <a class="brand" href="../index.html">games<span>.sgit.ai</span></a>
+  <a class="parent" href="https://sgit.ai" title="sgit.ai — the parent project: the vault layer the games ship in">↗ part of <b>sgit.ai</b></a>
+  <span class="stage-pill">research site</span>
+  <a class="ver" href="../admin/versions.html" title="Site release history">v0.1.0</a>
+  <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Menu">Menu</button>
+  <div class="nav-items">
+    <div class="ni ni-has">
+      <a class="nl" href="../games/index.html">Games<span class="caret">&#9662;</span></a>
+      <div class="sub">
+      <a class="sl" href="../games/index.html">The catalogue</a>
+      <a class="sl" href="../games/what-can-it-do.html">What Can It Do?</a>
+      <a class="sl" href="../games/which-agent-is-it.html">Which Agent Is It?</a>
+      <a class="sl" href="../games/ideas.html">Ideas &amp; feedback</a>
+      </div>
+    </div>
+    <div class="ni ni-has">
+      <a class="nl" href="../method/index.html">Method<span class="caret">&#9662;</span></a>
+      <div class="sub">
+      <a class="sl" href="../method/index.html">The four claims</a>
+      <a class="sl" href="../method/calibration.html">Calibration, not knowledge</a>
+      <a class="sl" href="../method/the-ceiling.html">The ceiling</a>
+      <a class="sl" href="../method/levels.html">Levels are distance</a>
+      <a class="sl" href="../method/grant-vs-mandate.html">Grant vs. mandate</a>
+      </div>
+    </div>
+    <div class="ni"><a class="nl here" href="../maturity/index.html">Maturity</a></div>
+    <div class="ni ni-has">
+      <a class="nl" href="../build/index.html">Build one<span class="caret">&#9662;</span></a>
+      <div class="sub">
+      <a class="sl" href="../build/index.html">Building a game as a vault</a>
+      <a class="sl" href="../telemetry/index.html">What our games send</a>
+      </div>
+    </div>
+    <div class="ni ni-has">
+      <a class="nl" href="../admin/index.html">Site<span class="caret">&#9662;</span></a>
+      <div class="sub">
+      <a class="sl" href="../network/index.html">The network</a>
+      <a class="sl" href="../admin/versions.html">Release history</a>
+      <a class="sl" href="../admin/index.html">Admin &amp; engineering</a>
+      </div>
+    </div>
+  </div>
+  <a class="gh" href="https://github.com/SGit-AI/SGit-AI__Website__Games">&#9733; GitHub</a>
+  <script src="../assets/nav.js" defer></script>
+</div></nav>
+
+<main class="doc">
+  <p class="crumb"><a href="../index.html">Home</a> / Maturity</p>
+  <h1>Five rungs, each with a test</h1>
+  <p class="lead">Games arrive half-built. A catalogue that hides that is useless, and a catalogue whose labels mean whatever the author felt on the day is worse. So every rung here has a <b>test</b>, and a game moves up when the test passes — not when it feels ready.</p>
+  <div class="tablewrap"><table><thead><tr><th>Rung</th><th>Means</th><th>The test that moves it up</th></tr></thead><tbody><tr><td><span class="rung rung-sketch">sketch</span></td><td>an idea and a rules table, nothing playable</td><td>—</td></tr><tr><td><span class="rung rung-playable">playable</span></td><td>you can finish a run</td><td>a stranger finished it without being told how</td></tr><tr><td><span class="rung rung-scored">scored</span></td><td>the scoring is a stated rule, self-tested</td><td><code>selftest.json</code> passes and the rule is published where a player can read it</td></tr><tr><td><span class="rung rung-measured">measured</span></td><td>play data exists and has changed something</td><td>a release whose notes cite play data</td></tr><tr><td><span class="rung rung-answered">answered</span></td><td>players argue with it and get answers back</td><td>positions published in the <a href="../games/ideas.html">ideas graph</a></td></tr></tbody></table></div>
+  <h2 id="where-the-games-sit-today">Where the games sit today</h2>
+  <div class="tablewrap"><table><thead><tr><th>Game</th><th>Rung</th><th>Why not the next one</th></tr></thead><tbody><tr><td><a href="../games/what-can-it-do.html">What Can It Do?</a></td><td><span class="rung rung-scored">scored</span></td><td>It has telemetry and a reply channel, but <b>no release note yet cites play data</b>. v0.16.1 moved the feedback controls on a bias argument — that is reasoning, and good reasoning, but it is not data.</td></tr><tr><td><a href="../games/which-agent-is-it.html">Which Agent Is It?</a></td><td><span class="rung rung-playable">playable</span></td><td>Its engine is self-tested against a reference, but it has had far less play than the scoreboard and its reveal predates the results redesign.</td></tr><tr><td><a href="../games/ideas.html">Ideas &amp; feedback</a></td><td><span class="rung rung-answered">answered</span></td><td>Not a game, so the ladder fits it awkwardly. It is listed at the rung it enables for the others — it was seeded with the first three real pieces of feedback.</td></tr></tbody></table></div>
+  <div class="note">These placements are <b>our reading of somebody else's work</b>, made by reading the vault rather than by asking. If a release did move because play data said so, name it and the rung moves — that is what the <a href="../games/ideas.html">reply channel</a> is for.</div>
+  <h2 id="why-the-rungs-are-ordered-this-way">Why the rungs are ordered this way</h2>
+  <p>The order is not effort, it is <b>how much the game can be argued with</b>. A <code>playable</code> game produces an experience. A <code>scored</code> one produces a number you can check the rule behind. A <code>measured</code> one has been changed by contact with players. An <code>answered</code> one has a public position on the objections. Each rung is a step further from <em>we made a thing</em> toward <em>we made a claim and defended it</em>.</p>
+  <p>One consequence worth stating: <b><code>measured</code> is the hard one</b>, and everything before it is under the author's control. A game can be built to <code>scored</code> in a weekend and then sit there for a year, because moving up needs other people to play it. That is the honest reason the first game has its own domain at <a href="https://what-can-it-do.games.sgit.ai">what-can-it-do.games.sgit.ai</a> — a link you can send to somebody is the mechanism by which a rung gets earned.</p>
+</main>
+
+<footer class="site"><div class="cols">
+  <div>
+    <div class="brandline">games<span>.sgit.ai</span></div>
+    <p>Why this family builds games, and the games it has. Each one ships as an encrypted vault you can open, clone and argue with — <a href="../maturity/index.html" style="display:inline;padding:0">every one carries a maturity label with a test behind it</a>.</p>
+    <p class="netline"><a href="https://sgit.ai"><b>↗ sgit.ai</b></a> — the vault layer the games ship in · <a href="https://pki.sgit.ai">↗ pki.sgit.ai</a> — the mesh and the profiles the questions come from · <a href="https://what-can-it-do.games.sgit.ai">↗ what-can-it-do.games.sgit.ai</a> — play the first game · <a href="https://sgit.ai/network/index.html">↗ the network</a></p>
+    <p class="partnote">⚠ The games on this site send anonymous usage events while you play. <a href="../telemetry/index.html" style="display:inline;padding:0">What is sent, and how to stop it</a>.</p>
+    <p class="verline">site <a href="../admin/versions.html">v0.1.0</a> · <a href="../admin/index.html">engineering</a> · <a href="../llms.txt">llms.txt</a> · CC BY 4.0 · <a href="../maturity/index.md">this page as markdown</a></p>
+  </div>
+  <div>
+    <h4>Play</h4>
+    <a href="https://what-can-it-do.games.sgit.ai">&#8594; What Can It Do?</a>
+    <a href="../games/index.html">The catalogue</a>
+    <a href="../games/which-agent-is-it.html">Which Agent Is It?</a>
+    <a href="../games/ideas.html">Ideas &amp; feedback</a>
+  </div>
+  <div>
+    <h4>The method</h4>
+    <a href="../method/calibration.html">Calibration, not knowledge</a>
+    <a href="../method/the-ceiling.html">The ceiling</a>
+    <a href="../method/levels.html">Levels are distance</a>
+    <a href="../method/grant-vs-mandate.html">Grant vs. mandate</a>
+  </div>
+  <div>
+    <h4>Build one</h4>
+    <a href="../build/index.html">Building a game as a vault</a>
+    <a href="../telemetry/index.html">What our games send</a>
+    <a href="../maturity/index.html">The maturity ladder</a>
+  </div>
+  <div>
+    <h4>Site</h4>
+    <a href="../network/index.html">The network</a>
+    <a href="../admin/versions.html">Release history</a>
+    <a href="../admin/index.html">Engineering</a>
+    <a href="../llms.txt">llms.txt</a>
+  </div>
+</div></footer>
+</body>
+</html>

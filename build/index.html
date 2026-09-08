@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Building a game as a vault — games.sgit.ai</title>
+<meta name="description" content="How to build a game that ships as an encrypted vault: the authoring contract, the folder-manifest trap that cost this family four releases, the telemetry lane, and what to publish beside the game.">
+<link rel="canonical" href="https://games.sgit.ai/build/index.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="games.sgit.ai">
+<meta property="og:url" content="https://games.sgit.ai/build/index.html">
+<meta property="og:title" content="Building a game as a vault — games.sgit.ai">
+<meta property="og:description" content="How to build a game that ships as an encrypted vault: the authoring contract, the folder-manifest trap that cost this family four releases, the telemetry lane, and what to publish beside the game.">
+<meta name="twitter:card" content="summary">
+<link rel="alternate" type="text/markdown" href="index.md" title="This page as markdown">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="mask-icon" href="../assets/favicon.svg" color="#0f766e">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+
+<nav class="site"><div class="row">
+  <a class="brand" href="../index.html">games<span>.sgit.ai</span></a>
+  <a class="parent" href="https://sgit.ai" title="sgit.ai — the parent project: the vault layer the games ship in">↗ part of <b>sgit.ai</b></a>
+  <span class="stage-pill">research site</span>
+  <a class="ver" href="../admin/versions.html" title="Site release history">v0.1.0</a>
+  <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Menu">Menu</button>
+  <div class="nav-items">
+    <div class="ni ni-has">
+      <a class="nl" href="../games/index.html">Games<span class="caret">&#9662;</span></a>
+      <div class="sub">
+      <a class="sl" href="../games/index.html">The catalogue</a>
+      <a class="sl" href="../games/what-can-it-do.html">What Can It Do?</a>
+      <a class="sl" href="../games/which-agent-is-it.html">Which Agent Is It?</a>
+      <a class="sl" href="../games/ideas.html">Ideas &amp; feedback</a>
+      </div>
+    </div>
+    <div class="ni ni-has">
+      <a class="nl" href="../method/index.html">Method<span class="caret">&#9662;</span></a>
+      <div class="sub">
+      <a class="sl" href="../method/index.html">The four claims</a>
+      <a class="sl" href="../method/calibration.html">Calibration, not knowledge</a>
+      <a class="sl" href="../method/the-ceiling.html">The ceiling</a>
+      <a class="sl" href="../method/levels.html">Levels are distance</a>
+      <a class="sl" href="../method/grant-vs-mandate.html">Grant vs. mandate</a>
+      </div>
+    </div>
+    <div class="ni"><a class="nl" href="../maturity/index.html">Maturity</a></div>
+    <div class="ni ni-has">
+      <a class="nl here" href="../build/index.html">Build one<span class="caret">&#9662;</span></a>
+      <div class="sub">
+      <a class="sl here" href="../build/index.html">Building a game as a vault</a>
+      <a class="sl" href="../telemetry/index.html">What our games send</a>
+      </div>
+    </div>
+    <div class="ni ni-has">
+      <a class="nl" href="../admin/index.html">Site<span class="caret">&#9662;</span></a>
+      <div class="sub">
+      <a class="sl" href="../network/index.html">The network</a>
+      <a class="sl" href="../admin/versions.html">Release history</a>
+      <a class="sl" href="../admin/index.html">Admin &amp; engineering</a>
+      </div>
+    </div>
+  </div>
+  <a class="gh" href="https://github.com/SGit-AI/SGit-AI__Website__Games">&#9733; GitHub</a>
+  <script src="../assets/nav.js" defer></script>
+</div></nav>
+
+<main class="doc">
+  <p class="crumb"><a href="../index.html">Home</a> / Build one</p>
+  <h1>Building a game as a vault</h1>
+  <p class="lead">A vault app is one self-contained <code>index.html</code> plus an <code>app.json</code> that launches it. That is the whole deployment story: no build server, no hosting, no account for the reader. What follows is what this family learned building three of them, including the mistake that cost four releases.</p>
+  <h2 id="1-the-authoring-contract">1 — The authoring contract</h2>
+  <ul><li>One <code>index.html</code> with CSS and JS <b>inlined</b>. No <code>&lt;link href&gt;</code>, <code>&lt;script src&gt;</code> or <code>&lt;img src&gt;</code> pointing at vault paths — those resolve against an opaque origin and 404.</li><li>Content read over the bridge with <code>sg.vfs.readText</code>, with an inlined fallback so the page still renders outside a vault host.</li><li>Generative SVG rather than image files, where you can. It keeps the vault small and it survives the no-<code>&lt;img src&gt;</code> rule without an interceptor.</li><li>Post <code>sg-app-ready</code> when you have rendered, so the host can drop its loading state.</li></ul>
+  <h2 id="2-the-folder-manifest-trap">2 — The folder-manifest trap</h2>
+  <p>This one is worth the whole page. <b>A folder-level <code>app.json</code> replaces the root one wholesale — nothing is inherited.</b></p>
+  <p>The games vault declares <code>permissions.network</code> at the root, because the vault host's app frame ships a <code>connect-src blob: data:</code> content-security policy and a direct <code>fetch</code> to any API is blocked without it. That worked when the vault opened at its root. Opening a game <em>by its own path</em>, or reaching it from the vault's home page, resolved that folder's manifest instead — which had no <code>permissions</code> key — and the frame silently kept the restrictive CSP. Telemetry failed with <em>"Load failed"</em>, the bridge fallback answered <em>"Permission denied"</em>, and nothing said why.</p>
+  <p>It took releases v0.12.1 through v0.12.5 to find, across two wrong theories. The fix is one line per folder: <b>every folder that can be opened as an app carries the same grants as the root.</b> Two related things the same investigation settled — a release pin makes <code>app.json</code> come from the pinned commit rather than HEAD, and the append checker only ever watches the <em>open</em> vault's own lane, so a <code>new-messages</code> grant on a vault that has no lane will never fire whatever you declare.</p>
+  <h2 id="3-if-it-phones-home-one-credential-shape-survives">3 — If it phones home, one credential shape survives</h2>
+  <p>A vault published with a read key is a vault whose entire contents are public. So a game that sends anything must carry a credential that is safe to publish, and there is exactly one shape that qualifies: a <b>write-only append token</b>, blind, whose answer is <code>{"ok":true}</code> and nothing else. It cannot read, list or decrypt anything, including what it wrote.</p>
+  <p>Two lanes rather than one, because retention differs: anonymous counters on one token, deliberate feedback on the other, so a flood of the first cannot bury the second and the first can be purged without losing the second. <a href="../telemetry/index.html">What ours send</a>.</p>
+  <div class="note"><b>The audit is the part people skip.</b> When sgit.ai published this vault it grepped the whole tree for private key material, provider keys, <code>enum_key</code> / <code>write_key</code> / <code>vault_key</code> fields, and every 64-hex string. Exactly one 64-hex string existed and it was the append token — and it was then <em>tested</em>, not taken on trust: cloning the telemetry vault with it decrypts nothing, and a control run with an all-zeros key behaves identically. An append token and a read key are both 64 hex; a mistake between them would be invisible.</div>
+  <h2 id="4-publish-the-source-beside-the-game">4 — Publish the source beside the game</h2>
+  <p>Both games ship their readable source in the same vault: the engine as an ES module, <code>selftest.json</code>, the vendored data snapshot, the build script, and a README carrying a rules table and a <b>does-not-prove list</b>. The scoring rule a game claims and the rule its engine implements are different objects, and shipping both is what lets somebody check that they match.</p>
+  <p>The self-test is the load-bearing artefact. It is what turns <em>"saying yes to everything should lose"</em> from a design intention into a build failure.</p>
+  <h2 id="5-embedding-it-on-a-page">5 — Embedding it on a page</h2>
+  <p>Two hosts exist, and they are not interchangeable. The <b>minimal host</b> decrypts the vault in the page and boots the app in a sandboxed <code>srcdoc</code> frame: small, fast, and <b>reads only</b> — no <code>sg.llm.*</code>, no <code>sg.append.*</code>, and it never reads <code>app.json</code>. The <b>embed protocol</b> loads the real SG/Vault host in an iframe and hands it the key by <code>postMessage</code> with a pinned target origin, so the credential never enters a URL — and the app gets the full bridge.</p>
+  <p>This site uses the second, in <code>assets/vault-app-embed.js</code>, with the vault-browser surface suppressed. The games declare <code>llm.chat</code> for their chat panel and <code>append.write</code> for the telemetry fallback; under the minimal host the chat panel is dead and both grants are inert. If your game reads files and nothing else, the minimal host is the better trade.</p>
+</main>
+
+<footer class="site"><div class="cols">
+  <div>
+    <div class="brandline">games<span>.sgit.ai</span></div>
+    <p>Why this family builds games, and the games it has. Each one ships as an encrypted vault you can open, clone and argue with — <a href="../maturity/index.html" style="display:inline;padding:0">every one carries a maturity label with a test behind it</a>.</p>
+    <p class="netline"><a href="https://sgit.ai"><b>↗ sgit.ai</b></a> — the vault layer the games ship in · <a href="https://pki.sgit.ai">↗ pki.sgit.ai</a> — the mesh and the profiles the questions come from · <a href="https://what-can-it-do.games.sgit.ai">↗ what-can-it-do.games.sgit.ai</a> — play the first game · <a href="https://sgit.ai/network/index.html">↗ the network</a></p>
+    <p class="partnote">⚠ The games on this site send anonymous usage events while you play. <a href="../telemetry/index.html" style="display:inline;padding:0">What is sent, and how to stop it</a>.</p>
+    <p class="verline">site <a href="../admin/versions.html">v0.1.0</a> · <a href="../admin/index.html">engineering</a> · <a href="../llms.txt">llms.txt</a> · CC BY 4.0 · <a href="../build/index.md">this page as markdown</a></p>
+  </div>
+  <div>
+    <h4>Play</h4>
+    <a href="https://what-can-it-do.games.sgit.ai">&#8594; What Can It Do?</a>
+    <a href="../games/index.html">The catalogue</a>
+    <a href="../games/which-agent-is-it.html">Which Agent Is It?</a>
+    <a href="../games/ideas.html">Ideas &amp; feedback</a>
+  </div>
+  <div>
+    <h4>The method</h4>
+    <a href="../method/calibration.html">Calibration, not knowledge</a>
+    <a href="../method/the-ceiling.html">The ceiling</a>
+    <a href="../method/levels.html">Levels are distance</a>
+    <a href="../method/grant-vs-mandate.html">Grant vs. mandate</a>
+  </div>
+  <div>
+    <h4>Build one</h4>
+    <a href="../build/index.html">Building a game as a vault</a>
+    <a href="../telemetry/index.html">What our games send</a>
+    <a href="../maturity/index.html">The maturity ladder</a>
+  </div>
+  <div>
+    <h4>Site</h4>
+    <a href="../network/index.html">The network</a>
+    <a href="../admin/versions.html">Release history</a>
+    <a href="../admin/index.html">Engineering</a>
+    <a href="../llms.txt">llms.txt</a>
+  </div>
+</div></footer>
+</body>
+</html>

@@ -1,0 +1,31 @@
+# games.sgit.ai
+
+> A game is the only artefact that makes somebody state a belief before they are told the answer.
+
+Site version: v0.1.0
+
+Every page below has a markdown twin generated from the same content as the
+HTML page. Fetch the `.md` and you have the page, without the chrome.
+
+## Pages
+
+- [games.sgit.ai — a game makes you say what you think, before you are told](https://games.sgit.ai/index.md): Why this family builds games: a game is the only artefact that makes somebody state a belief before they are told the answer. The catalogue, the method, and how to build one as a vault.
+- [The catalogue](https://games.sgit.ai/games/index.md): Every game this family has published, with a maturity rung that has a test behind it, and the vault each one ships in.
+- [What Can It Do? — the scoreboard](https://games.sgit.ai/games/what-can-it-do.md): The scoreboard game: 40 questions, five levels, scored with a proper scoring rule so that saying yes to everything loses. 17 of the 40 are things no agent can do.
+- [Which Agent Is It? — the floor plan](https://games.sgit.ai/games/which-agent-is-it.md): The floor-plan game: think of an agent, answer cheap questions, chalk which wings of the building you think it can enter — then the doors open.
+- [Ideas & feedback — the reply channel](https://games.sgit.ai/games/ideas.md): What players argue with becomes ideas, grouped into themes and answered with a published position — as a graph, joined to the mesh the questions come from, naming nobody.
+- [The method — four claims](https://games.sgit.ai/method/index.md): Four claims about how to build a game that measures something: score calibration not knowledge, put a ceiling in the set, derive levels from a graph, and treat the mandate as a by-product.
+- [Calibration, not knowledge](https://games.sgit.ai/method/calibration.md): Why the scoreboard scores how well you know what you know, with a proper scoring rule that makes saying yes to everything a losing strategy.
+- [The ceiling](https://games.sgit.ai/method/the-ceiling.md): 17 of the 40 questions are things no agent can do, because a control outside the environment bounds them. Without them the game could only measure underestimating.
+- [Levels are distance, not danger](https://games.sgit.ai/method/levels.md): A level is the number of hops from a capability to a one-way consequence, computed from the mesh — and the game says on the rail that it is distance, never a danger rating.
+- [Grant vs. mandate](https://games.sgit.ai/method/grant-vs-mandate.md): The grant is what the agent can do. The mandate is what you wanted it to do. The delta is the thing nobody writes down — so the game extracts it as a by-product of play.
+- [The maturity ladder](https://games.sgit.ai/maturity/index.md): Five rungs, each with a test that moves a game up, so a label on a catalogue card is a claim rather than a mood.
+- [Building a game as a vault](https://games.sgit.ai/build/index.md): How to build a game that ships as an encrypted vault: the authoring contract, the folder-manifest trap that cost this family four releases, the telemetry lane, and what to publish beside the game.
+- [What our games send](https://games.sgit.ai/telemetry/index.md): The games send anonymous usage events over two write-only append lanes. What is in an event, what is deliberately absent, what it proves, and how to stop it.
+- [The network](https://games.sgit.ai/network/index.md): Where games.sgit.ai sits in the sgit.ai family, and which sibling site answers which question.
+- [Admin & engineering](https://games.sgit.ai/admin/index.md): How games.sgit.ai is built and released: one content file, generated HTML and markdown twins, and a seven-check gate.
+- [Release history](https://games.sgit.ai/admin/versions.md): Every release of games.sgit.ai. The site version bumps on every push to dev, and CI refuses a push whose commit subject and version.txt disagree.
+
+## Release history
+
+- v0.1.0 (2026-09-08) — First publish. The argument (a game is the only artefact that makes somebody state a belief before they are told the answer), the catalogue with a five-rung maturity ladder that has a test behind every rung, four method pages, the build guide, the telemetry page, and the network entry. The games are embedded rather than copied: the vault is the source, and assets/vault-app-embed.js opens it over the SG/Vault embed protocol with the vault-browser surface suppressed.

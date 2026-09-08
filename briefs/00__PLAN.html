@@ -1,0 +1,550 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Plan for games.sgit.ai and what-can-it-do.games.sgit.ai — out for review by the agent that built the games vault 4evnlwrj.">
+<style>img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Two Sites, One Game</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@500;600&display=swap">
+<style>
+:root{
+  --bg:#faf9f5; --panel:#ffffff; --panel2:#f3f1ea; --sunk:#eeece4;
+  --line:#e3dfd2; --line2:#cfc9b8;
+  --fg:#1b1c20; --dim:#585b62; --dim2:#8b8e94;
+  --accent:#0f766e; --accent-fg:#0b5c55; --accent-soft:#e3f0ee;
+  --warm:#a2560c; --warm-soft:#f7ecdd;
+  --red:#a91d1d; --red-soft:#f8e6e3;
+  --code-bg:#f0eee6; --code-fg:#20343d;
+  --shadow:0 1px 2px rgba(27,28,32,.05), 0 6px 18px rgba(27,28,32,.045);
+  --sans:"IBM Plex Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --serif:"IBM Plex Serif",ui-serif,Georgia,"Times New Roman",serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#15171a; --panel:#1c1f23; --panel2:#22262b; --sunk:#111316;
+    --line:#2e3339; --line2:#3d444c;
+    --fg:#e9e7e1; --dim:#a4a8ae; --dim2:#787d84;
+    --accent:#3fb5a5; --accent-fg:#7fded0; --accent-soft:#17302e;
+    --warm:#d59a53; --warm-soft:#2e2419;
+    --red:#e58c83; --red-soft:#31201e;
+    --code-bg:#20242a; --code-fg:#bcd4d8;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 6px 20px rgba(0,0,0,.28);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#15171a; --panel:#1c1f23; --panel2:#22262b; --sunk:#111316;
+  --line:#2e3339; --line2:#3d444c;
+  --fg:#e9e7e1; --dim:#a4a8ae; --dim2:#787d84;
+  --accent:#3fb5a5; --accent-fg:#7fded0; --accent-soft:#17302e;
+  --warm:#d59a53; --warm-soft:#2e2419;
+  --red:#e58c83; --red-soft:#31201e;
+  --code-bg:#20242a; --code-fg:#bcd4d8;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 6px 20px rgba(0,0,0,.28);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:16.5px;line-height:1.62;
+  -webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:0 1.4rem 6rem}
+a{color:var(--accent-fg);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--accent) 35%,transparent)}
+a:hover{border-bottom-color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
+code,kbd{font-family:var(--mono);font-size:.86em;background:var(--code-bg);color:var(--code-fg);
+  border:1px solid var(--line);border-radius:4px;padding:.08em .36em;overflow-wrap:anywhere}
+pre{font-family:var(--mono);font-size:.82rem;background:var(--sunk);border:1px solid var(--line);
+  border-radius:8px;padding:.9rem 1rem;overflow-x:auto;line-height:1.55;margin:0}
+pre code{background:none;border:0;padding:0;font-size:1em}
+
+/* ---------- masthead ---------- */
+header.mast{border-bottom:1px solid var(--line);background:var(--panel);}
+.mast-in{max-width:1080px;margin:0 auto;padding:2.6rem 1.4rem 2rem;display:flex;flex-direction:column;gap:1.4rem}
+.eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-fg)}
+h1{font-family:var(--serif);font-weight:600;font-size:clamp(2rem,5.2vw,3.05rem);line-height:1.06;
+  letter-spacing:-.018em;margin:0;text-wrap:balance}
+.standfirst{font-size:1.12rem;color:var(--dim);max-width:60ch;margin:0}
+.meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:.1rem 1.6rem;
+  border-top:1px solid var(--line);padding-top:1.1rem}
+.meta div{display:flex;flex-direction:column;gap:.15rem;padding:.5rem 0}
+.meta dt,.meta .k{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dim2)}
+.meta .v{font-size:.92rem;color:var(--fg)}
+.pill{display:inline-flex;align-items:center;gap:.4rem;align-self:flex-start;
+  font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;
+  background:var(--warm-soft);color:var(--warm);border:1px solid color-mix(in srgb,var(--warm) 30%,transparent);
+  border-radius:999px;padding:.28rem .7rem}
+
+/* ---------- sections ---------- */
+section{padding-top:3.2rem}
+.sechead{display:flex;align-items:baseline;gap:.9rem;border-bottom:1px solid var(--line);padding-bottom:.55rem;margin-bottom:1.5rem}
+.secnum{font-family:var(--mono);font-size:.82rem;color:var(--accent);font-weight:500;letter-spacing:.02em;
+  flex:none;min-width:1.9rem}
+h2{font-family:var(--serif);font-weight:600;font-size:1.55rem;letter-spacing:-.012em;margin:0;text-wrap:balance}
+h3{font-family:var(--sans);font-weight:600;font-size:1.02rem;letter-spacing:-.005em;margin:2rem 0 .5rem}
+p{margin:0 0 1rem;max-width:68ch}
+ul,ol{max-width:68ch;padding-left:1.15rem;margin:0 0 1rem}
+li{margin-bottom:.5rem}
+strong{font-weight:600}
+.lede{font-size:1.04rem}
+
+/* ---------- split table ---------- */
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--panel);margin:0 0 1.2rem}
+table{border-collapse:collapse;width:100%;font-size:.92rem;min-width:520px}
+th,td{text-align:left;padding:.7rem .9rem;border-bottom:1px solid var(--line);vertical-align:top}
+thead th{font-family:var(--mono);font-size:.7rem;letter-spacing:.09em;text-transform:uppercase;color:var(--dim2);
+  background:var(--panel2);font-weight:500;white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+td.rowkey{font-weight:600;color:var(--fg);white-space:nowrap}
+.num{font-variant-numeric:tabular-nums}
+
+/* ---------- the two-site contrast ---------- */
+.duo{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.1rem;margin:0 0 1.4rem}
+.site{border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:1.3rem 1.35rem;
+  display:flex;flex-direction:column;gap:.65rem;box-shadow:var(--shadow)}
+.site .host{font-family:var(--mono);font-size:.9rem;font-weight:500;color:var(--accent-fg);overflow-wrap:anywhere}
+.site .role{font-family:var(--serif);font-size:1.18rem;font-weight:600;letter-spacing:-.01em}
+.site p{margin:0;font-size:.93rem;color:var(--dim)}
+.site .facts{display:flex;flex-direction:column;gap:.35rem;margin-top:.3rem;border-top:1px solid var(--line);padding-top:.75rem}
+.site .fact{display:grid;grid-template-columns:5.6rem 1fr;gap:.7rem;font-size:.86rem;align-items:baseline}
+.site .fact b{font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--dim2);font-weight:500}
+
+/* ---------- option cards (the decision) ---------- */
+.options{display:grid;grid-template-columns:repeat(auto-fit,minmax(268px,1fr));gap:1rem;margin:1.4rem 0}
+.opt{border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:1.15rem 1.2rem 1.25rem;
+  display:flex;flex-direction:column;gap:.55rem}
+.opt.pick{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent), var(--shadow)}
+.opt .tag{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dim2)}
+.opt.pick .tag{color:var(--accent-fg)}
+.opt h4{margin:0;font-family:var(--sans);font-size:1rem;font-weight:600;letter-spacing:-.005em;line-height:1.35}
+.opt .body{font-size:.88rem;color:var(--dim);margin:0}
+.verdicts{display:flex;flex-direction:column;gap:.4rem;margin-top:.2rem}
+.v{display:grid;grid-template-columns:1.1rem 1fr;gap:.5rem;font-size:.85rem;align-items:start;line-height:1.45}
+.v i{font-style:normal;font-family:var(--mono);font-weight:600;line-height:1.5}
+.v.yes i{color:var(--accent)} .v.no i{color:var(--red)} .v.warn i{color:var(--warm)}
+
+/* ---------- callouts ---------- */
+.note{border-left:3px solid var(--accent);background:var(--accent-soft);padding:.9rem 1.1rem;
+  border-radius:0 8px 8px 0;margin:0 0 1.2rem;max-width:68ch}
+.note.ask{border-left-color:var(--warm);background:var(--warm-soft)}
+.note p{margin:0}
+.note p + p{margin-top:.6rem}
+.note .lbl{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--accent-fg);display:block;margin-bottom:.3rem}
+.note.ask .lbl{color:var(--warm)}
+
+/* ---------- sitemap ---------- */
+.maps{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.1rem;margin-bottom:1.2rem}
+.map{border:1px solid var(--line);border-radius:10px;background:var(--panel);overflow:hidden}
+.map .caption{font-family:var(--mono);font-size:.74rem;padding:.6rem .9rem;background:var(--panel2);
+  border-bottom:1px solid var(--line);color:var(--accent-fg);overflow-wrap:anywhere}
+.map ul{list-style:none;margin:0;padding:.8rem .9rem;display:flex;flex-direction:column;gap:.42rem;max-width:none}
+.map li{margin:0;display:grid;grid-template-columns:auto 1fr;gap:.7rem;font-size:.87rem;align-items:baseline}
+.map li code{background:none;border:0;padding:0;color:var(--fg);font-weight:500;white-space:nowrap}
+.map li span{color:var(--dim)}
+
+/* ---------- questions ---------- */
+ol.asks{list-style:none;padding:0;max-width:72ch;counter-reset:q;display:flex;flex-direction:column;gap:.85rem}
+ol.asks li{counter-increment:q;margin:0;display:grid;grid-template-columns:1.9rem 1fr;gap:.85rem;
+  border-bottom:1px solid var(--line);padding-bottom:.85rem}
+ol.asks li:last-child{border-bottom:0}
+ol.asks li::before{content:counter(q);font-family:var(--mono);font-size:.82rem;color:var(--accent);
+  font-weight:500;padding-top:.15rem}
+
+/* ---------- footer ---------- */
+footer{border-top:1px solid var(--line);margin-top:4rem;padding-top:1.4rem;font-size:.85rem;color:var(--dim)}
+footer p{max-width:70ch}
+
+@media (min-width:1180px){
+  .sechead{margin-left:-3.2rem}
+  .secnum{min-width:2.4rem}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+</head>
+<body>
+<header class="mast">
+  <div class="mast-in">
+    <span class="eyebrow">Plan · for review</span>
+    <h1>Two sites, one game</h1>
+    <p class="standfirst">How <code>games.sgit.ai</code> and <code>what-can-it-do.games.sgit.ai</code> get built,
+      what each is for, and the one decision that needs a verdict from the agent that built the games vault.</p>
+    <span class="pill">Nothing built yet</span>
+    <div class="meta">
+      <div><span class="k">Written</span><span class="v">8 September 2026</span></div>
+      <div><span class="k">Subject vault</span><span class="v"><code>4evnlwrj</code> · v0.16.1 · 81 files</span></div>
+      <div><span class="k">For review by</span><span class="v">the agent that built the games</span></div>
+      <div><span class="k">Source of truth</span><span class="v"><code>briefs/00__PLAN.md</code></span></div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+<section id="split">
+  <div class="sechead"><span class="secnum">§0</span><h2>The split</h2></div>
+  <p class="lede">Two audiences, one game. The mistake to avoid is a single site that tries to serve both and
+    ends up explaining vaults to players and games to engineers.</p>
+
+  <div class="duo">
+    <div class="site">
+      <span class="host">games.sgit.ai</span>
+      <span class="role">The argument, and the catalogue</span>
+      <p>Why we build games at all — a game is the only artefact that makes somebody state a belief
+        <em>before</em> they are told the answer. Then every game we have, each with a stated maturity.</p>
+      <div class="facts">
+        <div class="fact"><b>Reader</b><span>colleagues, practitioners, agents</span></div>
+        <div class="fact"><b>Voice</b><span>house voice — sourced claims, honest edges</span></div>
+        <div class="fact"><b>Vault</b><span>seams visible; showing them <em>is</em> the argument</span></div>
+        <div class="fact"><b>Repo</b><span><code>SGit-AI__Website__Games</code></span></div>
+      </div>
+    </div>
+    <div class="site">
+      <span class="host">what-can-it-do.games.sgit.ai</span>
+      <span class="role">The game, playable on arrival</span>
+      <p>A player arrives from a link somebody sent them. They have no idea what a vault is and they
+        should not need to find out. Every word either gets them into the game or says what they get from it.</p>
+      <div class="facts">
+        <div class="fact"><b>Reader</b><span>players</span></div>
+        <div class="fact"><b>Voice</b><span>plain, warm, no jargon above the fold</span></div>
+        <div class="fact"><b>Vault</b><span>hidden — one page, at the bottom of the funnel</span></div>
+        <div class="fact"><b>Repo</b><span><code>SGit-AI__Website__Game__What-Can-It-Do</code></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="note">
+    <span class="lbl">Already done, checked 8 Sep</span>
+    <p>Both repos exist (empty but for a README) and <strong>both DNS names already resolve</strong> to
+      <code>sgit-ai.github.io</code>. <code>sgit.ai</code> has no wildcard record, so somebody created them
+      deliberately. The infrastructure question is answered; the work is content and embedding.</p>
+  </div>
+</section>
+
+<section id="exists">
+  <div class="sechead"><span class="secnum">§1</span><h2>What already exists</h2></div>
+  <p>Read out of vault <code>4evnlwrj</code> with the key published on
+    <a href="https://sgit.ai/demos/vaults/agent-permission-games/">sgit.ai/demos/vaults/agent-permission-games</a>,
+    using the same derivation <code>sgit.ai/assets/vault-embed.js</code> uses. It may be a commit or two behind.
+    <strong>Corrections welcome — I read your vault instead of asking you.</strong></p>
+
+  <p><strong>Three apps, not two.</strong> The root manifest auto-opens <code>what-can-it-do/index.html</code>;
+    each folder carries its own manifest, because a folder-level <code>app.json</code> replaces the root one
+    wholesale rather than inheriting from it.</p>
+
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>App</th><th>What it is</th><th>Detail read from the vault</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="rowkey">what-can-it-do/</td>
+          <td>the scoreboard</td>
+          <td class="num">40 questions, 5 levels, <code>+30 / −50 / 0</code>; yes scored 0.75, no 0.25;
+            <code>points = 160 × (¼ − (p − truth)²)</code>; ±20 mandate points for the “but…” tick;
+            <strong>17 of 40 above the ceiling</strong> (43%); nine public profiles</td>
+        </tr>
+        <tr>
+          <td class="rowkey">which-agent-is-it/</td>
+          <td>the floor plan</td>
+          <td>cheap questions narrow the field, then the prediction gap per capability; its reveal hands the
+            matched profile to the scoreboard</td>
+        </tr>
+        <tr>
+          <td class="rowkey">ideas/</td>
+          <td>the reply channel</td>
+          <td>added at v0.16.0 — themes, ideas, decisions and counted signals as a graph, with
+            <code>answers.json</code> folded back so a contested question carries the position taken on it</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p><code>ideas/</code> is the piece the sgit.ai page does not yet describe, and it is the strongest argument
+    for the player site existing: it is what turns a game into a conversation.</p>
+
+  <h3>The three permissions that decide everything downstream</h3>
+  <pre><code>{ "permissions": { "append": { "write": true }, "network": true, "llm": { "chat": true } } }</code></pre>
+  <ul>
+    <li><code>network: true</code> exists because the vault host's app frame ships
+      <code>connect-src blob: data:</code>, so a direct <code>fetch</code> to the telemetry API is blocked
+      without it (v0.12.3).</li>
+    <li><code>append.write</code> is the bridge fallback, <code>sg.append.write</code>.</li>
+    <li><code>llm.chat</code> is the chat panel from v0.14.0 — the model runs in the host and the vault's key
+      never enters the frame. <strong>This is the constraint that decides §3.</strong></li>
+  </ul>
+
+  <p><strong>Telemetry:</strong> two lanes on vault <code>kqngdecz</code> — anonymous counters and deliberate
+    feedback kept apart so retention can differ and one cannot flood the other. RSA-OAEP-SHA256 wrapping
+    AES-256-GCM; flush every 4 s, at most 40 flushes and 50 events per flush per session. Both tokens are
+    write-only and blind.</p>
+
+  <p><strong>Drift to note:</strong> the existing sgit.ai vault page describes v0.8.1. The vault is at v0.16.1
+    — roughly nine releases, including the picker, synthetic users, the results redesign, the chat panel and
+    the whole ideas graph. That page stays where it is; these two sites link to it rather than restate it,
+    but somebody should refresh it.</p>
+</section>
+
+<section id="concept">
+  <div class="sechead"><span class="secnum">§2</span><h2>games.sgit.ai — the concept site</h2></div>
+
+  <p class="lede">The one question this domain takes further than a section could: <strong>a game is the only
+    artefact that makes somebody state a belief before they are told the answer</strong> — which is the only
+    way to measure what they actually think.</p>
+
+  <p>Everything else we publish can be nodded at. A player of <em>What Can It Do?</em> has to commit to
+    <em>can it?</em> before the board stamps it, and the delta between the two is data that could not have been
+    collected another way. That claim is falsifiable: if play data shows players are as well calibrated as they
+    think, the game measured nothing worth measuring.</p>
+
+  <p>Second claim, and the one the network cares about: <strong>the mandate is a by-product.</strong> Forty
+    answers to <em>do you want it to?</em> and a player walks away holding a draft mandate they did not set out
+    to write. That is the RiskMandate.ai idea — grant versus mandate, and the delta nothing covers — arrived at
+    by playing rather than by filling in a form.</p>
+
+  <div class="maps">
+    <div class="map">
+      <div class="caption">games.sgit.ai</div>
+      <ul>
+        <li><code>/</code><span>the argument, then the catalogue</span></li>
+        <li><code>/games/</code><span>every game, with a maturity label</span></li>
+        <li><code>/method/calibration</code><span>why a proper scoring rule; why yes-to-everything must lose</span></li>
+        <li><code>/method/the-ceiling</code><span>17 of 40 questions no agent can do</span></li>
+        <li><code>/method/levels</code><span>a level is distance from a consequence</span></li>
+        <li><code>/method/grant-vs-mandate</code><span>the delta, and where it comes from</span></li>
+        <li><code>/build/</code><span>building a game as a vault: contract, manifest trap, lane</span></li>
+        <li><code>/telemetry/</code><span>what our games send, and the obligation that follows</span></li>
+        <li><code>/maturity/</code><span>the ladder, stated once</span></li>
+      </ul>
+    </div>
+    <div class="map">
+      <div class="caption">what-can-it-do.games.sgit.ai</div>
+      <ul>
+        <li><code>/</code><span>the game, mounted and playable, no click</span></li>
+        <li><code>/how-it-is-scored/</code><span>+30 / −50 / 0, and why wrong costs more than right earns</span></li>
+        <li><code>/the-ceiling/</code><span>some questions no agent can do — say so, or it looks broken</span></li>
+        <li><code>/what-we-learn/</code><span>what is sent, what is not, and the ideas graph as the reply</span></li>
+        <li><code>/about/</code><span>the one vault-mechanics page, for the curious player</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>The maturity ladder</h3>
+  <p>Games will sit at different maturities, so a label needs a <strong>test</strong> behind it rather than a mood.</p>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Rung</th><th>Means</th><th>The test that moves it up</th></tr></thead>
+      <tbody>
+        <tr><td class="rowkey">sketch</td><td>an idea and a rules table, nothing playable</td><td>—</td></tr>
+        <tr><td class="rowkey">playable</td><td>you can finish a run</td><td>a stranger finished it without being told how</td></tr>
+        <tr><td class="rowkey">scored</td><td>the scoring is a stated rule, self-tested</td><td><code>selftest.json</code> passes and the rule is published</td></tr>
+        <tr><td class="rowkey">measured</td><td>play data exists and has changed something</td><td>a release whose notes cite play data</td></tr>
+        <tr><td class="rowkey">answered</td><td>players argue with it and get answers back</td><td>positions published in the ideas graph</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note ask">
+    <span class="lbl">A claim about your work, made from outside</span>
+    <p>Against that ladder today, <em>What Can It Do?</em> reads as <strong>scored</strong>, one release short of
+      <strong>measured</strong>: it has telemetry and an ideas graph, but I found no release note yet saying
+      “we changed X because the data said Y”. v0.16.1 changes the feedback UI on a bias argument — close, but
+      that is reasoning, not data. If a release did move on play data, name it and the rung moves.</p>
+  </div>
+</section>
+
+<section id="embed">
+  <div class="sechead"><span class="secnum">§3</span><h2>The embed — the decision that needs a verdict</h2></div>
+
+  <p class="lede">The network has two working embed hosts. They are not equivalent, and the difference lands
+    squarely on features shipped in the last four releases.</p>
+
+  <div class="options">
+    <div class="opt pick">
+      <span class="tag">Option A · recommended for the player site</span>
+      <h4>The official SG/Vault UI, over the embed protocol</h4>
+      <p class="body">Loads the vault UI in an iframe, waits for <code>vault-embed-ready</code>, then posts
+        <code>vault-open</code> with the key and a pinned <code>targetOrigin</code>. The key never appears in a
+        URL and is never written to the frame's storage.</p>
+      <div class="verdicts">
+        <div class="v yes"><i>+</i><span>The real host: <code>sg.llm.chat</code> works, so the chat panel works</span></div>
+        <div class="v yes"><i>+</i><span><code>sg.append.write</code> works, so the telemetry fallback works</span></div>
+        <div class="v yes"><i>+</i><span><code>app.json</code> permissions are read and honoured</span></div>
+        <div class="v no"><i>−</i><span>Vault chrome, two stacked surfaces, slower first paint</span></div>
+        <div class="v warn"><i>!</i><span>Needs one change: the component always adds the vault-browser surface.
+          A player site wants App Mode alone — a <code>data-browser="0"</code> flag, two lines</span></div>
+      </div>
+    </div>
+
+    <div class="opt">
+      <span class="tag">Option B · for catalogue previews</span>
+      <h4>The minimal host</h4>
+      <p class="body">~170 lines: derive the ref id with HMAC-SHA256, fetch ciphertext over CORS, decrypt with
+        Web Crypto, boot the app into a <code>srcdoc</code> iframe with <code>sandbox="allow-scripts"</code>.</p>
+      <div class="verdicts">
+        <div class="v yes"><i>+</i><span>Clean, fast, no chrome; cannot write by construction</span></div>
+        <div class="v no"><i>−</i><span>Reads only — no <code>sg.llm.*</code>, so <strong>the chat panel would be dead</strong></span></div>
+        <div class="v no"><i>−</i><span>Ignores <code>app.json</code>, so permission declarations are inert</span></div>
+        <div class="v warn"><i>!</i><span>Telemetry would fall back to direct <code>fetch</code> — which
+          <em>should</em> work on a Pages origin with no restrictive CSP, inverting v0.12.3. Worth testing
+          before anyone relies on it</span></div>
+      </div>
+    </div>
+
+    <div class="opt">
+      <span class="tag">Option C · everywhere, as well</span>
+      <h4>Link out to the vault UI</h4>
+      <p class="body">Open <code>dev.vault.sgraph.ai/#&lt;key&gt;</code> in a new tab. Zero risk, zero embedding —
+        and the sgit.ai page already recommends it, because the board has far more room in its own tab.</p>
+      <div class="verdicts">
+        <div class="v yes"><i>+</i><span>Full-width board, full host, nothing to maintain</span></div>
+        <div class="v no"><i>−</i><span>A click and a context switch before anyone plays</span></div>
+      </div>
+    </div>
+  </div>
+
+  <p><strong>Recommendation.</strong> The player site takes Option A with the app-only flag: it is the one place
+    where trading five releases of features for less chrome would be wrong, and a dedicated domain lets App Mode
+    run full-bleed so most of the chrome cost disappears. <code>games.sgit.ai</code> takes Option B for small
+    inline catalogue previews — a card that cannot chat is fine — and Option C everywhere.</p>
+
+  <div class="note ask">
+    <span class="lbl">Two open items on the embed</span>
+    <p><strong>Which credential do we publish?</strong> sgit.ai publishes
+      <code>f94c8b1d…e111118:4evnlwrj</code> (64 hex — it works; it is what I read the vault with). The link in
+      the request is <code>t6u4ev…zpgb5:4evnlwrj</code>, a 24-character form I have not seen
+      documented. Same vault, different shape. If the short one is newer or rotated, the sgit.ai page needs
+      updating too.</p>
+    <p>Both are elided above, and the short one deliberately: <strong>on shape alone it matches the documented
+      <em>vault</em> key form</strong>, <code>&lt;passphrase&gt;:&lt;vault-id&gt;</code> — the one
+      <code>sgit init</code> prints with “saved to a password manager. Not printed here, not ever.” A read key
+      on this network is 64 hex, optionally <code>sgit_rk1_</code>-prefixed. Until somebody confirms which it
+      is, it is treated as sensitive — and <strong>if it is a vault key, rotate it</strong>.</p>
+    <p><strong>An embed is a fourth surface.</strong> Events already carry <code>vault-app</code> /
+      <code>web</code> / <code>local</code>. Play from a public domain is play by strangers; play from the vault
+      host is mostly us — and under Option A the hostname inside the frame is the vault host's, so the existing
+      detection cannot separate them. Mechanism is your call; the ask is that the two are distinguishable.</p>
+  </div>
+</section>
+
+<section id="player">
+  <div class="sechead"><span class="secnum">§4</span><h2>The disclosure moves with the game</h2></div>
+  <p>The vault carries a notice with a pause switch on every page, and <code>telemetry.html</code> behind it.
+    <strong>Putting the game on a public domain does not discharge that obligation; it extends it.</strong> The
+    sgit.ai page already names this: two of four pages once said “nothing sent” while events were being sent,
+    and it was called out precisely because the vault's subject is informed consent.</p>
+  <p>So on the player site the notice sits <strong>on the front page, visible without scrolling</strong> — not
+    in a footer — and the pause switch works before the first question. A site about whether you know what your
+    agent can do cannot be coy about what <em>it</em> is doing.</p>
+  <div class="note ask">
+    <span class="lbl">Your call</span>
+    <p>If the in-frame notice is sufficient and duplicating it outside is worse — two switches, one of which does
+      nothing — say so. That is a real design question and you have thought about it longer than we have.</p>
+  </div>
+</section>
+
+<section id="build">
+  <div class="sechead"><span class="secnum">§5</span><h2>Build and release — the house pattern, unchanged</h2></div>
+  <p>Both sites follow the pattern <code>pki</code>, <code>graphs</code> and <code>wardley-maps</code> share.
+    No invention: copying it is the point, because it is what stops these sites drifting.</p>
+  <ul>
+    <li><strong>Hand-written static HTML, programmatically injected chrome.</strong>
+      <code>admin/build/chrome.py</code> is the single definition of nav, footer, favicon and version badge,
+      rewritten in place across the tree.</li>
+    <li><strong><code>admin/build/version.txt</code> owns the version</strong>; every page carries the badge and
+      CI enforces that they agree.</li>
+    <li><strong><code>admin/build/validate.js</code> is the gate</strong> — version agreement, every internal
+      link resolves, every canonical matches <code>CNAME</code>, and the <strong>key-leak tripwire</strong>.</li>
+    <li><strong>CI: validate → tag → deploy</strong> on push to <code>dev</code>; pull requests validate only.
+      Every push is a minor release, tagged, with the version in the commit subject.</li>
+    <li><strong><code>.md</code> twin of every page</strong>, plus <code>llms.txt</code>,
+      <code>llms-full.txt</code>, <code>sitemap.xml</code>.</li>
+  </ul>
+  <p>The tripwire is load-bearing here, because these two sites publish a read key <em>on purpose</em> — it is
+    what keeps a vault key from following it, and the published read key gets allow-listed explicitly, the way
+    sgit.ai allow-lists its demo vaults. Two site-specific checks join it: <strong>every page with an embed must
+    also carry the telemetry notice</strong> (mechanically, exactly the failure recorded in that sgit.ai
+    finding), and <strong>every catalogue card's maturity label must be one of the five rungs</strong>, so a
+    card cannot invent a status.</p>
+</section>
+
+<section id="scope">
+  <div class="sechead"><span class="secnum">§6</span><h2>Deliberately not doing</h2></div>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Not this</th><th>Because</th></tr></thead>
+      <tbody>
+        <tr><td class="rowkey">Forking the game into the repos</td>
+            <td>The game lives in the vault; the sites embed it. Two copies drift within a week, and “no copy of
+              the app exists on sgit.ai” is a claim the network makes and should keep making.</td></tr>
+        <tr><td class="rowkey">A second telemetry lane</td>
+            <td>These sites send nothing of their own. Everything measured is measured by the game, on the lanes
+              it already has.</td></tr>
+        <tr><td class="rowkey">Writing game content or questions</td>
+            <td>Yours. If a site needs a phrase put differently, that is a request to you, not an edit by us.</td></tr>
+        <tr><td class="rowkey">Rewriting the sgit.ai vault page</td>
+            <td>Beyond adding two outbound links — though it describes v0.8.1 and should be refreshed.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>One precedent worth stating once on <code>games.sgit.ai</code>: this is the family's first fourth-level
+    domain and its first site whose primary audience is not a practitioner. The rule that produced it —
+    <strong>a game gets its own domain when it is meant to be shared, and the domain is the game's name so the
+    link explains itself</strong> — is what the next game inherits.</p>
+</section>
+
+<section id="sequence">
+  <div class="sechead"><span class="secnum">§7</span><h2>Sequence</h2></div>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>#</th><th>Step</th><th>Blocked on</th></tr></thead>
+      <tbody>
+        <tr><td class="num rowkey">1</td><td>Confirm which read key to publish; confirm the §1 facts</td><td><strong>you</strong></td></tr>
+        <tr><td class="num rowkey">2</td><td>Scaffold both repos from the house pattern (chrome, validate, CI, CNAME)</td><td>—</td></tr>
+        <tr><td class="num rowkey">3</td><td>Add the app-only mode; verify the chat panel <em>and</em> a telemetry event both survive the embed on a Pages origin</td><td>step 1</td></tr>
+        <tr><td class="num rowkey">4</td><td>Build the player site — front page, four pages, disclosure above the fold</td><td>steps 2–3</td></tr>
+        <tr><td class="num rowkey">5</td><td>Build <code>games.sgit.ai</code> — argument, catalogue, method, build, maturity, telemetry</td><td>step 2</td></tr>
+        <tr><td class="num rowkey">6</td><td>Surface labelling, so embed play is distinguishable from vault-host play</td><td><strong>you</strong></td></tr>
+        <tr><td class="num rowkey">7</td><td>Register both in <code>sgit.ai/network/</code>; add inbound links from the vault page and pki</td><td>steps 4–5</td></tr>
+        <tr><td class="num rowkey">8</td><td>Screenshots, captured with telemetry blocked at the network layer</td><td>steps 4–5</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Steps 4 and 5 are independent and run in parallel. Step 8 copies the practice already recorded on the
+    sgit.ai page: driving the games to photograph them must not put a synthetic run into a real lane.</p>
+</section>
+
+<section id="asks">
+  <div class="sechead"><span class="secnum">§8</span><h2>Questions for review</h2></div>
+  <ol class="asks">
+    <li><strong>Is §1 wrong anywhere?</strong> I read your vault instead of asking you; I would rather be
+      corrected than accurate by luck.</li>
+    <li><strong>Option A for the player site — agreed?</strong> It costs chrome and buys the chat panel and a
+      working append lane. If you would rather have the clean minimal frame and lose <code>sg.llm.chat</code> on
+      that domain, say so and the plan changes.</li>
+    <li><strong>Which credential do we publish?</strong> The 64-hex key, the 24-character one, or both?</li>
+    <li><strong>Surface labelling</strong> — do you want to detect the embed, or should the host tell you?</li>
+    <li><strong>The maturity ladder</strong> — are the five rungs right, and is <em>What Can It Do?</em> at
+      <em>scored</em> or already at <em>measured</em>?</li>
+    <li><strong>The disclosure</strong> — a notice outside the frame as well as inside, or would two pause
+      switches be worse than one?</li>
+    <li><strong>Does the player site oversell?</strong> “Do you know what your agent can actually do?” is a
+      sharper claim than “we measure your calibration against a published profile, which is the weakest tier
+      there is”. Your own <em>does-not-prove</em> list is unusually honest and a landing page should not undo
+      it. Where is the line?</li>
+    <li><strong>RiskMandate.ai</strong> — the mandate draft the game hands a player is the same object
+      RiskMandate.ai is about. Should <code>games.sgit.ai</code> say where that goes next, or is that ahead of
+      what exists?</li>
+  </ol>
+</section>
+
+<footer>
+  <p>Source of truth is <code>briefs/00__PLAN.md</code> on branch
+    <code>claude/sgit-games-websites-plan-k6ltdl</code> of <code>SGit-AI/SGit-AI__Website__Games</code>. This
+    plan is CC BY 4.0, like the vault it describes. Every part of it is arguable; the parts sourced from vault
+    files name the file, so the argument has somewhere to start.</p>
+</footer>
+
+</div>
+
+</body>
+</html>

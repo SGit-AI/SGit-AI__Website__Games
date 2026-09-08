@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Grant vs. mandate — games.sgit.ai</title>
+<meta name="description" content="The grant is what the agent can do. The mandate is what you wanted it to do. The delta is the thing nobody writes down — so the game extracts it as a by-product of play.">
+<link rel="canonical" href="https://games.sgit.ai/method/grant-vs-mandate.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="games.sgit.ai">
+<meta property="og:url" content="https://games.sgit.ai/method/grant-vs-mandate.html">
+<meta property="og:title" content="Grant vs. mandate — games.sgit.ai">
+<meta property="og:description" content="The grant is what the agent can do. The mandate is what you wanted it to do. The delta is the thing nobody writes down — so the game extracts it as a by-product of play.">
+<meta name="twitter:card" content="summary">
+<link rel="alternate" type="text/markdown" href="grant-vs-mandate.md" title="This page as markdown">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="mask-icon" href="../assets/favicon.svg" color="#0f766e">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+
+<nav class="site"><div class="row">
+  <a class="brand" href="../index.html">games<span>.sgit.ai</span></a>
+  <a class="parent" href="https://sgit.ai" title="sgit.ai — the parent project: the vault layer the games ship in">↗ part of <b>sgit.ai</b></a>
+  <span class="stage-pill">research site</span>
+  <a class="ver" href="../admin/versions.html" title="Site release history">v0.1.0</a>
+  <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Menu">Menu</button>
+  <div class="nav-items">
+    <div class="ni ni-has">
+      <a class="nl" href="../games/index.html">Games<span class="caret">&#9662;</span></a>
+      <div class="sub">
+      <a class="sl" href="../games/index.html">The catalogue</a>
+      <a class="sl" href="../games/what-can-it-do.html">What Can It Do?</a>
+      <a class="sl" href="../games/which-agent-is-it.html">Which Agent Is It?</a>
+      <a class="sl" href="../games/ideas.html">Ideas &amp; feedback</a>
+      </div>
+    </div>
+    <div class="ni ni-has">
+      <a class="nl here" href="../method/index.html">Method<span class="caret">&#9662;</span></a>
+      <div class="sub">
+      <a class="sl" href="../method/index.html">The four claims</a>
+      <a class="sl" href="../method/calibration.html">Calibration, not knowledge</a>
+      <a class="sl" href="../method/the-ceiling.html">The ceiling</a>
+      <a class="sl" href="../method/levels.html">Levels are distance</a>
+      <a class="sl here" href="../method/grant-vs-mandate.html">Grant vs. mandate</a>
+      </div>
+    </div>
+    <div class="ni"><a class="nl" href="../maturity/index.html">Maturity</a></div>
+    <div class="ni ni-has">
+      <a class="nl" href="../build/index.html">Build one<span class="caret">&#9662;</span></a>
+      <div class="sub">
+      <a class="sl" href="../build/index.html">Building a game as a vault</a>
+      <a class="sl" href="../telemetry/index.html">What our games send</a>
+      </div>
+    </div>
+    <div class="ni ni-has">
+      <a class="nl" href="../admin/index.html">Site<span class="caret">&#9662;</span></a>
+      <div class="sub">
+      <a class="sl" href="../network/index.html">The network</a>
+      <a class="sl" href="../admin/versions.html">Release history</a>
+      <a class="sl" href="../admin/index.html">Admin &amp; engineering</a>
+      </div>
+    </div>
+  </div>
+  <a class="gh" href="https://github.com/SGit-AI/SGit-AI__Website__Games">&#9733; GitHub</a>
+  <script src="../assets/nav.js" defer></script>
+</div></nav>
+
+<main class="doc">
+  <p class="crumb"><a href="../index.html">Home</a> / <a href="../method/index.html">Method</a> / Grant vs. mandate</p>
+  <h1>Make the mandate a by-product</h1>
+  <p class="lead">Two different things get called permissions. The <b>grant</b> is what the system will actually allow. The <b>mandate</b> is what you intended to authorise. They are set in different places by different people at different times, and almost nobody has written the second one down.</p>
+  <h2 id="why-not-just-ask">Why not just ask</h2>
+  <p>Because a mandate form is answered aspirationally. Asked in the abstract what an agent should be allowed to do, people describe a policy they would like to have. Asked forty times, concretely, whether they want <em>this</em> capability while they are busy trying to score points on a different question, they answer about the thing in front of them.</p>
+  <p>So the game never asks for a mandate. It asks <em>do you want it to?</em> alongside every <em>can it?</em>, and the end screen hands over <b>the mandate you assembled without meaning to</b> — badged, accurately, as <em>a draft you wrote while playing</em>.</p>
+  <h2 id="the-delta-is-the-output">The delta is the output</h2>
+  <p>With both halves collected per capability, the delta falls out as a 2×2 — it can / it cannot, against you want it / you don't. Two cells are alignment. The other two are the findings:</p>
+  <ul><li><b>Excess authority</b> — it can, and you did not want it to. Every one of these is a grant you would narrow if you knew about it.</li><li><b>Shortfall</b> — it cannot, and you wanted it to. Usually harmless, except for the variant the game calls <em>a gap you were counting on</em>: you thought it could, you wanted it to, and it cannot. That is a dependency on something that is not there.</li></ul>
+  <p>Each is split again by whether you saw it coming: a delta you flagged with the <b>but…</b> tick is drawn outlined, and one you did not — because you also had the grant wrong — is drawn filled and loud. Hidden deltas are the ones worth acting on, and they are the ones a self-assessment questionnaire structurally cannot find, because it asks you about the things you already know about.</p>
+  <h2 id="where-this-comes-from-and-where-it-goes">Where this comes from, and where it goes</h2>
+  <p>This is the <a href="https://riskmandate.ai">RiskMandate.ai</a> idea, arrived at from the other end. The sgit.ai network has published the same object as a standard, as a graph and as <a href="https://sgit.ai/demos/vaults/licence-to-operate/index.html">a simulated insurance policy for an agent</a> — <em>grant, mandate, and the delta nothing covers</em>. The game is the version that gets a real person to state their half.</p>
+  <p><b>What is not built:</b> the mandate draft does not yet export into any of those shapes. It is copyable text, and turning it into something a policy engine or a risk register could consume is on the game's own next list. Saying it is done would be the easiest overclaim on this site to make.</p>
+</main>
+
+<footer class="site"><div class="cols">
+  <div>
+    <div class="brandline">games<span>.sgit.ai</span></div>
+    <p>Why this family builds games, and the games it has. Each one ships as an encrypted vault you can open, clone and argue with — <a href="../maturity/index.html" style="display:inline;padding:0">every one carries a maturity label with a test behind it</a>.</p>
+    <p class="netline"><a href="https://sgit.ai"><b>↗ sgit.ai</b></a> — the vault layer the games ship in · <a href="https://pki.sgit.ai">↗ pki.sgit.ai</a> — the mesh and the profiles the questions come from · <a href="https://what-can-it-do.games.sgit.ai">↗ what-can-it-do.games.sgit.ai</a> — play the first game · <a href="https://sgit.ai/network/index.html">↗ the network</a></p>
+    <p class="partnote">⚠ The games on this site send anonymous usage events while you play. <a href="../telemetry/index.html" style="display:inline;padding:0">What is sent, and how to stop it</a>.</p>
+    <p class="verline">site <a href="../admin/versions.html">v0.1.0</a> · <a href="../admin/index.html">engineering</a> · <a href="../llms.txt">llms.txt</a> · CC BY 4.0 · <a href="../method/grant-vs-mandate.md">this page as markdown</a></p>
+  </div>
+  <div>
+    <h4>Play</h4>
+    <a href="https://what-can-it-do.games.sgit.ai">&#8594; What Can It Do?</a>
+    <a href="../games/index.html">The catalogue</a>
+    <a href="../games/which-agent-is-it.html">Which Agent Is It?</a>
+    <a href="../games/ideas.html">Ideas &amp; feedback</a>
+  </div>
+  <div>
+    <h4>The method</h4>
+    <a href="../method/calibration.html">Calibration, not knowledge</a>
+    <a href="../method/the-ceiling.html">The ceiling</a>
+    <a href="../method/levels.html">Levels are distance</a>
+    <a href="../method/grant-vs-mandate.html">Grant vs. mandate</a>
+  </div>
+  <div>
+    <h4>Build one</h4>
+    <a href="../build/index.html">Building a game as a vault</a>
+    <a href="../telemetry/index.html">What our games send</a>
+    <a href="../maturity/index.html">The maturity ladder</a>
+  </div>
+  <div>
+    <h4>Site</h4>
+    <a href="../network/index.html">The network</a>
+    <a href="../admin/versions.html">Release history</a>
+    <a href="../admin/index.html">Engineering</a>
+    <a href="../llms.txt">llms.txt</a>
+  </div>
+</div></footer>
+</body>
+</html>

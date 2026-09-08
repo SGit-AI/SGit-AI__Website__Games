@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The ceiling — games.sgit.ai</title>
+<meta name="description" content="17 of the 40 questions are things no agent can do, because a control outside the environment bounds them. Without them the game could only measure underestimating.">
+<link rel="canonical" href="https://games.sgit.ai/method/the-ceiling.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="games.sgit.ai">
+<meta property="og:url" content="https://games.sgit.ai/method/the-ceiling.html">
+<meta property="og:title" content="The ceiling — games.sgit.ai">
+<meta property="og:description" content="17 of the 40 questions are things no agent can do, because a control outside the environment bounds them. Without them the game could only measure underestimating.">
+<meta name="twitter:card" content="summary">
+<link rel="alternate" type="text/markdown" href="the-ceiling.md" title="This page as markdown">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="mask-icon" href="../assets/favicon.svg" color="#0f766e">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+
+<nav class="site"><div class="row">
+  <a class="brand" href="../index.html">games<span>.sgit.ai</span></a>
+  <a class="parent" href="https://sgit.ai" title="sgit.ai — the parent project: the vault layer the games ship in">↗ part of <b>sgit.ai</b></a>
+  <span class="stage-pill">research site</span>
+  <a class="ver" href="../admin/versions.html" title="Site release history">v0.1.0</a>
+  <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Menu">Menu</button>
+  <div class="nav-items">
+    <div class="ni ni-has">
+      <a class="nl" href="../games/index.html">Games<span class="caret">&#9662;</span></a>
+      <div class="sub">
+      <a class="sl" href="../games/index.html">The catalogue</a>
+      <a class="sl" href="../games/what-can-it-do.html">What Can It Do?</a>
+      <a class="sl" href="../games/which-agent-is-it.html">Which Agent Is It?</a>
+      <a class="sl" href="../games/ideas.html">Ideas &amp; feedback</a>
+      </div>
+    </div>
+    <div class="ni ni-has">
+      <a class="nl here" href="../method/index.html">Method<span class="caret">&#9662;</span></a>
+      <div class="sub">
+      <a class="sl" href="../method/index.html">The four claims</a>
+      <a class="sl" href="../method/calibration.html">Calibration, not knowledge</a>
+      <a class="sl here" href="../method/the-ceiling.html">The ceiling</a>
+      <a class="sl" href="../method/levels.html">Levels are distance</a>
+      <a class="sl" href="../method/grant-vs-mandate.html">Grant vs. mandate</a>
+      </div>
+    </div>
+    <div class="ni"><a class="nl" href="../maturity/index.html">Maturity</a></div>
+    <div class="ni ni-has">
+      <a class="nl" href="../build/index.html">Build one<span class="caret">&#9662;</span></a>
+      <div class="sub">
+      <a class="sl" href="../build/index.html">Building a game as a vault</a>
+      <a class="sl" href="../telemetry/index.html">What our games send</a>
+      </div>
+    </div>
+    <div class="ni ni-has">
+      <a class="nl" href="../admin/index.html">Site<span class="caret">&#9662;</span></a>
+      <div class="sub">
+      <a class="sl" href="../network/index.html">The network</a>
+      <a class="sl" href="../admin/versions.html">Release history</a>
+      <a class="sl" href="../admin/index.html">Admin &amp; engineering</a>
+      </div>
+    </div>
+  </div>
+  <a class="gh" href="https://github.com/SGit-AI/SGit-AI__Website__Games">&#9733; GitHub</a>
+  <script src="../assets/nav.js" defer></script>
+</div></nav>
+
+<main class="doc">
+  <p class="crumb"><a href="../index.html">Home</a> / <a href="../method/index.html">Method</a> / The ceiling</p>
+  <h1>Put a ceiling in the question set</h1>
+  <p class="lead">If every question in a capability quiz has a real answer, then the only mistake the quiz can detect is underestimating. Somebody who believes their agent is less capable than it is gets caught. Somebody who believes it is a god does not.</p>
+  <h2 id="the-fix-and-its-size">The fix, and its size</h2>
+  <p><b>17 of the 40 questions are above the ceiling</b>: things no agent in any environment in the set can do — not even one running as an administrator on a desktop with every confirmation switched off. They are interleaved evenly through every level, and the self-test fails if their share leaves the 33–50% band. At 43% the set spans both directions, so the score measures over-crediting and underestimating alike.</p>
+  <h2 id="the-ceiling-is-a-control-not-the-agent-s-restraint">The ceiling is a control, not the agent's restraint</h2>
+  <p>This is the distinction that makes the whole idea work. Each above-the-ceiling row names the control that bounds it, and the control is always <b>outside the whole environment</b>: the provider's tenant boundary, an append-only log, cryptography, a second factor, a lockout, billing ownership, the provider's own isolation.</p>
+  <p>So the answer is not <em>the agent is well behaved</em>. The answer is <em>there is a wall there, and it is not made of the agent's good intentions</em>. Thirteen of the seventeen are <b>attemptable</b>, and their verdicts say exactly that: what happens when the agent tries, that it fails, and that the attempt is visible.</p>
+  <h2 id="they-have-to-sound-powerful">They have to sound powerful</h2>
+  <p>An above-the-ceiling question that reads as obviously silly teaches nothing and is spotted instantly, which turns the whole mechanism into a tell. These are written to sound like things a capable agent might well do — the player has to actually reason about the boundary rather than pattern-match on absurdity.</p>
+  <h2 id="where-the-levels-for-them-come-from">Where the levels for them come from</h2>
+  <p>Nowhere derivable, and the game says so. The mesh records no exposure for a thing that cannot happen, so the levels of above-the-ceiling capabilities are <b>authored</b> — stated as a judgement in the file, by one agent on one day, with every verdict linking back to it. That is a weaker claim than the derived levels next to them, and it is labelled as one rather than blended in. <a href="../method/levels.html">How the derived ones work</a>.</p>
+  <h2 id="what-would-show-this-is-wrong">What would show this is wrong</h2>
+  <p>Somebody demonstrating an agent stepping over one of the seventeen. The game's own source calls that <em>"a correction, not a quibble"</em> — the row names its control, so a counter-example is a specific, checkable claim about that control, and the <a href="../games/ideas.html">reply channel</a> is where it would be answered in public.</p>
+</main>
+
+<footer class="site"><div class="cols">
+  <div>
+    <div class="brandline">games<span>.sgit.ai</span></div>
+    <p>Why this family builds games, and the games it has. Each one ships as an encrypted vault you can open, clone and argue with — <a href="../maturity/index.html" style="display:inline;padding:0">every one carries a maturity label with a test behind it</a>.</p>
+    <p class="netline"><a href="https://sgit.ai"><b>↗ sgit.ai</b></a> — the vault layer the games ship in · <a href="https://pki.sgit.ai">↗ pki.sgit.ai</a> — the mesh and the profiles the questions come from · <a href="https://what-can-it-do.games.sgit.ai">↗ what-can-it-do.games.sgit.ai</a> — play the first game · <a href="https://sgit.ai/network/index.html">↗ the network</a></p>
+    <p class="partnote">⚠ The games on this site send anonymous usage events while you play. <a href="../telemetry/index.html" style="display:inline;padding:0">What is sent, and how to stop it</a>.</p>
+    <p class="verline">site <a href="../admin/versions.html">v0.1.0</a> · <a href="../admin/index.html">engineering</a> · <a href="../llms.txt">llms.txt</a> · CC BY 4.0 · <a href="../method/the-ceiling.md">this page as markdown</a></p>
+  </div>
+  <div>
+    <h4>Play</h4>
+    <a href="https://what-can-it-do.games.sgit.ai">&#8594; What Can It Do?</a>
+    <a href="../games/index.html">The catalogue</a>
+    <a href="../games/which-agent-is-it.html">Which Agent Is It?</a>
+    <a href="../games/ideas.html">Ideas &amp; feedback</a>
+  </div>
+  <div>
+    <h4>The method</h4>
+    <a href="../method/calibration.html">Calibration, not knowledge</a>
+    <a href="../method/the-ceiling.html">The ceiling</a>
+    <a href="../method/levels.html">Levels are distance</a>
+    <a href="../method/grant-vs-mandate.html">Grant vs. mandate</a>
+  </div>
+  <div>
+    <h4>Build one</h4>
+    <a href="../build/index.html">Building a game as a vault</a>
+    <a href="../telemetry/index.html">What our games send</a>
+    <a href="../maturity/index.html">The maturity ladder</a>
+  </div>
+  <div>
+    <h4>Site</h4>
+    <a href="../network/index.html">The network</a>
+    <a href="../admin/versions.html">Release history</a>
+    <a href="../admin/index.html">Engineering</a>
+    <a href="../llms.txt">llms.txt</a>
+  </div>
+</div></footer>
+</body>
+</html>
