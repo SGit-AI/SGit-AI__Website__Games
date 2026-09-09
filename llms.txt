@@ -2,7 +2,7 @@
 
 > A game is the only artefact that makes somebody state a belief before they are told the answer.
 
-Site version: v0.1.1
+Site version: v0.2.0
 
 Every page below has a markdown twin generated from the same content as the
 HTML page. Fetch the `.md` and you have the page, without the chrome.
@@ -28,5 +28,6 @@ HTML page. Fetch the `.md` and you have the page, without the chrome.
 
 ## Release history
 
+- v0.2.0 (2026-09-09) — These games are part of RiskMandate, and the site now says so and shows where the join is. RiskMandate is the business risk layer for autonomous systems — it begins where security stops, its unit is the mandate (the right to act, granted by a named owner, scoped, time-bound rather than standing), and its signature mechanic is that a real risk has no deny button: the agent already has the access, so it can only be accepted, in a direction, for an interval, by somebody named, and underwritten upward. The games are the front end of one part of that — the bit that gets a real person to state what they wanted. Grant vs. mandate was rewritten around that model and now says plainly what is NOT built: the mandate draft exports into nothing, and the handover is a person retyping. Also embeds Licence to Operate, the published vault holding one agent's grant of 12, mandate of 4 and the 8-capability delta no policy covers, with every reply priced — the best worked example in this family, kept out of the catalogue because it is a simulation rather than a game and blurring that would cost the site its one distinction.
 - v0.1.1 (2026-09-09) — The telemetry notice got proportionate. It was an amber warning panel, which was the wrong size for what it says: anonymous counting with no cookies, no analytics script and nothing that identifies anyone is LESS than a default web-server access log and far less than the analytics on almost every site a reader will visit today. Dressing that as a hazard implies a risk that is not there, and a page that over-warns about something ordinary teaches people to skim the next notice. It is now one quiet line in the reading column, still before the thing it describes and still enforced by the release gate. The telemetry page states the comparison outright rather than leaving the reader to guess the scale, and says why the notice exists at all: not because the counting is invasive, but because a vault sending anything departs from a platform promise, and departures get stated.
 - v0.1.0 (2026-09-08) — First publish. The argument (a game is the only artefact that makes somebody state a belief before they are told the answer), the catalogue with a five-rung maturity ladder that has a test behind every rung, four method pages, the build guide, the telemetry page, and the network entry. The games are embedded rather than copied: the vault is the source, and assets/vault-app-embed.js opens it over the SG/Vault embed protocol with the vault-browser surface suppressed.

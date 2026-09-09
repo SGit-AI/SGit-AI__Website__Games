@@ -2,7 +2,7 @@
 
 > Why this family builds games: a game is the only artefact that makes somebody state a belief before they are told the answer. The catalogue, the method, and how to build one as a vault.
 
-*Source: <https://games.sgit.ai/index.html> · site v0.1.1 · this file is generated from the same content
+*Source: <https://games.sgit.ai/index.html> · site v0.2.0 · this file is generated from the same content
 as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links
 below point at them.*
 
@@ -18,7 +18,9 @@ That is the argument this site exists to make, and it is falsifiable: if play da
 
 The first games ask one question in two directions. You have given an AI agent access to something — a machine, a repository, a mailbox, a cloud account. **Can it do X?** And, separately, **do you want it to?** Answer that forty times and you have written a draft mandate without meaning to, and the delta between what the agent can do and what you wanted it to do is the thing nobody has written down.
 
-That delta is the [RiskMandate.ai](https://riskmandate.ai) idea — grant versus mandate, and the exposure between them. A form would ask you for it and you would not know. A game gets it out of you as a by-product of playing.
+That delta is the whole subject of [**RiskMandate**](https://riskmandate.ai) — *the business risk layer for autonomous systems* — which is the project these games are part of. RiskMandate governs the right to act: what an agent may do, granted by whom, for how long. A form would ask you for your half of that and you would answer aspirationally. A game gets it out of you as a by-product of playing.
+
+And its answer to what you do with a delta is the mechanic worth borrowing: [**there is no deny button**](https://riskmandate.ai/v0/v0.10/v0.10.0/index.html). The agent already has the access, so the risk cannot be denied — only accepted, in a direction, for an interval, by somebody named. [Where the two meet](method/grant-vs-mandate.md).
 
 ## Play the first one
 
