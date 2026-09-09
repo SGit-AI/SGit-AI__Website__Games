@@ -2,7 +2,7 @@
 
 > The games send anonymous usage events over two write-only append lanes. What is in an event, what is deliberately absent, what it proves, and how to stop it.
 
-*Source: <https://games.sgit.ai/telemetry/index.html> · site v0.3.2 · this file is generated from the same content
+*Source: <https://games.sgit.ai/telemetry/index.html> · site v0.3.3 · this file is generated from the same content
 as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links
 below point at them.*
 

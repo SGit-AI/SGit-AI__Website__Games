@@ -2,7 +2,7 @@
 
 > Why this family builds games: a game is the only artefact that makes somebody state a belief before they are told the answer. The catalogue, the method, and how to build one as a vault.
 
-*Source: <https://games.sgit.ai/index.html> · site v0.3.2 · this file is generated from the same content
+*Source: <https://games.sgit.ai/index.html> · site v0.3.3 · this file is generated from the same content
 as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links
 below point at them.*
 

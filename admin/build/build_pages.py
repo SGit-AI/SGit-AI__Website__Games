@@ -128,6 +128,9 @@ FOOTER = [
 ]
 
 VERSION_LOG = [
+    ("v0.3.3", "2026-09-09",
+     "The vault-split plan moves to the repository it is about — what-can-it-do.games.sgit.ai, "
+     "under briefs/ — and leaves here. One copy, in the place a reader of that game would look."),
     ("v0.3.2", "2026-09-09",
      "A second brief: the plan for splitting the games vault. What Can It Do? moves to a vault "
      "of its own that reads the public pack from the player site instead of carrying a copy; "
