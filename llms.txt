@@ -2,7 +2,7 @@
 
 > A game is the only artefact that makes somebody state a belief before they are told the answer.
 
-Site version: v0.3.3
+Site version: v0.4.0
 
 Every page below has a markdown twin generated from the same content as the
 HTML page. Fetch the `.md` and you have the page, without the chrome.
@@ -21,13 +21,14 @@ HTML page. Fetch the `.md` and you have the page, without the chrome.
 - [Grant vs. mandate](https://games.sgit.ai/method/grant-vs-mandate.md): The grant is what the agent can do. The mandate is what you wanted it to do. The delta is the thing nobody writes down — so the game extracts it as a by-product of play.
 - [The maturity ladder](https://games.sgit.ai/maturity/index.md): Five rungs, each with a test that moves a game up, so a label on a catalogue card is a claim rather than a mood.
 - [Building a game as a vault](https://games.sgit.ai/build/index.md): How to build a game that ships as an encrypted vault: the authoring contract, the folder-manifest trap that cost this family four releases, the telemetry lane, and what to publish beside the game.
-- [What our games send](https://games.sgit.ai/telemetry/index.md): The games send anonymous usage events over two write-only append lanes. What is in an event, what is deliberately absent, what it proves, and how to stop it.
+- [What our games send](https://games.sgit.ai/telemetry/index.md): What Can It Do? sends anonymous usage events over two write-only append lanes; Which Agent Is It? sends nothing. What is in an event, what is deliberately absent, what it proves, and how to stop it.
 - [The network](https://games.sgit.ai/network/index.md): Where games.sgit.ai sits in the sgit.ai family, and which sibling site answers which question.
 - [Admin & engineering](https://games.sgit.ai/admin/index.md): How games.sgit.ai is built and released: one content file, generated HTML and markdown twins, and a seven-check gate.
 - [Release history](https://games.sgit.ai/admin/versions.md): Every release of games.sgit.ai. The site version bumps on every push to dev, and CI refuses a push whose commit subject and version.txt disagree.
 
 ## Release history
 
+- v0.4.0 (2026-09-09) — Two vaults. What Can It Do? now runs out of its own vault (pg87npy3, v1.0.0), reading the public pack from the player site on every load; the home page and the catalogue embed and link to it. The games vault 4evnlwrj keeps Which Agent Is It? and the home page at v0.26.0 with every permission removed and nothing sent, and holds the 9 September version of both games on branch release-2026-09-09. The telemetry page says which vault sends and that browser signals ship off; the floor-plan page says the profile handover did not survive the split, and where the version with it is.
 - v0.3.3 (2026-09-09) — The vault-split plan moves to the repository it is about — what-can-it-do.games.sgit.ai, under briefs/ — and leaves here. One copy, in the place a reader of that game would look.
 - v0.3.2 (2026-09-09) — A second brief: the plan for splitting the games vault. What Can It Do? moves to a vault of its own that reads the public pack from the player site instead of carrying a copy; the wider vault keeps a frozen branch at the 9 September cut and drops its tracking on main; a third vault lets a reader browse the map and propose a change over an append lane that drains into a pull request; the site learns to load a question pack and nothing else; and a fourth vault is a PoC that explains Mavs AI as a change of control tier on the rows where data leaves toward a model. Written against the vault at v0.23.2, which is eleven releases past what the sites were built from and now sends browser fingerprints the player site says it does not — the plan's first decision is about that. briefs/01__PLAN__vaults-and-packs.md, open for review.
 - v0.3.1 (2026-09-09) — Points at the map. The claims each question rests on — what each product can reach, tool by tool, with the evidence behind every row — now live on the player site as a data pack that a pull request can change, with a grants matrix, a page per product and per capability, and eight starting mandates drawn against their profiles as deltas. This site's pages for the game and the catalogue link across; the method pages are unchanged.

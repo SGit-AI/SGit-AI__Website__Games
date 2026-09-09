@@ -2,7 +2,7 @@
 
 > The scoreboard game: 40 questions, five levels, scored with a proper scoring rule so that saying yes to everything loses. 17 of the 40 are things no agent can do.
 
-*Source: <https://games.sgit.ai/games/what-can-it-do.html> · site v0.3.3 · this file is generated from the same content
+*Source: <https://games.sgit.ai/games/what-can-it-do.html> · site v0.4.0 · this file is generated from the same content
 as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links
 below point at them.*
 
@@ -60,7 +60,7 @@ That last row is the one worth the whole game. It is the only class that describ
 - **That the points mean anything.** Values and cut-points are arbitrary until there is play data to fit them against.
 - **That a good score is safety.** Calibration is about the player, not the environment.
 
-> **Open it yourself.** Read key `f94c8b1d4235…111118:4evnlwrj` — the full string is on [the vault's page at sgit.ai](https://sgit.ai/demos/vaults/agent-permission-games/). [Open it read-only in a new tab](https://dev.vault.sgraph.ai/#f94c8b1d42352d95703ac3d39032735d9b4e388d16ab5b87c948928d8e111118%3A4evnlwrj), or clone it with `sgit clone`. It is a read key: it cannot write, which is what makes publishing it safe.
+> **Open them yourself.** Two vaults since 9 September 2026. *What Can It Do?*: read key `cf04d8a9bac6…7b505f:pg87npy3` — [open it read-only in a new tab](https://dev.vault.sgraph.ai/#cf04d8a9bac6185dcb71e9c6f19ae13238b6434780324b1873504f2d6f7b505f%3Apg87npy3). The games vault, with *Which Agent Is It?* and the 9 September version of both on branch `release-2026-09-09`: `f94c8b1d4235…111118:4evnlwrj` — [open it](https://dev.vault.sgraph.ai/#f94c8b1d42352d95703ac3d39032735d9b4e388d16ab5b87c948928d8e111118%3A4evnlwrj); the full string is on [its page at sgit.ai](https://sgit.ai/demos/vaults/agent-permission-games/). Both are read keys: they cannot write, which is what makes publishing them safe.
 
 ---
 

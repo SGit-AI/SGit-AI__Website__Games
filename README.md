@@ -3,9 +3,11 @@
 Repo for **[games.sgit.ai](https://games.sgit.ai)** — why this family builds games, and the
 games it has, each with a maturity label that has a test behind it.
 
-The games are **not** copied into this repo. They live in encrypted vault `4evnlwrj`
-(*Two games about what your agent can do*, v0.16.1), and the site opens that vault live over
-the SG/Vault embed protocol with the vault-browser surface suppressed. One source, no drift.
+The games are **not** copied into this repo. *What Can It Do?* lives in encrypted vault
+`pg87npy3` (v1.0.0, 9 September 2026) and reads its data from the player site; *Which Agent Is
+It?* and the home page live in the games vault `4evnlwrj` (v0.26.0), which also holds the 9
+September version of both games on branch `release-2026-09-09`. The site opens the vaults live
+over the SG/Vault embed protocol with the vault-browser surface suppressed. One source, no drift.
 
 Sibling site: **[what-can-it-do.games.sgit.ai](https://what-can-it-do.games.sgit.ai)**
 ([repo](https://github.com/SGit-AI/SGit-AI__Website__Game__What-Can-It-Do)) — the first game,
@@ -61,7 +63,7 @@ read key on an allow-list of exact strings.
 
 ## Credentials
 
-The read key for vault `4evnlwrj` is published on purpose — it is what lets a reader open the
+The read keys for vaults `pg87npy3` and `4evnlwrj` are published on purpose — it is what lets a reader open the
 vault and check every claim on the site against the files. It cannot write. The vault key is
 not published and never will be.
 

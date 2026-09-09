@@ -2,7 +2,7 @@
 
 > How to build a game that ships as an encrypted vault: the authoring contract, the folder-manifest trap that cost this family four releases, the telemetry lane, and what to publish beside the game.
 
-*Source: <https://games.sgit.ai/build/index.html> · site v0.3.3 · this file is generated from the same content
+*Source: <https://games.sgit.ai/build/index.html> · site v0.4.0 · this file is generated from the same content
 as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links
 below point at them.*
 
@@ -25,7 +25,7 @@ A vault app is one self-contained `index.html` plus an `app.json` that launches 
 
 This one is worth the whole page. **A folder-level `app.json` replaces the root one wholesale — nothing is inherited.**
 
-The games vault declares `permissions.network` at the root, because the vault host's app frame ships a `connect-src blob: data:` content-security policy and a direct `fetch` to any API is blocked without it. That worked when the vault opened at its root. Opening a game *by its own path*, or reaching it from the vault's home page, resolved that folder's manifest instead — which had no `permissions` key — and the frame silently kept the restrictive CSP. Telemetry failed with *"Load failed"*, the bridge fallback answered *"Permission denied"*, and nothing said why.
+The *What Can It Do?* vault declares `permissions.network` at the root, because the vault host's app frame ships a `connect-src blob: data:` content-security policy and a direct `fetch` to any API is blocked without it. That worked when the vault opened at its root. Opening a game *by its own path*, or reaching it from the vault's home page, resolved that folder's manifest instead — which had no `permissions` key — and the frame silently kept the restrictive CSP. Telemetry failed with *"Load failed"*, the bridge fallback answered *"Permission denied"*, and nothing said why.
 
 It took releases v0.12.1 through v0.12.5 to find, across two wrong theories. The fix is one line per folder: **every folder that can be opened as an app carries the same grants as the root.** Two related things the same investigation settled — a release pin makes `app.json` come from the pinned commit rather than HEAD, and the append checker only ever watches the *open* vault's own lane, so a `new-messages` grant on a vault that has no lane will never fire whatever you declare.
 

@@ -2,7 +2,7 @@
 
 > Every game this family has published, with a maturity rung that has a test behind it, and the vault each one ships in.
 
-*Source: <https://games.sgit.ai/games/index.html> · site v0.3.3 · this file is generated from the same content
+*Source: <https://games.sgit.ai/games/index.html> · site v0.4.0 · this file is generated from the same content
 as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links
 below point at them.*
 
@@ -12,21 +12,21 @@ below point at them.*
 
 # The catalogue
 
-Three things in one vault, at three different stages. Nothing here is finished, and the rung on each card says how far off it is.
+Three things in two vaults, at three different stages. Nothing here is finished, and the rung on each card says how far off it is.
 
 | What | Rung | What it measures | Where |
 |---|---|---|---|
-| [What Can It Do?](../games/what-can-it-do.md) | `scored` | Whether you can predict what your agent can do — scored for calibration, in both directions | [play](https://what-can-it-do.games.sgit.ai) |
+| [What Can It Do?](../games/what-can-it-do.md) | `scored` | Whether you can predict what your agent can do — scored for calibration, in both directions | [play](https://what-can-it-do.games.sgit.ai) · [open](https://dev.vault.sgraph.ai/#cf04d8a9bac6185dcb71e9c6f19ae13238b6434780324b1873504f2d6f7b505f%3Apg87npy3) |
 | [Which Agent Is It?](../games/which-agent-is-it.md) | `playable` | Whether a handful of cheap questions can identify an agent, and how wrong your picture of its reach was | [open](https://dev.vault.sgraph.ai/#f94c8b1d42352d95703ac3d39032735d9b4e388d16ab5b87c948928d8e111118%3A4evnlwrj) |
-| [Ideas & feedback](../games/ideas.md) | `answered` | Not a game — the reply channel: what players argue with, and the position taken on it | [open](https://dev.vault.sgraph.ai/#f94c8b1d42352d95703ac3d39032735d9b4e388d16ab5b87c948928d8e111118%3A4evnlwrj) |
+| [Ideas & feedback](../games/ideas.md) | `answered` | Not a game — the reply channel: what players argue with, and the position taken on it | [open](https://dev.vault.sgraph.ai/#cf04d8a9bac6185dcb71e9c6f19ae13238b6434780324b1873504f2d6f7b505f%3Apg87npy3) |
 
-## All three are one vault
+## Two vaults, one lock
 
-Vault `4evnlwrj`, published under the name *Two games about what your agent can do*, at **v0.16.1** — 81 files across 28 releases at the time this page was written. The vault auto-opens the scoreboard; a menu on every page reaches the other two and the release history.
+Until 9 September 2026 all three shipped in one vault, `4evnlwrj`, *Two games about what your agent can do*. That day v0.25.0 was locked there on branch `release-2026-09-09`, and *What Can It Do?* moved to a vault of its own, `pg87npy3` (v1.0.0), taking the reply channel and the telemetry lane with it. It no longer carries a copy of its data: it reads [the pack](https://what-can-it-do.games.sgit.ai/data/index.html) from the player site on every load, and its footer names the version and hash it read.
 
-Publishing them as one vault rather than three sites is deliberate: they share a data snapshot, the same nine public profiles, and the same telemetry lane, and a player who finishes the floor plan is handed straight to the scoreboard with the matched profile already filled in. Splitting them would break that handover and give three copies of the data to drift apart.
+`4evnlwrj` keeps the home page and *Which Agent Is It?*, at v0.26.0 with every permission removed and nothing sent, and stays the vault for the next experiments. What the split cost: the floor plan used to hand its matched profile to the scoreboard through the host's state, and that does not cross a vault boundary — the scoreboard asks you to name the agent again. The 9 September version, handover and all, is on the locked branch.
 
-> **Open it yourself.** Read key `f94c8b1d4235…111118:4evnlwrj` — the full string is on [the vault's page at sgit.ai](https://sgit.ai/demos/vaults/agent-permission-games/). [Open it read-only in a new tab](https://dev.vault.sgraph.ai/#f94c8b1d42352d95703ac3d39032735d9b4e388d16ab5b87c948928d8e111118%3A4evnlwrj), or clone it with `sgit clone`. It is a read key: it cannot write, which is what makes publishing it safe.
+> **Open them yourself.** Two vaults since 9 September 2026. *What Can It Do?*: read key `cf04d8a9bac6…7b505f:pg87npy3` — [open it read-only in a new tab](https://dev.vault.sgraph.ai/#cf04d8a9bac6185dcb71e9c6f19ae13238b6434780324b1873504f2d6f7b505f%3Apg87npy3). The games vault, with *Which Agent Is It?* and the 9 September version of both on branch `release-2026-09-09`: `f94c8b1d4235…111118:4evnlwrj` — [open it](https://dev.vault.sgraph.ai/#f94c8b1d42352d95703ac3d39032735d9b4e388d16ab5b87c948928d8e111118%3A4evnlwrj); the full string is on [its page at sgit.ai](https://sgit.ai/demos/vaults/agent-permission-games/). Both are read keys: they cannot write, which is what makes publishing them safe.
 
 **Where the data lives now:** the profiles, primitives, reductions and ceiling the games run on moved out of the vault into the player site's repository as a data pack — [the map](https://what-can-it-do.games.sgit.ai/map/index.html) — so that a pull request can change them. The vault still vendors a snapshot; the pack is the canonical copy.
 

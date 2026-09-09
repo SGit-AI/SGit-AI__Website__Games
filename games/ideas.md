@@ -2,7 +2,7 @@
 
 > What players argue with becomes ideas, grouped into themes and answered with a published position — as a graph, joined to the mesh the questions come from, naming nobody.
 
-*Source: <https://games.sgit.ai/games/ideas.html> · site v0.3.3 · this file is generated from the same content
+*Source: <https://games.sgit.ai/games/ideas.html> · site v0.4.0 · this file is generated from the same content
 as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links
 below point at them.*
 
@@ -12,7 +12,7 @@ below point at them.*
 
 # The reply channel — and why it is a graph
 
-A game that collects disagreement and never answers it is a survey. The thing that turns these games into a conversation is the third app in the vault: what players argue with, turned into ideas, grouped into themes, and answered with a position that is published rather than filed.
+A game that collects disagreement and never answers it is a survey. The thing that turns these games into a conversation is the third app in *What Can It Do?*'s vault: what players argue with, turned into ideas, grouped into themes, and answered with a position that is published rather than filed.
 
 ## The answer comes back to where the argument happened
 

@@ -26,6 +26,13 @@ VERSION = (ROOT / "admin/build/version.txt").read_text().strip()
 VAULT = "4evnlwrj"
 READKEY = "f94c8b1d42352d95703ac3d39032735d9b4e388d16ab5b87c948928d8e111118"
 VAULT_UI = f"https://dev.vault.sgraph.ai/#{READKEY}%3A{VAULT}"
+# What Can It Do? has a vault of its own since 9 September 2026 (v1.0.0): it reads the public
+# pack from the player site on every load instead of carrying a copy. The games vault above keeps
+# the home page and Which Agent Is It?, sends nothing from v0.26.0, and holds the 9 September
+# version of both games on branch release-2026-09-09. Read key, published on purpose.
+WCID_VAULT = "pg87npy3"
+WCID_READKEY = "cf04d8a9bac6185dcb71e9c6f19ae13238b6434780324b1873504f2d6f7b505f"
+WCID_UI = f"https://dev.vault.sgraph.ai/#{WCID_READKEY}%3A{WCID_VAULT}"
 PLAYER_SITE = "https://what-can-it-do.games.sgit.ai"
 
 # RiskMandate — the project these games are part of, and the layer that starts where they
@@ -128,6 +135,14 @@ FOOTER = [
 ]
 
 VERSION_LOG = [
+    ("v0.4.0", "2026-09-09",
+     "Two vaults. What Can It Do? now runs out of its own vault (pg87npy3, v1.0.0), reading the "
+     "public pack from the player site on every load; the home page and the catalogue embed "
+     "and link to it. The games vault 4evnlwrj keeps Which Agent Is It? and the home page at "
+     "v0.26.0 with every permission removed and nothing sent, and holds the 9 September version "
+     "of both games on branch release-2026-09-09. The telemetry page says which vault sends and "
+     "that browser signals ship off; the floor-plan page says the profile handover did not "
+     "survive the split, and where the version with it is."),
     ("v0.3.3", "2026-09-09",
      "The vault-split plan moves to the repository it is about — what-can-it-do.games.sgit.ai, "
      "under briefs/ — and leaves here. One copy, in the place a reader of that game would look."),
@@ -196,17 +211,20 @@ VERSION_LOG = [
 
 # The one credential line, written once and reused, so the wording of how it is published
 # cannot drift between pages.
-KEY_NOTE = (f"**Open it yourself.** Read key `{READKEY[:12]}…{READKEY[-6:]}:{VAULT}` — the full "
-            f"string is on [the vault's page at sgit.ai]"
-            f"(https://sgit.ai/demos/vaults/agent-permission-games/). "
-            f"[Open it read-only in a new tab]({VAULT_UI}), or clone it with `sgit clone`. "
-            f"It is a read key: it cannot write, which is what makes publishing it safe.")
+KEY_NOTE = (f"**Open them yourself.** Two vaults since 9 September 2026. *What Can It Do?*: read key "
+            f"`{WCID_READKEY[:12]}…{WCID_READKEY[-6:]}:{WCID_VAULT}` — [open it read-only in a new "
+            f"tab]({WCID_UI}). The games vault, with *Which Agent Is It?* and the 9 September version "
+            f"of both on branch `release-2026-09-09`: `{READKEY[:12]}…{READKEY[-6:]}:{VAULT}` — "
+            f"[open it]({VAULT_UI}); the full string is on [its page at sgit.ai]"
+            f"(https://sgit.ai/demos/vaults/agent-permission-games/). Both are read keys: they "
+            f"cannot write, which is what makes publishing them safe.")
 
 DISCLOSE = (
-    "The games count usage anonymously while you play — which screens people reach, which "
-    "answers are common. No cookies, no analytics script, no id, nothing that identifies you, "
-    "and a pause switch on every screen. [What is sent, and why a vault doing it at all is "
-    "unusual](/telemetry/index.html).")
+    "*What Can It Do?* counts usage anonymously while you play — which screens people reach, "
+    "which answers are common. No cookies, no analytics script, no id, nothing that identifies "
+    "you, and a pause switch on every screen. *Which Agent Is It?* and the games vault's home "
+    "page send nothing (since 9 September 2026). [What is sent, and why a vault doing it at "
+    "all is unusual](/telemetry/index.html).")
 
 
 def versions_table():
@@ -251,8 +269,8 @@ PAGES = {
           f"is the narrower one — [why a game gets it out of you at all]"
           f"(method/grant-vs-mandate.html)."),
     ("h2", "Play the first one"),
-    ("embed", {"vault": VAULT, "readkey": READKEY, "open_url": VAULT_UI, "breakout": True,
-               "label": "What Can It Do?, running out of the vault"}),
+    ("embed", {"vault": WCID_VAULT, "readkey": WCID_READKEY, "open_url": WCID_UI, "breakout": True,
+               "label": "What Can It Do?, running out of its vault"}),
     ("p", f"That is the real game, running out of the encrypted vault it is published in — no "
           f"copy of it exists on this site. It has its own player-facing home at "
           f"[what-can-it-do.games.sgit.ai]({PLAYER_SITE}), which is the link to send someone "
@@ -313,31 +331,34 @@ PAGES = {
   "blocks": [
     ("crumb", "[Home](index.html) / The catalogue"),
     ("h1", "The catalogue"),
-    ("lead", "Three things in one vault, at three different stages. Nothing here is finished, "
+    ("lead", "Three things in two vaults, at three different stages. Nothing here is finished, "
              "and the rung on each card says how far off it is."),
     ("table",
      ["What", "Rung", "What it measures", "Where"],
      [["[What Can It Do?](games/what-can-it-do.html)", "{{rung:scored}}",
        "Whether you can predict what your agent can do — scored for calibration, in both "
        "directions",
-       f"[play]({PLAYER_SITE})"],
+       f"[play]({PLAYER_SITE}) · [open]({WCID_UI})"],
       ["[Which Agent Is It?](games/which-agent-is-it.html)", "{{rung:playable}}",
        "Whether a handful of cheap questions can identify an agent, and how wrong your picture "
        "of its reach was",
        f"[open]({VAULT_UI})"],
       ["[Ideas & feedback](games/ideas.html)", "{{rung:answered}}",
        "Not a game — the reply channel: what players argue with, and the position taken on it",
-       f"[open]({VAULT_UI})"]]),
-    ("h2", "All three are one vault"),
-    ("p", f"Vault `{VAULT}`, published under the name *Two games about what your agent can "
-          f"do*, at **v0.16.1** — 81 files across 28 releases at the time this page was "
-          f"written. The vault auto-opens the scoreboard; a menu on every page reaches the "
-          f"other two and the release history."),
-    ("p", "Publishing them as one vault rather than three sites is deliberate: they share a "
-          "data snapshot, the same nine public profiles, and the same telemetry lane, and a "
-          "player who finishes the floor plan is handed straight to the scoreboard with the "
-          "matched profile already filled in. Splitting them would break that handover and "
-          "give three copies of the data to drift apart."),
+       f"[open]({WCID_UI})"]]),
+    ("h2", "Two vaults, one lock"),
+    ("p", f"Until 9 September 2026 all three shipped in one vault, `{VAULT}`, *Two games about "
+          f"what your agent can do*. That day v0.25.0 was locked there on branch "
+          f"`release-2026-09-09`, and *What Can It Do?* moved to a vault of its own, `{WCID_VAULT}` "
+          f"(v1.0.0), taking the reply channel and the telemetry lane with it. It no longer "
+          f"carries a copy of its data: it reads [the pack]({PLAYER_SITE}/data/index.html) from "
+          f"the player site on every load, and its footer names the version and hash it read."),
+    ("p", f"`{VAULT}` keeps the home page and *Which Agent Is It?*, at v0.26.0 with every "
+          f"permission removed and nothing sent, and stays the vault for the next experiments. "
+          f"What the split cost: the floor plan used to hand its matched profile to the "
+          f"scoreboard through the host's state, and that does not cross a vault boundary — "
+          f"the scoreboard asks you to name the agent again. The 9 September version, handover "
+          f"and all, is on the locked branch."),
     ("note", KEY_NOTE),
     ("p", f"**Where the data lives now:** the profiles, primitives, reductions and ceiling the "
           f"games run on moved out of the vault into the player site's repository as a data "
@@ -478,11 +499,13 @@ PAGES = {
           "to narrow the belief column — to work out *which* agent you are thinking of — and "
           "keeping it out of the score is the honest thing to do: you should not lose points "
           "for a question asked to help the game, not to test you."),
-    ("h2", "It hands you to the scoreboard"),
-    ("p", f"The reveal screen links into [What Can It Do?](games/what-can-it-do.html) with the "
-          f"matched profile already handed over, so the second game starts where the first "
-          f"ended rather than asking you to name your agent again. It is the reason the two "
-          f"ship in one vault."),
+    ("h2", "It used to hand you to the scoreboard"),
+    ("p", f"Until 9 September 2026 the reveal screen linked into [What Can It Do?]"
+          f"(games/what-can-it-do.html) with the matched profile already handed over, through "
+          f"the vault host's state — the reason the two shipped in one vault. The scoreboard now "
+          f"lives in a vault of its own, and host state does not cross that boundary, so the "
+          f"reveal links to it and it asks you to name the agent again. The version with the "
+          f"handover is locked on branch `release-2026-09-09` of the games vault."),
     ("p", "**Rung: `playable`.** It scores, and its engine is self-tested against a reference, "
           "but it has had far less play than the scoreboard and its reveal has not been "
           "reworked since the scoreboard's results page was. "
@@ -499,7 +522,8 @@ PAGES = {
     ("crumb", "[Home](index.html) / [Games](games/index.html) / Ideas & feedback"),
     ("h1", "The reply channel — and why it is a graph"),
     ("lead", "A game that collects disagreement and never answers it is a survey. The thing "
-             "that turns these games into a conversation is the third app in the vault: what "
+             "that turns these games into a conversation is the third app in *What Can It "
+             "Do?*'s vault: what "
              "players argue with, turned into ideas, grouped into themes, and answered with a "
              "position that is published rather than filed."),
     ("h2", "The answer comes back to where the argument happened"),
@@ -866,7 +890,7 @@ PAGES = {
     ("h2", "2 — The folder-manifest trap"),
     ("p", "This one is worth the whole page. **A folder-level `app.json` replaces the root one "
           "wholesale — nothing is inherited.**"),
-    ("p", "The games vault declares `permissions.network` at the root, because the vault host's "
+    ("p", "The *What Can It Do?* vault declares `permissions.network` at the root, because the vault host's "
           "app frame ships a `connect-src blob: data:` content-security policy and a direct "
           "`fetch` to any API is blocked without it. That worked when the vault opened at its "
           "root. Opening a game *by its own path*, or reaching it from the vault's home page, "
@@ -920,7 +944,8 @@ PAGES = {
 # ---------------------------------------------------------------------------
 "telemetry/index.html": {
   "title": "What our games send",
-  "description": "The games send anonymous usage events over two write-only append lanes. "
+  "description": "What Can It Do? sends anonymous usage events over two write-only append lanes; "
+                 "Which Agent Is It? sends nothing. "
                  "What is in an event, what is deliberately absent, what it proves, and how to "
                  "stop it.",
   "blocks": [
@@ -929,9 +954,17 @@ PAGES = {
     ("disclose", DISCLOSE),
     ("h2", "The default this breaks — and the one it does not"),
     ("p", "Opening a vault does not normally send anything anywhere. That is the platform "
-          "default and every other vault this family publishes honours it. These games do not, "
-          "which is why the fact is stated wherever the games appear rather than left to a "
-          "privacy page nobody opens."),
+          "default and every other vault this family publishes honours it — including, since "
+          "9 September 2026 (v0.26.0), the games vault that holds *Which Agent Is It?*, which "
+          "sends nothing and asks for no permissions. *What Can It Do?*, in its own vault, does "
+          "send, which is why the fact is stated wherever that game appears rather than left to "
+          "a privacy page nobody opens."),
+    ("p", "**Browser signals are off.** From v0.21.0 to v0.25.0 the sender could also carry three "
+          "browser fingerprints and a country, region and connection type from an IP lookup, "
+          "behind a `signals` switch that shipped on. The game's own vault ships that switch "
+          "**off** since v1.0.0 (9 September 2026); the vault's `telemetry/index.html` and its "
+          "`what-we-know/` page say so, and the locked branch is the record of what shipped "
+          "before."),
     ("p", "**It is worth being proportionate about the size of this.** What leaves is a count "
           "of how far people got and which answers are common. There is no cookie, no "
           "analytics script, no account, no id, no fingerprint, no URL and no referrer — which "
@@ -974,10 +1007,11 @@ PAGES = {
     ("p", "What comes back out of it is [the ideas graph](games/ideas.html): paraphrased, "
           "keyed to the question rather than to the person, naming nobody."),
     ("h2", "How to stop it"),
-    ("p", "Every page in the vault carries a **pause switch** next to the notice, and it works "
-          "before the first question. `telemetry.html` inside the vault is the authoritative "
-          "statement — it is reachable from every screen and it is more detailed than this "
-          "page. This page exists so that a reader who never opens the vault still gets told."),
+    ("p", "Every page in the game's vault carries a **pause switch** next to the notice, and it "
+          "works before the first question. `telemetry/index.html` inside that vault is the "
+          "authoritative statement — it is reachable from every screen and it is more detailed "
+          "than this page. This page exists so that a reader who never opens the vault still "
+          "gets told."),
     ("p", "This site itself sends nothing. It is static files on GitHub Pages with no analytics "
           "and no server to receive anything — the only thing that sends is the game, in its "
           "frame, on its own lanes."),
@@ -1090,8 +1124,9 @@ PAGES = {
     ("lead", "The version badge in the nav links here. It bumps on every push to `dev`, and CI "
              "refuses a release whose `version.txt` and commit subject disagree."),
     ("raw", versions_table()),
-    ("p", "The games have their own release history, in the vault and independent of this "
-          f"site's: `version.html` inside vault `{VAULT}`, 28 releases at v0.16.1. This table "
+    ("p", "The games have their own release histories, in their vaults and independent of this "
+          f"site's: `version.html` inside `{WCID_VAULT}` (*What Can It Do?*, 42 releases at v1.0.0) "
+          f"and inside `{VAULT}` (the games vault, at v0.26.0), as of 9 September 2026. This table "
           f"tracks the site that describes them."),
   ]},
 }

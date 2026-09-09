@@ -2,7 +2,7 @@
 
 > Why this family builds games: a game is the only artefact that makes somebody state a belief before they are told the answer. The catalogue, the method, and how to build one as a vault.
 
-*Source: <https://games.sgit.ai/index.html> · site v0.3.3 · this file is generated from the same content
+*Source: <https://games.sgit.ai/index.html> · site v0.4.0 · this file is generated from the same content
 as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links
 below point at them.*
 
@@ -24,7 +24,7 @@ What happens to a delta once you have one is RiskMandate's answer rather than th
 
 ## Play the first one
 
-*[A live vault surface here in the HTML page — the game running out of vault `4evnlwrj`. In this markdown twin, [open it in the vault UI](https://dev.vault.sgraph.ai/#f94c8b1d42352d95703ac3d39032735d9b4e388d16ab5b87c948928d8e111118%3A4evnlwrj).]*
+*[A live vault surface here in the HTML page — the game running out of vault `pg87npy3`. In this markdown twin, [open it in the vault UI](https://dev.vault.sgraph.ai/#cf04d8a9bac6185dcb71e9c6f19ae13238b6434780324b1873504f2d6f7b505f%3Apg87npy3).]*
 
 That is the real game, running out of the encrypted vault it is published in — no copy of it exists on this site. It has its own player-facing home at [what-can-it-do.games.sgit.ai](https://what-can-it-do.games.sgit.ai), which is the link to send someone who just wants to play. This page is for the reader who wants to know why it exists.
 
@@ -50,9 +50,9 @@ Games arrive half-built and stay that way for a while, and a catalogue that hide
 - **That the points mean anything yet.** The values and cut-points are arbitrary until there is enough play data to fit them. That is stated inside the game too.
 - **That the mandate is a mandate.** It is what one person said while playing, badged in the game itself as *a draft you wrote while playing*.
 
-> Everything on this site is checkable, because the games are published as a vault rather than described. **Open it yourself.** Read key `f94c8b1d4235…111118:4evnlwrj` — the full string is on [the vault's page at sgit.ai](https://sgit.ai/demos/vaults/agent-permission-games/). [Open it read-only in a new tab](https://dev.vault.sgraph.ai/#f94c8b1d42352d95703ac3d39032735d9b4e388d16ab5b87c948928d8e111118%3A4evnlwrj), or clone it with `sgit clone`. It is a read key: it cannot write, which is what makes publishing it safe.
+> Everything on this site is checkable, because the games are published as a vault rather than described. **Open them yourself.** Two vaults since 9 September 2026. *What Can It Do?*: read key `cf04d8a9bac6…7b505f:pg87npy3` — [open it read-only in a new tab](https://dev.vault.sgraph.ai/#cf04d8a9bac6185dcb71e9c6f19ae13238b6434780324b1873504f2d6f7b505f%3Apg87npy3). The games vault, with *Which Agent Is It?* and the 9 September version of both on branch `release-2026-09-09`: `f94c8b1d4235…111118:4evnlwrj` — [open it](https://dev.vault.sgraph.ai/#f94c8b1d42352d95703ac3d39032735d9b4e388d16ab5b87c948928d8e111118%3A4evnlwrj); the full string is on [its page at sgit.ai](https://sgit.ai/demos/vaults/agent-permission-games/). Both are read keys: they cannot write, which is what makes publishing them safe.
 
-> The games count usage anonymously while you play — which screens people reach, which answers are common. No cookies, no analytics script, no id, nothing that identifies you, and a pause switch on every screen. [What is sent, and why a vault doing it at all is unusual](telemetry/index.md).
+> *What Can It Do?* counts usage anonymously while you play — which screens people reach, which answers are common. No cookies, no analytics script, no id, nothing that identifies you, and a pause switch on every screen. *Which Agent Is It?* and the games vault's home page send nothing (since 9 September 2026). [What is sent, and why a vault doing it at all is unusual](telemetry/index.md).
 
 ---
 

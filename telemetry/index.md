@@ -1,8 +1,8 @@
 # What our games send
 
-> The games send anonymous usage events over two write-only append lanes. What is in an event, what is deliberately absent, what it proves, and how to stop it.
+> What Can It Do? sends anonymous usage events over two write-only append lanes; Which Agent Is It? sends nothing. What is in an event, what is deliberately absent, what it proves, and how to stop it.
 
-*Source: <https://games.sgit.ai/telemetry/index.html> · site v0.3.3 · this file is generated from the same content
+*Source: <https://games.sgit.ai/telemetry/index.html> · site v0.4.0 · this file is generated from the same content
 as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links
 below point at them.*
 
@@ -12,11 +12,13 @@ below point at them.*
 
 # What our games send
 
-> The games count usage anonymously while you play — which screens people reach, which answers are common. No cookies, no analytics script, no id, nothing that identifies you, and a pause switch on every screen. [What is sent, and why a vault doing it at all is unusual](../telemetry/index.md).
+> *What Can It Do?* counts usage anonymously while you play — which screens people reach, which answers are common. No cookies, no analytics script, no id, nothing that identifies you, and a pause switch on every screen. *Which Agent Is It?* and the games vault's home page send nothing (since 9 September 2026). [What is sent, and why a vault doing it at all is unusual](../telemetry/index.md).
 
 ## The default this breaks — and the one it does not
 
-Opening a vault does not normally send anything anywhere. That is the platform default and every other vault this family publishes honours it. These games do not, which is why the fact is stated wherever the games appear rather than left to a privacy page nobody opens.
+Opening a vault does not normally send anything anywhere. That is the platform default and every other vault this family publishes honours it — including, since 9 September 2026 (v0.26.0), the games vault that holds *Which Agent Is It?*, which sends nothing and asks for no permissions. *What Can It Do?*, in its own vault, does send, which is why the fact is stated wherever that game appears rather than left to a privacy page nobody opens.
+
+**Browser signals are off.** From v0.21.0 to v0.25.0 the sender could also carry three browser fingerprints and a country, region and connection type from an IP lookup, behind a `signals` switch that shipped on. The game's own vault ships that switch **off** since v1.0.0 (9 September 2026); the vault's `telemetry/index.html` and its `what-we-know/` page say so, and the locked branch is the record of what shipped before.
 
 **It is worth being proportionate about the size of this.** What leaves is a count of how far people got and which answers are common. There is no cookie, no analytics script, no account, no id, no fingerprint, no URL and no referrer — which is **less than a default web-server access log**, and considerably less than the analytics running on almost every site a reader will visit today. The reason it is disclosed at all is not that it is invasive; it is that a vault sending anything is a departure from a platform promise, and departures get stated.
 
@@ -50,7 +52,7 @@ What comes back out of it is [the ideas graph](../games/ideas.md): paraphrased, 
 
 ## How to stop it
 
-Every page in the vault carries a **pause switch** next to the notice, and it works before the first question. `telemetry.html` inside the vault is the authoritative statement — it is reachable from every screen and it is more detailed than this page. This page exists so that a reader who never opens the vault still gets told.
+Every page in the game's vault carries a **pause switch** next to the notice, and it works before the first question. `telemetry/index.html` inside that vault is the authoritative statement — it is reachable from every screen and it is more detailed than this page. This page exists so that a reader who never opens the vault still gets told.
 
 This site itself sends nothing. It is static files on GitHub Pages with no analytics and no server to receive anything — the only thing that sends is the game, in its frame, on its own lanes.
 

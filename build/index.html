@@ -23,7 +23,7 @@
   <a class="brand" href="../index.html">games<span>.sgit.ai</span></a>
   <a class="parent" href="https://sgit.ai" title="sgit.ai — the parent project: the vault layer the games ship in">↗ part of <b>sgit.ai</b></a>
   <span class="stage-pill">research site</span>
-  <a class="ver" href="../admin/versions.html" title="Site release history">v0.3.3</a>
+  <a class="ver" href="../admin/versions.html" title="Site release history">v0.4.0</a>
   <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Menu">Menu</button>
   <div class="nav-items">
     <div class="ni ni-has">
@@ -74,7 +74,7 @@
   <ul><li>One <code>index.html</code> with CSS and JS <b>inlined</b>. No <code>&lt;link href&gt;</code>, <code>&lt;script src&gt;</code> or <code>&lt;img src&gt;</code> pointing at vault paths — those resolve against an opaque origin and 404.</li><li>Content read over the bridge with <code>sg.vfs.readText</code>, with an inlined fallback so the page still renders outside a vault host.</li><li>Generative SVG rather than image files, where you can. It keeps the vault small and it survives the no-<code>&lt;img src&gt;</code> rule without an interceptor.</li><li>Post <code>sg-app-ready</code> when you have rendered, so the host can drop its loading state.</li></ul>
   <h2 id="2-the-folder-manifest-trap">2 — The folder-manifest trap</h2>
   <p>This one is worth the whole page. <b>A folder-level <code>app.json</code> replaces the root one wholesale — nothing is inherited.</b></p>
-  <p>The games vault declares <code>permissions.network</code> at the root, because the vault host's app frame ships a <code>connect-src blob: data:</code> content-security policy and a direct <code>fetch</code> to any API is blocked without it. That worked when the vault opened at its root. Opening a game <em>by its own path</em>, or reaching it from the vault's home page, resolved that folder's manifest instead — which had no <code>permissions</code> key — and the frame silently kept the restrictive CSP. Telemetry failed with <em>"Load failed"</em>, the bridge fallback answered <em>"Permission denied"</em>, and nothing said why.</p>
+  <p>The <em>What Can It Do?</em> vault declares <code>permissions.network</code> at the root, because the vault host's app frame ships a <code>connect-src blob: data:</code> content-security policy and a direct <code>fetch</code> to any API is blocked without it. That worked when the vault opened at its root. Opening a game <em>by its own path</em>, or reaching it from the vault's home page, resolved that folder's manifest instead — which had no <code>permissions</code> key — and the frame silently kept the restrictive CSP. Telemetry failed with <em>"Load failed"</em>, the bridge fallback answered <em>"Permission denied"</em>, and nothing said why.</p>
   <p>It took releases v0.12.1 through v0.12.5 to find, across two wrong theories. The fix is one line per folder: <b>every folder that can be opened as an app carries the same grants as the root.</b> Two related things the same investigation settled — a release pin makes <code>app.json</code> come from the pinned commit rather than HEAD, and the append checker only ever watches the <em>open</em> vault's own lane, so a <code>new-messages</code> grant on a vault that has no lane will never fire whatever you declare.</p>
   <h2 id="3-if-it-phones-home-one-credential-shape-survives">3 — If it phones home, one credential shape survives</h2>
   <p>A vault published with a read key is a vault whose entire contents are public. So a game that sends anything must carry a credential that is safe to publish, and there is exactly one shape that qualifies: a <b>write-only append token</b>, blind, whose answer is <code>{"ok":true}</code> and nothing else. It cannot read, list or decrypt anything, including what it wrote.</p>
@@ -94,7 +94,7 @@
     <p>Why this family builds games, and the games it has. Each one ships as an encrypted vault you can open, clone and argue with — <a href="../maturity/index.html" style="display:inline;padding:0">every one carries a maturity label with a test behind it</a>.</p>
     <p class="netline"><a href="https://riskmandate.ai"><b>↗ RiskMandate.ai</b></a> — the business risk layer these games are part of · <a href="https://sgit.ai">↗ sgit.ai</a> — the vault layer the games ship in · <a href="https://pki.sgit.ai">↗ pki.sgit.ai</a> — the mesh and the profiles the questions come from · <a href="https://what-can-it-do.games.sgit.ai">↗ what-can-it-do.games.sgit.ai</a> — play the first game · <a href="https://sgit.ai/network/index.html">↗ the network</a></p>
     <p class="partnote">The games count usage anonymously while you play — no cookies, no analytics script, nothing that identifies you. <a href="../telemetry/index.html" style="display:inline;padding:0">What is sent, and how to stop it</a>.</p>
-    <p class="verline">site <a href="../admin/versions.html">v0.3.3</a> · <a href="../admin/index.html">engineering</a> · <a href="../llms.txt">llms.txt</a> · CC BY 4.0 · <a href="../build/index.md">this page as markdown</a></p>
+    <p class="verline">site <a href="../admin/versions.html">v0.4.0</a> · <a href="../admin/index.html">engineering</a> · <a href="../llms.txt">llms.txt</a> · CC BY 4.0 · <a href="../build/index.md">this page as markdown</a></p>
   </div>
   <div>
     <h4>Play</h4>
