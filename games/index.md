@@ -2,7 +2,7 @@
 
 > Every game this family has published, with a maturity rung that has a test behind it, and the vault each one ships in.
 
-*Source: <https://games.sgit.ai/games/index.html> · site v0.4.1 · this file is generated from the same content
+*Source: <https://games.sgit.ai/games/index.html> · site v0.5.0 · this file is generated from the same content
 as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links
 below point at them.*
 
@@ -19,6 +19,8 @@ Three things in two vaults, at three different stages. Nothing here is finished,
 | [What Can It Do?](../games/what-can-it-do.md) | `scored` | Whether you can predict what your agent can do — scored for calibration, in both directions | [play](https://what-can-it-do.games.sgit.ai) · [open](https://dev.vault.sgraph.ai/#cf04d8a9bac6185dcb71e9c6f19ae13238b6434780324b1873504f2d6f7b505f%3Apg87npy3) |
 | [Which Agent Is It?](../games/which-agent-is-it.md) | `playable` | Whether a handful of cheap questions can identify an agent, and how wrong your picture of its reach was | [open](https://dev.vault.sgraph.ai/#f94c8b1d42352d95703ac3d39032735d9b4e388d16ab5b87c948928d8e111118%3A4evnlwrj) |
 | [Ideas & feedback](../games/ideas.md) | `answered` | Not a game — the reply channel: what players argue with, and the position taken on it | [open](https://dev.vault.sgraph.ai/#cf04d8a9bac6185dcb71e9c6f19ae13238b6434780324b1873504f2d6f7b505f%3Apg87npy3) |
+| [The map — view, browse, propose](https://what-can-it-do.games.sgit.ai/map/contribute/index.html) | `playable` | Not a game — the pack's two matrices drawn live, and a way to propose a change to any row without a GitHub account: one sealed record over a write-only lane, which a drain on the player site turns into a pull request | [open](https://dev.vault.sgraph.ai/#3e1009cc489f07e9b1ffa9ff08087a5ff23f60367451708860ecde9439128816%3Amxhepww5) |
+| [The Mavs PoC](https://what-can-it-do.games.sgit.ai/packs/mavs/index.html) | `sketch` | The same scoreboard on a different pack — how Mavs AI works, in the map's own terms: four surfaces, with Mavs in the path and direct. A draft, every row derived from mavsai.ai and pending their input | [open](https://dev.vault.sgraph.ai/#d7f6ae52196e96c532210b7d8a9743a2ed544749fe0677d337c4ef704430e155%3A0833bu5a) |
 
 ## Two vaults, one lock
 

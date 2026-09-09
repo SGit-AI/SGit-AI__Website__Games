@@ -33,6 +33,14 @@ VAULT_UI = f"https://dev.vault.sgraph.ai/#{READKEY}%3A{VAULT}"
 WCID_VAULT = "pg87npy3"
 WCID_READKEY = "cf04d8a9bac6185dcb71e9c6f19ae13238b6434780324b1873504f2d6f7b505f"
 WCID_UI = f"https://dev.vault.sgraph.ai/#{WCID_READKEY}%3A{WCID_VAULT}"
+# Two more vaults, 9 September 2026: the map (view, browse, propose a change to any row without a
+# GitHub account) and the Mavs PoC (the same game on a draft pack that describes how Mavs works).
+MAP_VAULT = "mxhepww5"
+MAP_READKEY = "3e1009cc489f07e9b1ffa9ff08087a5ff23f60367451708860ecde9439128816"
+MAP_UI = f"https://dev.vault.sgraph.ai/#{MAP_READKEY}%3A{MAP_VAULT}"
+MAVS_VAULT = "0833bu5a"
+MAVS_READKEY = "d7f6ae52196e96c532210b7d8a9743a2ed544749fe0677d337c4ef704430e155"
+MAVS_UI = f"https://dev.vault.sgraph.ai/#{MAVS_READKEY}%3A{MAVS_VAULT}"
 PLAYER_SITE = "https://what-can-it-do.games.sgit.ai"
 
 # RiskMandate — the project these games are part of, and the layer that starts where they
@@ -135,6 +143,12 @@ FOOTER = [
 ]
 
 VERSION_LOG = [
+    ("v0.5.0", "2026-09-09",
+     "Two entries in the catalogue. The map vault (mxhepww5): the pack's two matrices drawn live and a "
+     "proposal form on every row, for a reader without a GitHub account. The Mavs PoC (0833bu5a): the same "
+     "scoreboard on a draft pack that describes how Mavs AI works, four surfaces with and without Mavs in "
+     "the path — a sketch, every row derived from mavsai.ai and pending their input. Both read keys in the "
+     "tripwire's allow-list."),
     ("v0.4.1", "2026-09-09",
      "The telemetry page names where the disclosure now lives: the what-we-know page became a screen "
      "inside What Can It Do? (its vault v1.2.0), and that vault's top bar no longer links to the "
@@ -349,7 +363,16 @@ PAGES = {
        f"[open]({VAULT_UI})"],
       ["[Ideas & feedback](games/ideas.html)", "{{rung:answered}}",
        "Not a game — the reply channel: what players argue with, and the position taken on it",
-       f"[open]({WCID_UI})"]]),
+       f"[open]({WCID_UI})"],
+      [f"[The map — view, browse, propose]({PLAYER_SITE}/map/contribute/index.html)", "{{rung:playable}}",
+       "Not a game — the pack's two matrices drawn live, and a way to propose a change to any row without "
+       "a GitHub account: one sealed record over a write-only lane, which a drain on the player site turns "
+       "into a pull request",
+       f"[open]({MAP_UI})"],
+      [f"[The Mavs PoC]({PLAYER_SITE}/packs/mavs/index.html)", "{{rung:sketch}}",
+       "The same scoreboard on a different pack — how Mavs AI works, in the map's own terms: four surfaces, "
+       "with Mavs in the path and direct. A draft, every row derived from mavsai.ai and pending their input",
+       f"[open]({MAVS_UI})"]]),
     ("h2", "Two vaults, one lock"),
     ("p", f"Until 9 September 2026 all three shipped in one vault, `{VAULT}`, *Two games about "
           f"what your agent can do*. That day v0.25.0 was locked there on branch "

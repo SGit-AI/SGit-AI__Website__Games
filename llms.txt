@@ -2,7 +2,7 @@
 
 > A game is the only artefact that makes somebody state a belief before they are told the answer.
 
-Site version: v0.4.1
+Site version: v0.5.0
 
 Every page below has a markdown twin generated from the same content as the
 HTML page. Fetch the `.md` and you have the page, without the chrome.
@@ -28,6 +28,7 @@ HTML page. Fetch the `.md` and you have the page, without the chrome.
 
 ## Release history
 
+- v0.5.0 (2026-09-09) — Two entries in the catalogue. The map vault (mxhepww5): the pack's two matrices drawn live and a proposal form on every row, for a reader without a GitHub account. The Mavs PoC (0833bu5a): the same scoreboard on a draft pack that describes how Mavs AI works, four surfaces with and without Mavs in the path — a sketch, every row derived from mavsai.ai and pending their input. Both read keys in the tripwire's allow-list.
 - v0.4.1 (2026-09-09) — The telemetry page names where the disclosure now lives: the what-we-know page became a screen inside What Can It Do? (its vault v1.2.0), and that vault's top bar no longer links to the other game. A copy fix, nothing structural.
 - v0.4.0 (2026-09-09) — Two vaults. What Can It Do? now runs out of its own vault (pg87npy3, v1.0.0), reading the public pack from the player site on every load; the home page and the catalogue embed and link to it. The games vault 4evnlwrj keeps Which Agent Is It? and the home page at v0.26.0 with every permission removed and nothing sent, and holds the 9 September version of both games on branch release-2026-09-09. The telemetry page says which vault sends and that browser signals ship off; the floor-plan page says the profile handover did not survive the split, and where the version with it is.
 - v0.3.3 (2026-09-09) — The vault-split plan moves to the repository it is about — what-can-it-do.games.sgit.ai, under briefs/ — and leaves here. One copy, in the place a reader of that game would look.
