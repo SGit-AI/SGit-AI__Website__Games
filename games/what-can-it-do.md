@@ -2,7 +2,7 @@
 
 > The scoreboard game: 40 questions, five levels, scored with a proper scoring rule so that saying yes to everything loses. 17 of the 40 are things no agent can do.
 
-*Source: <https://games.sgit.ai/games/what-can-it-do.html> · site v0.3.0 · this file is generated from the same content
+*Source: <https://games.sgit.ai/games/what-can-it-do.html> · site v0.3.1 · this file is generated from the same content
 as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links
 below point at them.*
 
@@ -15,6 +15,8 @@ below point at them.*
 You name the agent and where you run it. The board then asks, capability by capability, two questions back to back: **can it?** and **do you want it to?** The first is scored. The second quietly assembles a mandate.
 
 [Play it at what-can-it-do.games.sgit.ai](https://what-can-it-do.games.sgit.ai) — that is the player-facing site, and the link to send to somebody who just wants to play. This page is about how it works and what it is measuring.
+
+The claims every question rests on are public and arguable: [the map](https://what-can-it-do.games.sgit.ai/map/index.html) is 23 capabilities against 9 products, with the evidence tier and the control on every row, generated from a data pack a pull request can change. [The mandates and their deltas](https://what-can-it-do.games.sgit.ai/map/deltas/index.html) are drawn from the same pack.
 
 ## Three marks, kept apart everywhere
 

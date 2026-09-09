@@ -128,6 +128,12 @@ FOOTER = [
 ]
 
 VERSION_LOG = [
+    ("v0.3.1", "2026-09-09",
+     "Points at the map. The claims each question rests on — what each product can reach, "
+     "tool by tool, with the evidence behind every row — now live on the player site as a data "
+     "pack that a pull request can change, with a grants matrix, a page per product and per "
+     "capability, and eight starting mandates drawn against their profiles as deltas. This "
+     "site's pages for the game and the catalogue link across; the method pages are unchanged."),
     ("v0.3.0", "2026-09-09",
      "This site goes back to being the generic one. It points at the games; the material "
      "specific to any single game belongs with that game. So the Licence to Operate embed and "
@@ -319,6 +325,10 @@ PAGES = {
           "matched profile already filled in. Splitting them would break that handover and "
           "give three copies of the data to drift apart."),
     ("note", KEY_NOTE),
+    ("p", f"**Where the data lives now:** the profiles, primitives, reductions and ceiling the "
+          f"games run on moved out of the vault into the player site's repository as a data "
+          f"pack — [the map]({PLAYER_SITE}/map/index.html) — so that a pull request can change "
+          f"them. The vault still vendors a snapshot; the pack is the canonical copy."),
     ("h2", "What is in the vault besides the games"),
     ("ul", [
       "`what-can-it-do/source/` and `which-agent-is-it/source/` — each game's readable source: "
@@ -364,6 +374,11 @@ PAGES = {
     ("p", f"[Play it at what-can-it-do.games.sgit.ai]({PLAYER_SITE}) — that is the "
           f"player-facing site, and the link to send to somebody who just wants to play. This "
           f"page is about how it works and what it is measuring."),
+    ("p", f"The claims every question rests on are public and arguable: "
+          f"[the map]({PLAYER_SITE}/map/index.html) is 23 capabilities against 9 products, "
+          f"with the evidence tier and the control on every row, generated from a data pack a "
+          f"pull request can change. [The mandates and their deltas]"
+          f"({PLAYER_SITE}/map/deltas/index.html) are drawn from the same pack."),
     ("h2", "Three marks, kept apart everywhere"),
     ("p", "The design decision the whole game rests on is that three different things are "
           "never drawn the same way: **your ink** (what you said), **the board's stamp** (what "

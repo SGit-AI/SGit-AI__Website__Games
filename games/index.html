@@ -23,7 +23,7 @@
   <a class="brand" href="../index.html">games<span>.sgit.ai</span></a>
   <a class="parent" href="https://sgit.ai" title="sgit.ai — the parent project: the vault layer the games ship in">↗ part of <b>sgit.ai</b></a>
   <span class="stage-pill">research site</span>
-  <a class="ver" href="../admin/versions.html" title="Site release history">v0.3.0</a>
+  <a class="ver" href="../admin/versions.html" title="Site release history">v0.3.1</a>
   <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Menu">Menu</button>
   <div class="nav-items">
     <div class="ni ni-has">
@@ -75,6 +75,7 @@
   <p>Vault <code>4evnlwrj</code>, published under the name <em>Two games about what your agent can do</em>, at <b>v0.16.1</b> — 81 files across 28 releases at the time this page was written. The vault auto-opens the scoreboard; a menu on every page reaches the other two and the release history.</p>
   <p>Publishing them as one vault rather than three sites is deliberate: they share a data snapshot, the same nine public profiles, and the same telemetry lane, and a player who finishes the floor plan is handed straight to the scoreboard with the matched profile already filled in. Splitting them would break that handover and give three copies of the data to drift apart.</p>
   <div class="note"><b>Open it yourself.</b> Read key <code>f94c8b1d4235…111118:4evnlwrj</code> — the full string is on <a href="https://sgit.ai/demos/vaults/agent-permission-games/">the vault's page at sgit.ai</a>. <a href="https://dev.vault.sgraph.ai/#f94c8b1d42352d95703ac3d39032735d9b4e388d16ab5b87c948928d8e111118%3A4evnlwrj">Open it read-only in a new tab</a>, or clone it with <code>sgit clone</code>. It is a read key: it cannot write, which is what makes publishing it safe.</div>
+  <p><b>Where the data lives now:</b> the profiles, primitives, reductions and ceiling the games run on moved out of the vault into the player site's repository as a data pack — <a href="https://what-can-it-do.games.sgit.ai/map/index.html">the map</a> — so that a pull request can change them. The vault still vendors a snapshot; the pack is the canonical copy.</p>
   <h2 id="what-is-in-the-vault-besides-the-games">What is in the vault besides the games</h2>
   <ul><li><code>what-can-it-do/source/</code> and <code>which-agent-is-it/source/</code> — each game's readable source: the engine as an ES module, <code>selftest.json</code>, the vendored data snapshot, the build script, and a README carrying a rules table and a <em>does-not-prove</em> list.</li><li><code>telemetry.html</code>, <code>telemetry.js</code>, <code>telemetry.config.json</code> — what the games send and the two write-only lanes they send it on. <a href="../telemetry/index.html">Our page on it</a>.</li><li><code>ideas/</code> — the reply channel: <code>ontology.json</code>, <code>ideas.json</code>, <code>signals.json</code>, and the <code>graph.json</code> compiled from them.</li><li><code>version.json</code> and <code>version.html</code> — the badge on every page and the release history behind it.</li></ul>
   <h2 id="adjacent-and-deliberately-not-listed-above">Adjacent, and deliberately not listed above</h2>
@@ -89,7 +90,7 @@
     <p>Why this family builds games, and the games it has. Each one ships as an encrypted vault you can open, clone and argue with — <a href="../maturity/index.html" style="display:inline;padding:0">every one carries a maturity label with a test behind it</a>.</p>
     <p class="netline"><a href="https://riskmandate.ai"><b>↗ RiskMandate.ai</b></a> — the business risk layer these games are part of · <a href="https://sgit.ai">↗ sgit.ai</a> — the vault layer the games ship in · <a href="https://pki.sgit.ai">↗ pki.sgit.ai</a> — the mesh and the profiles the questions come from · <a href="https://what-can-it-do.games.sgit.ai">↗ what-can-it-do.games.sgit.ai</a> — play the first game · <a href="https://sgit.ai/network/index.html">↗ the network</a></p>
     <p class="partnote">The games count usage anonymously while you play — no cookies, no analytics script, nothing that identifies you. <a href="../telemetry/index.html" style="display:inline;padding:0">What is sent, and how to stop it</a>.</p>
-    <p class="verline">site <a href="../admin/versions.html">v0.3.0</a> · <a href="../admin/index.html">engineering</a> · <a href="../llms.txt">llms.txt</a> · CC BY 4.0 · <a href="../games/index.md">this page as markdown</a></p>
+    <p class="verline">site <a href="../admin/versions.html">v0.3.1</a> · <a href="../admin/index.html">engineering</a> · <a href="../llms.txt">llms.txt</a> · CC BY 4.0 · <a href="../games/index.md">this page as markdown</a></p>
   </div>
   <div>
     <h4>Play</h4>

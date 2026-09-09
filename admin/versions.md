@@ -2,7 +2,7 @@
 
 > Every release of games.sgit.ai. The site version bumps on every push to dev, and CI refuses a push whose commit subject and version.txt disagree.
 
-*Source: <https://games.sgit.ai/admin/versions.html> · site v0.3.0 · this file is generated from the same content
+*Source: <https://games.sgit.ai/admin/versions.html> · site v0.3.1 · this file is generated from the same content
 as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links
 below point at them.*
 

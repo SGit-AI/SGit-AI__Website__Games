@@ -2,7 +2,7 @@
 
 > A level is the number of hops from a capability to a one-way consequence, computed from the mesh — and the game says on the rail that it is distance, never a danger rating.
 
-*Source: <https://games.sgit.ai/method/levels.html> · site v0.3.0 · this file is generated from the same content
+*Source: <https://games.sgit.ai/method/levels.html> · site v0.3.1 · this file is generated from the same content
 as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links
 below point at them.*
 
