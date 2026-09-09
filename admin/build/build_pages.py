@@ -28,6 +28,26 @@ READKEY = "f94c8b1d42352d95703ac3d39032735d9b4e388d16ab5b87c948928d8e111118"
 VAULT_UI = f"https://dev.vault.sgraph.ai/#{READKEY}%3A{VAULT}"
 PLAYER_SITE = "https://what-can-it-do.games.sgit.ai"
 
+# RiskMandate — the project these games are part of, and the layer that starts where they
+# stop. The games get a person to state their half of the mandate; RiskMandate turns the gap
+# into a named owner and a time-bound decision. Deep links, so a nudge lands on the page that
+# answers the question the game just raised.
+RM = "https://riskmandate.ai"
+RM_GRANT = "https://riskmandate.ai/v0/v0.11/v0.11.0/index.html"
+RM_ACCEPT = "https://riskmandate.ai/v0/v0.10/v0.10.0/index.html"
+RM_SCENARIOS = "https://riskmandate.ai/scenarios.html"
+RM_HOW = "https://riskmandate.ai/how-it-works.html"
+RM_LIBRARY = "https://riskmandate.ai/library.html"
+
+# Licence to Operate — a published vault, read-only: one agent, a grant of 12 capabilities, a
+# mandate of 4, and the 8-capability delta no policy covers, with every reply priced against a
+# live policy. Not a game — no belief is stated before an answer — which is exactly why it
+# earns a place on the grant-vs-mandate page rather than in the catalogue.
+LTO_VAULT = "posrhzp3"
+LTO_READKEY = "d990a52efb9af32c8463e2962f3ca5ccf92b3b6e8ea788e55009073c29b4da29"
+LTO_UI = f"https://dev.vault.sgraph.ai/#{LTO_READKEY}%3A{LTO_VAULT}"
+LTO_PAGE = "https://sgit.ai/demos/vaults/licence-to-operate/index.html"
+
 SITE = {
     "host": "games.sgit.ai",
     "brand": ("games", ".sgit.ai"),
@@ -42,12 +62,15 @@ SITE = {
              'encrypted vault you can open, clone and argue with — '
              '<a href="{up}maturity/index.html" style="display:inline;padding:0">every one '
              'carries a maturity label with a test behind it</a>.',
-    "netline": ('<a href="https://sgit.ai"><b>↗ sgit.ai</b></a> — the vault layer the games '
+    "netline": ('<a href="https://riskmandate.ai"><b>↗ RiskMandate.ai</b></a> — the business '
+                'risk layer these games are part of · '
+                '<a href="https://sgit.ai">↗ sgit.ai</a> — the vault layer the games '
                 'ship in · <a href="https://pki.sgit.ai">↗ pki.sgit.ai</a> — the mesh and '
                 'the profiles the questions come from · '
                 f'<a href="{PLAYER_SITE}">↗ what-can-it-do.games.sgit.ai</a> — play the first '
                 'game · <a href="https://sgit.ai/network/index.html">↗ the network</a>'),
-    "telemetry_note": '⚠ The games on this site send anonymous usage events while you play. '
+    "telemetry_note": 'The games count usage anonymously while you play — no cookies, no '
+                      'analytics script, nothing that identifies you. '
                       '<a href="{up}telemetry/index.html" style="display:inline;padding:0">'
                       'What is sent, and how to stop it</a>.',
 }
@@ -105,6 +128,32 @@ FOOTER = [
 ]
 
 VERSION_LOG = [
+    ("v0.2.0", "2026-09-09",
+     "These games are part of RiskMandate, and the site now says so and shows where the join "
+     "is. RiskMandate is the business risk layer for autonomous systems — it begins where "
+     "security stops, its unit is the mandate (the right to act, granted by a named owner, "
+     "scoped, time-bound rather than standing), and its signature mechanic is that a real risk "
+     "has no deny button: the agent already has the access, so it can only be accepted, in a "
+     "direction, for an interval, by somebody named, and underwritten upward. The games are "
+     "the front end of one part of that — the bit that gets a real person to state what they "
+     "wanted. Grant vs. mandate was rewritten around that model and now says plainly what is "
+     "NOT built: the mandate draft exports into nothing, and the handover is a person "
+     "retyping. Also embeds Licence to Operate, the published vault holding one agent's grant "
+     "of 12, mandate of 4 and the 8-capability delta no policy covers, with every reply priced "
+     "— the best worked example in this family, kept out of the catalogue because it is a "
+     "simulation rather than a game and blurring that would cost the site its one distinction."),
+    ("v0.1.1", "2026-09-09",
+     "The telemetry notice got proportionate. It was an amber warning panel, which was the "
+     "wrong size for what it says: anonymous counting with no cookies, no analytics script and "
+     "nothing that identifies anyone is LESS than a default web-server access log and far less "
+     "than the analytics on almost every site a reader will visit today. Dressing that as a "
+     "hazard implies a risk that is not there, and a page that over-warns about something "
+     "ordinary teaches people to skim the next notice. It is now one quiet line in the reading "
+     "column, still before the thing it describes and still enforced by the release gate. The "
+     "telemetry page states the comparison outright rather than leaving the reader to guess "
+     "the scale, and says why the notice exists at all: not because the counting is invasive, "
+     "but because a vault sending anything departs from a platform promise, and departures get "
+     "stated."),
     ("v0.1.0", "2026-09-08",
      "First publish. The argument (a game is the only artefact that makes somebody state a "
      "belief before they are told the answer), the catalogue with a five-rung maturity ladder "
@@ -122,12 +171,11 @@ KEY_NOTE = (f"**Open it yourself.** Read key `{READKEY[:12]}…{READKEY[-6:]}:{V
             f"[Open it read-only in a new tab]({VAULT_UI}), or clone it with `sgit clone`. "
             f"It is a read key: it cannot write, which is what makes publishing it safe.")
 
-DISCLOSE = ("**These games phone home, and you should know before you play.** Opening a vault "
-            "does not normally send anything anywhere — that is the platform default, and every "
-            "other vault this family publishes honours it. These send **anonymous usage events** "
-            "while you play: which screens you reach, the answers you give, your score. No name, "
-            "no id, no fingerprint, no URL, no referrer. Every page carries a notice and a pause "
-            "switch. [What is sent, exactly](/telemetry/index.html).")
+DISCLOSE = (
+    "The games count usage anonymously while you play — which screens people reach, which "
+    "answers are common. No cookies, no analytics script, no id, nothing that identifies you, "
+    "and a pause switch on every screen. [What is sent, and why a vault doing it at all is "
+    "unusual](/telemetry/index.html).")
 
 
 def versions_table():
@@ -161,12 +209,19 @@ PAGES = {
           "do X?** And, separately, **do you want it to?** Answer that forty times and you "
           "have written a draft mandate without meaning to, and the delta between what the "
           "agent can do and what you wanted it to do is the thing nobody has written down."),
-    ("p", "That delta is the [RiskMandate.ai](https://riskmandate.ai) idea — grant versus "
-          "mandate, and the exposure between them. A form would ask you for it and you would "
-          "not know. A game gets it out of you as a by-product of playing."),
+    ("p", f"That delta is the whole subject of [**RiskMandate**]({RM}) — *the business risk "
+          f"layer for autonomous systems* — which is the project these games are part of. "
+          f"RiskMandate governs the right to act: what an agent may do, granted by whom, for "
+          f"how long. A form would ask you for your half of that and you would answer "
+          f"aspirationally. A game gets it out of you as a by-product of playing."),
+    ("p", f"And its answer to what you do with a delta is the mechanic worth borrowing: "
+          f"[**there is no deny button**]({RM_ACCEPT}). The agent already has the access, so "
+          f"the risk cannot be denied — only accepted, in a direction, for an interval, by "
+          f"somebody named. [Where the two meet](method/grant-vs-mandate.html)."),
     ("h2", "Play the first one"),
     ("disclose", DISCLOSE),
-    ("embed", {"vault": VAULT, "readkey": READKEY, "open_url": VAULT_UI, "breakout": True}),
+    ("embed", {"vault": VAULT, "readkey": READKEY, "open_url": VAULT_UI, "breakout": True,
+               "label": "What Can It Do?, running out of the vault"}),
     ("p", f"That is the real game, running out of the encrypted vault it is published in — no "
           f"copy of it exists on this site. It has its own player-facing home at "
           f"[what-can-it-do.games.sgit.ai]({PLAYER_SITE}), which is the link to send someone "
@@ -261,6 +316,15 @@ PAGES = {
       "`version.json` and `version.html` — the badge on every page and the release history "
       "behind it.",
     ]),
+    ("h2", "Adjacent, and deliberately not listed above"),
+    ("p", f"**Licence to Operate** ([open it]({LTO_UI}) · [write-up]({LTO_PAGE})) is a published "
+          f"vault holding one agent's grant of 12 capabilities, its mandate of 4, and the "
+          f"8-capability delta no policy covers — with every reply priced against a live "
+          f"policy. It is the best demonstration in this family of what the games are pointing "
+          f"at, and it is **not a game**: it never makes you commit to a belief before showing "
+          f"you the answer. Listing it above would blur the one distinction this site is built "
+          f"on, so it lives on "
+          f"[the grant-vs-mandate page](method/grant-vs-mandate.html) instead, embedded."),
     ("h2", "Coming, and deliberately not built yet"),
     ("p", "The game authors' own *next* list is short and honest: fit the point values from "
           "play data, show a returning player their previous calibration, export the mandate "
@@ -642,17 +706,60 @@ PAGES = {
           "grant wrong — is drawn filled and loud. Hidden deltas are the ones worth acting on, "
           "and they are the ones a self-assessment questionnaire structurally cannot find, "
           "because it asks you about the things you already know about."),
-    ("h2", "Where this comes from, and where it goes"),
-    ("p", "This is the [RiskMandate.ai](https://riskmandate.ai) idea, arrived at from the "
-          "other end. The sgit.ai network has published the same object as a standard, as a "
-          "graph and as [a simulated insurance policy for an agent]"
-          "(https://sgit.ai/demos/vaults/licence-to-operate/index.html) — *grant, mandate, and "
-          "the delta nothing covers*. The game is the version that gets a real person to state "
-          "their half."),
-    ("p", "**What is not built:** the mandate draft does not yet export into any of those "
-          "shapes. It is copyable text, and turning it into something a policy engine or a "
-          "risk register could consume is on the game's own next list. Saying it is done would "
-          "be the easiest overclaim on this site to make."),
+    ("h2", "Where this comes from — and what happens to a delta"),
+    ("p", f"These games are part of [**RiskMandate**]({RM}) — *the business risk layer for "
+          f"autonomous systems* — and they exist at one specific point in its argument. "
+          f"RiskMandate's own framing is that [the grant is not the mandate]({RM_GRANT}): a "
+          f"mandate is *the right to act*, granted by a named accountable owner, scoped to what "
+          f"the agent may do and reach, **time-bound, never standing**. The game is how you get "
+          f"a real person to state their half of that without asking them to fill in a form."),
+    ("p", f"What happens to the delta afterwards is the part the game deliberately does not do, "
+          f"and RiskMandate's answer to it is the one mechanic worth borrowing whatever you "
+          f"build: [**there is no deny button**]({RM_ACCEPT}). For a deployed agent the access "
+          f"already exists, so a materialised risk cannot be denied — *\"pretending you can is "
+          f"how risk registers drift into fiction.\"* It can only be **accepted**, in a "
+          f"direction and for an interval, by somebody named, and underwritten upward until it "
+          f"aggregates into one board-level view."),
+    ("p", f"Which makes the interval the decision rather than a field on a form: accept "
+          f"something for an hour and it is fixed within the hour. [How it works]({RM_HOW}) "
+          f"reduces it to three verbs — **accept, fund, or fix** — and the "
+          f"[risk scenarios]({RM_SCENARIOS}) ask *how long will you accept this?* about "
+          f"situations, where this game asks *can it, and do you want it to?* about "
+          f"capabilities. Same question, two ends of it."),
+    ("h2", "The worked example: when the delta has a price"),
+    ("p", "The strongest demonstration of all this is not a game and does not pretend to be. "
+          "**Licence to Operate** is a published vault holding one agent's grant of **12 "
+          "capabilities**, its mandate of **4** — read the customer's record, search the help "
+          "centre, generate, and *draft, never send* — and the **8-capability delta** in "
+          "between, which includes `mail:send` and `shell:exec`. Nobody asked for those; "
+          "nothing insures them; the agent can reach them."),
+    ("p", "Then it prices the gap. A customer cannot log in, you pick the reply, and every "
+          "option carries its cost before you commit: one inside the band, one that draws on "
+          "the pool, one outside cover entirely. Underneath is a real rate table — a normal "
+          "band, an ask-above threshold, a per-action ceiling, a pool with an untouchable "
+          "reserve. It answers *does this agent have the licence to operate* by letting you "
+          "spend it."),
+    ("disclose", "Unlike the games, this vault sends **nothing at all** — no telemetry of any "
+                 "kind. It also declares read and no write at any path, so the app that "
+                 "simulates spending against a policy is structurally incapable of editing the "
+                 "policy it is spending against. Not because it is well behaved: because it "
+                 "never asked for the grant that would let it."),
+    ("embed", {"vault": LTO_VAULT, "readkey": LTO_READKEY, "open_url": LTO_UI, "breakout": True,
+               "label": "Licence to Operate — the simulation, running out of its vault"}),
+    ("p", f"[Open it in its own tab]({LTO_UI}) — it is an interactive simulation and has far "
+          f"more room there — or read [the full write-up with its audit]({LTO_PAGE})."),
+    ("h3", "Why it is not in the catalogue"),
+    ("p", "Because it is a **simulation, not a game**, by this site's own definition: it never "
+          "makes you commit to a belief before showing you the answer. You explore a priced "
+          "space and learn the shape of it, which is valuable and is a different thing. "
+          "[The catalogue](games/index.html) lists things that score a stated prediction; "
+          "putting this beside them would blur the one distinction the site is built on."),
+    ("h2", "What is not built"),
+    ("p", "The mandate draft the game hands a player does not export into any of these shapes. "
+          "It is copyable text. Turning it into something a policy engine, a risk register or "
+          "RiskMandate itself could consume is on the game's own next list, and **saying it is "
+          "done would be the easiest overclaim on this site to make.** Today the handover from "
+          "a player's delta to a time-bound acceptance is a person retyping it."),
   ]},
 # ---------------------------------------------------------------------------
 "maturity/index.html": {
@@ -792,11 +899,18 @@ PAGES = {
     ("crumb", "[Home](index.html) / What our games send"),
     ("h1", "What our games send"),
     ("disclose", DISCLOSE),
-    ("h2", "The default this breaks"),
+    ("h2", "The default this breaks — and the one it does not"),
     ("p", "Opening a vault does not normally send anything anywhere. That is the platform "
           "default and every other vault this family publishes honours it. These games do not, "
-          "and the notice belongs above the fold rather than in a footnote — particularly in a "
-          "vault whose own subject is informed consent."),
+          "which is why the fact is stated wherever the games appear rather than left to a "
+          "privacy page nobody opens."),
+    ("p", "**It is worth being proportionate about the size of this.** What leaves is a count "
+          "of how far people got and which answers are common. There is no cookie, no "
+          "analytics script, no account, no id, no fingerprint, no URL and no referrer — which "
+          "is **less than a default web-server access log**, and considerably less than the "
+          "analytics running on almost every site a reader will visit today. The reason it is "
+          "disclosed at all is not that it is invasive; it is that a vault sending anything is "
+          "a departure from a platform promise, and departures get stated."),
     ("h2", "What is in an event"),
     ("table", ["Carried", "Deliberately absent"],
      [["which screen you reached", "your name, or any id for you"],
@@ -851,6 +965,17 @@ PAGES = {
     ("lead", "This is one of a family of focused sites on `*.sgit.ai`, each taking one question "
              "further than a section could. They share a design, a release discipline, and a "
              "habit of publishing the argument before the thing exists."),
+    ("h2", "The project this site is part of"),
+    ("p", f"[**RiskMandate.ai**]({RM}) — *the business risk layer for autonomous systems*. "
+          f"*Agents act. You own the risk.* It begins where security stops: not the finding, "
+          f"but who accepts it, who funds the fix, and who owns the consequence. Its unit is "
+          f"the **mandate** — the right to act, granted by a named owner, scoped, and "
+          f"time-bound rather than standing — and its signature mechanic is that a real risk "
+          f"has [no deny button]({RM_ACCEPT}), only an interval and an owner."),
+    ("p", f"These games are the front end of one part of that: getting a real person to state "
+          f"what they wanted, so the gap against what was granted becomes visible and "
+          f"countable. [How the two connect](method/grant-vs-mandate.html) · "
+          f"[The grant is not the mandate]({RM_GRANT}) · [Library]({RM_LIBRARY})."),
     ("h2", "The ones this site leans on"),
     ("table", ["Site", "What it answers", "Why it matters here"],
      [["[sgit.ai](https://sgit.ai)", "the encrypted git for humans and AI agents",

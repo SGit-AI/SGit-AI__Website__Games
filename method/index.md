@@ -2,7 +2,7 @@
 
 > Four claims about how to build a game that measures something: score calibration not knowledge, put a ceiling in the set, derive levels from a graph, and treat the mandate as a by-product.
 
-*Source: <https://games.sgit.ai/method/index.html> · site v0.1.0 · this file is generated from the same content
+*Source: <https://games.sgit.ai/method/index.html> · site v0.2.0 · this file is generated from the same content
 as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links
 below point at them.*
 

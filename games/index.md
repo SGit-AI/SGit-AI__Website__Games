@@ -2,7 +2,7 @@
 
 > Every game this family has published, with a maturity rung that has a test behind it, and the vault each one ships in.
 
-*Source: <https://games.sgit.ai/games/index.html> · site v0.1.0 · this file is generated from the same content
+*Source: <https://games.sgit.ai/games/index.html> · site v0.2.0 · this file is generated from the same content
 as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links
 below point at them.*
 
@@ -34,6 +34,10 @@ Publishing them as one vault rather than three sites is deliberate: they share a
 - `telemetry.html`, `telemetry.js`, `telemetry.config.json` — what the games send and the two write-only lanes they send it on. [Our page on it](../telemetry/index.md).
 - `ideas/` — the reply channel: `ontology.json`, `ideas.json`, `signals.json`, and the `graph.json` compiled from them.
 - `version.json` and `version.html` — the badge on every page and the release history behind it.
+
+## Adjacent, and deliberately not listed above
+
+**Licence to Operate** ([open it](https://dev.vault.sgraph.ai/#d990a52efb9af32c8463e2962f3ca5ccf92b3b6e8ea788e55009073c29b4da29%3Aposrhzp3) · [write-up](https://sgit.ai/demos/vaults/licence-to-operate/index.html)) is a published vault holding one agent's grant of 12 capabilities, its mandate of 4, and the 8-capability delta no policy covers — with every reply priced against a live policy. It is the best demonstration in this family of what the games are pointing at, and it is **not a game**: it never makes you commit to a belief before showing you the answer. Listing it above would blur the one distinction this site is built on, so it lives on [the grant-vs-mandate page](../method/grant-vs-mandate.md) instead, embedded.
 
 ## Coming, and deliberately not built yet
 

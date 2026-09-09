@@ -2,7 +2,7 @@
 
 > Where games.sgit.ai sits in the sgit.ai family, and which sibling site answers which question.
 
-*Source: <https://games.sgit.ai/network/index.html> · site v0.1.0 · this file is generated from the same content
+*Source: <https://games.sgit.ai/network/index.html> · site v0.2.0 · this file is generated from the same content
 as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links
 below point at them.*
 
@@ -13,6 +13,12 @@ below point at them.*
 # The network
 
 This is one of a family of focused sites on `*.sgit.ai`, each taking one question further than a section could. They share a design, a release discipline, and a habit of publishing the argument before the thing exists.
+
+## The project this site is part of
+
+[**RiskMandate.ai**](https://riskmandate.ai) — *the business risk layer for autonomous systems*. *Agents act. You own the risk.* It begins where security stops: not the finding, but who accepts it, who funds the fix, and who owns the consequence. Its unit is the **mandate** — the right to act, granted by a named owner, scoped, and time-bound rather than standing — and its signature mechanic is that a real risk has [no deny button](https://riskmandate.ai/v0/v0.10/v0.10.0/index.html), only an interval and an owner.
+
+These games are the front end of one part of that: getting a real person to state what they wanted, so the gap against what was granted becomes visible and countable. [How the two connect](../method/grant-vs-mandate.md) · [The grant is not the mandate](https://riskmandate.ai/v0/v0.11/v0.11.0/index.html) · [Library](https://riskmandate.ai/library.html).
 
 ## The ones this site leans on
 

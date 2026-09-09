@@ -2,7 +2,7 @@
 
 > The scoreboard game: 40 questions, five levels, scored with a proper scoring rule so that saying yes to everything loses. 17 of the 40 are things no agent can do.
 
-*Source: <https://games.sgit.ai/games/what-can-it-do.html> · site v0.1.0 · this file is generated from the same content
+*Source: <https://games.sgit.ai/games/what-can-it-do.html> · site v0.2.0 · this file is generated from the same content
 as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links
 below point at them.*
 
