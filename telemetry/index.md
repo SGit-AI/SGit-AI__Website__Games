@@ -2,7 +2,7 @@
 
 > What Can It Do? sends anonymous usage events over two write-only append lanes; Which Agent Is It? sends nothing. What is in an event, what is deliberately absent, what it proves, and how to stop it.
 
-*Source: <https://games.sgit.ai/telemetry/index.html> · site v0.4.0 · this file is generated from the same content
+*Source: <https://games.sgit.ai/telemetry/index.html> · site v0.4.1 · this file is generated from the same content
 as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links
 below point at them.*
 
@@ -18,7 +18,7 @@ below point at them.*
 
 Opening a vault does not normally send anything anywhere. That is the platform default and every other vault this family publishes honours it — including, since 9 September 2026 (v0.26.0), the games vault that holds *Which Agent Is It?*, which sends nothing and asks for no permissions. *What Can It Do?*, in its own vault, does send, which is why the fact is stated wherever that game appears rather than left to a privacy page nobody opens.
 
-**Browser signals are off.** From v0.21.0 to v0.25.0 the sender could also carry three browser fingerprints and a country, region and connection type from an IP lookup, behind a `signals` switch that shipped on. The game's own vault ships that switch **off** since v1.0.0 (9 September 2026); the vault's `telemetry/index.html` and its `what-we-know/` page say so, and the locked branch is the record of what shipped before.
+**Browser signals are off.** From v0.21.0 to v0.25.0 the sender could also carry three browser fingerprints and a country, region and connection type from an IP lookup, behind a `signals` switch that shipped on. The game's own vault ships that switch **off** since v1.0.0 (9 September 2026); the vault's `telemetry/index.html` and its *What this page knows* screen (inside the game since v1.2.0) say so, and the locked branch is the record of what shipped before.
 
 **It is worth being proportionate about the size of this.** What leaves is a count of how far people got and which answers are common. There is no cookie, no analytics script, no account, no id, no fingerprint, no URL and no referrer — which is **less than a default web-server access log**, and considerably less than the analytics running on almost every site a reader will visit today. The reason it is disclosed at all is not that it is invasive; it is that a vault sending anything is a departure from a platform promise, and departures get stated.
 

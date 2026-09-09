@@ -2,7 +2,7 @@
 
 > A game is the only artefact that makes somebody state a belief before they are told the answer.
 
-Site version: v0.4.0
+Site version: v0.4.1
 
 Every page below has a markdown twin generated from the same content as the
 HTML page. Fetch the `.md` and you have the page, without the chrome.
@@ -28,6 +28,7 @@ HTML page. Fetch the `.md` and you have the page, without the chrome.
 
 ## Release history
 
+- v0.4.1 (2026-09-09) — The telemetry page names where the disclosure now lives: the what-we-know page became a screen inside What Can It Do? (its vault v1.2.0), and that vault's top bar no longer links to the other game. A copy fix, nothing structural.
 - v0.4.0 (2026-09-09) — Two vaults. What Can It Do? now runs out of its own vault (pg87npy3, v1.0.0), reading the public pack from the player site on every load; the home page and the catalogue embed and link to it. The games vault 4evnlwrj keeps Which Agent Is It? and the home page at v0.26.0 with every permission removed and nothing sent, and holds the 9 September version of both games on branch release-2026-09-09. The telemetry page says which vault sends and that browser signals ship off; the floor-plan page says the profile handover did not survive the split, and where the version with it is.
 - v0.3.3 (2026-09-09) — The vault-split plan moves to the repository it is about — what-can-it-do.games.sgit.ai, under briefs/ — and leaves here. One copy, in the place a reader of that game would look.
 - v0.3.2 (2026-09-09) — A second brief: the plan for splitting the games vault. What Can It Do? moves to a vault of its own that reads the public pack from the player site instead of carrying a copy; the wider vault keeps a frozen branch at the 9 September cut and drops its tracking on main; a third vault lets a reader browse the map and propose a change over an append lane that drains into a pull request; the site learns to load a question pack and nothing else; and a fourth vault is a PoC that explains Mavs AI as a change of control tier on the rows where data leaves toward a model. Written against the vault at v0.23.2, which is eleven releases past what the sites were built from and now sends browser fingerprints the player site says it does not — the plan's first decision is about that. briefs/01__PLAN__vaults-and-packs.md, open for review.

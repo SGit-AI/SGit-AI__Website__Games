@@ -135,6 +135,10 @@ FOOTER = [
 ]
 
 VERSION_LOG = [
+    ("v0.4.1", "2026-09-09",
+     "The telemetry page names where the disclosure now lives: the what-we-know page became a screen "
+     "inside What Can It Do? (its vault v1.2.0), and that vault's top bar no longer links to the "
+     "other game. A copy fix, nothing structural."),
     ("v0.4.0", "2026-09-09",
      "Two vaults. What Can It Do? now runs out of its own vault (pg87npy3, v1.0.0), reading the "
      "public pack from the player site on every load; the home page and the catalogue embed "
@@ -963,7 +967,7 @@ PAGES = {
           "browser fingerprints and a country, region and connection type from an IP lookup, "
           "behind a `signals` switch that shipped on. The game's own vault ships that switch "
           "**off** since v1.0.0 (9 September 2026); the vault's `telemetry/index.html` and its "
-          "`what-we-know/` page say so, and the locked branch is the record of what shipped "
+          "*What this page knows* screen (inside the game since v1.2.0) say so, and the locked branch is the record of what shipped "
           "before."),
     ("p", "**It is worth being proportionate about the size of this.** What leaves is a count "
           "of how far people got and which answers are common. There is no cookie, no "

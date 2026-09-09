@@ -2,7 +2,7 @@
 
 > Five rungs, each with a test that moves a game up, so a label on a catalogue card is a claim rather than a mood.
 
-*Source: <https://games.sgit.ai/maturity/index.html> · site v0.4.0 · this file is generated from the same content
+*Source: <https://games.sgit.ai/maturity/index.html> · site v0.4.1 · this file is generated from the same content
 as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links
 below point at them.*
 
