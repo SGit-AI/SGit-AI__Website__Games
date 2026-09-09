@@ -2,7 +2,7 @@
 
 > What players argue with becomes ideas, grouped into themes and answered with a published position — as a graph, joined to the mesh the questions come from, naming nobody.
 
-*Source: <https://games.sgit.ai/games/ideas.html> · site v0.3.1 · this file is generated from the same content
+*Source: <https://games.sgit.ai/games/ideas.html> · site v0.3.2 · this file is generated from the same content
 as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links
 below point at them.*
 

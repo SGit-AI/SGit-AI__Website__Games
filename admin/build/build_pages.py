@@ -128,6 +128,17 @@ FOOTER = [
 ]
 
 VERSION_LOG = [
+    ("v0.3.2", "2026-09-09",
+     "A second brief: the plan for splitting the games vault. What Can It Do? moves to a vault "
+     "of its own that reads the public pack from the player site instead of carrying a copy; "
+     "the wider vault keeps a frozen branch at the 9 September cut and drops its tracking on "
+     "main; a third vault lets a reader browse the map and propose a change over an append "
+     "lane that drains into a pull request; the site learns to load a question pack and "
+     "nothing else; and a fourth vault is a PoC that explains Mavs AI as a change of control "
+     "tier on the rows where data leaves toward a model. Written against the vault at v0.23.2, "
+     "which is eleven releases past what the sites were built from and now sends browser "
+     "fingerprints the player site says it does not — the plan's first decision is about that. "
+     "briefs/01__PLAN__vaults-and-packs.md, open for review."),
     ("v0.3.1", "2026-09-09",
      "Points at the map. The claims each question rests on — what each product can reach, "
      "tool by tool, with the evidence behind every row — now live on the player site as a data "

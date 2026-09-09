@@ -19,7 +19,9 @@ player-facing.
 - `build/` — how to build a game as a vault, including the folder-manifest trap
 - `telemetry/` — what our games send, and how to stop it
 - `network/`, `admin/` — the usual house furniture
-- `briefs/00__PLAN.md` — the plan these sites were built from, still open for review
+- `briefs/00__PLAN.md` — the plan these sites were built from
+- `briefs/01__PLAN__vaults-and-packs.md` — the plan for the vault split, question packs and
+  the Mavs PoC — open for review
 
 ## Build
 

@@ -2,7 +2,7 @@
 
 > Every game this family has published, with a maturity rung that has a test behind it, and the vault each one ships in.
 
-*Source: <https://games.sgit.ai/games/index.html> · site v0.3.1 · this file is generated from the same content
+*Source: <https://games.sgit.ai/games/index.html> · site v0.3.2 · this file is generated from the same content
 as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links
 below point at them.*
 

@@ -2,7 +2,7 @@
 
 > Where games.sgit.ai sits in the sgit.ai family, and which sibling site answers which question.
 
-*Source: <https://games.sgit.ai/network/index.html> · site v0.3.1 · this file is generated from the same content
+*Source: <https://games.sgit.ai/network/index.html> · site v0.3.2 · this file is generated from the same content
 as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links
 below point at them.*
 
