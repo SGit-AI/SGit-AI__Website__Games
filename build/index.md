@@ -2,7 +2,7 @@
 
 > How to build a game that ships as an encrypted vault: the authoring contract, the folder-manifest trap that cost this family four releases, the telemetry lane, and what to publish beside the game.
 
-*Source: <https://games.sgit.ai/build/index.html> · site v0.1.0 · this file is generated from the same content
+*Source: <https://games.sgit.ai/build/index.html> · site v0.1.1 · this file is generated from the same content
 as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links
 below point at them.*
 

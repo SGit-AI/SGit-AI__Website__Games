@@ -23,7 +23,7 @@
   <a class="brand" href="../index.html">games<span>.sgit.ai</span></a>
   <a class="parent" href="https://sgit.ai" title="sgit.ai — the parent project: the vault layer the games ship in">↗ part of <b>sgit.ai</b></a>
   <span class="stage-pill">research site</span>
-  <a class="ver" href="../admin/versions.html" title="Site release history">v0.1.0</a>
+  <a class="ver" href="../admin/versions.html" title="Site release history">v0.1.1</a>
   <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Menu">Menu</button>
   <div class="nav-items">
     <div class="ni ni-has">
@@ -69,9 +69,10 @@
 <main class="doc">
   <p class="crumb"><a href="../index.html">Home</a> / What our games send</p>
   <h1>What our games send</h1>
-  <div class="disclose"><b>These games phone home, and you should know before you play.</b> Opening a vault does not normally send anything anywhere — that is the platform default, and every other vault this family publishes honours it. These send <b>anonymous usage events</b> while you play: which screens you reach, the answers you give, your score. No name, no id, no fingerprint, no URL, no referrer. Every page carries a notice and a pause switch. <a href="../telemetry/index.html">What is sent, exactly</a>.</div>
-  <h2 id="the-default-this-breaks">The default this breaks</h2>
-  <p>Opening a vault does not normally send anything anywhere. That is the platform default and every other vault this family publishes honours it. These games do not, and the notice belongs above the fold rather than in a footnote — particularly in a vault whose own subject is informed consent.</p>
+  <div class="disclose">The games count usage anonymously while you play — which screens people reach, which answers are common. No cookies, no analytics script, no id, nothing that identifies you, and a pause switch on every screen. <a href="../telemetry/index.html">What is sent, and why a vault doing it at all is unusual</a>.</div>
+  <h2 id="the-default-this-breaks-and-the-one-it-does-not">The default this breaks — and the one it does not</h2>
+  <p>Opening a vault does not normally send anything anywhere. That is the platform default and every other vault this family publishes honours it. These games do not, which is why the fact is stated wherever the games appear rather than left to a privacy page nobody opens.</p>
+  <p><b>It is worth being proportionate about the size of this.</b> What leaves is a count of how far people got and which answers are common. There is no cookie, no analytics script, no account, no id, no fingerprint, no URL and no referrer — which is <b>less than a default web-server access log</b>, and considerably less than the analytics running on almost every site a reader will visit today. The reason it is disclosed at all is not that it is invasive; it is that a vault sending anything is a departure from a platform promise, and departures get stated.</p>
   <h2 id="what-is-in-an-event">What is in an event</h2>
   <div class="tablewrap"><table><thead><tr><th>Carried</th><th>Deliberately absent</th></tr></thead><tbody><tr><td>which screen you reached</td><td>your name, or any id for you</td></tr><tr><td>the answers you gave, and the points</td><td>any fingerprint</td></tr><tr><td>the profile you picked from the public list</td><td>the URL, and the referrer</td></tr><tr><td>a 16-hex session id, minted in memory when the page opened and gone when the tab closes</td><td>your IP, as far as the payload is concerned</td></tr><tr><td>a coarse form factor, a language and a host</td><td>your user-agent string and screen size</td></tr></tbody></table></div>
   <p>The <code>profile</code> field is which <b>public</b> profile you picked from a list of nine. It is not a description of your setup — the scoring is arithmetic over a published profile, and the schema is blunt about it: <em>"Not a count of people (sessions are tabs). Not evidence."</em></p>
@@ -93,8 +94,8 @@
     <div class="brandline">games<span>.sgit.ai</span></div>
     <p>Why this family builds games, and the games it has. Each one ships as an encrypted vault you can open, clone and argue with — <a href="../maturity/index.html" style="display:inline;padding:0">every one carries a maturity label with a test behind it</a>.</p>
     <p class="netline"><a href="https://sgit.ai"><b>↗ sgit.ai</b></a> — the vault layer the games ship in · <a href="https://pki.sgit.ai">↗ pki.sgit.ai</a> — the mesh and the profiles the questions come from · <a href="https://what-can-it-do.games.sgit.ai">↗ what-can-it-do.games.sgit.ai</a> — play the first game · <a href="https://sgit.ai/network/index.html">↗ the network</a></p>
-    <p class="partnote">⚠ The games on this site send anonymous usage events while you play. <a href="../telemetry/index.html" style="display:inline;padding:0">What is sent, and how to stop it</a>.</p>
-    <p class="verline">site <a href="../admin/versions.html">v0.1.0</a> · <a href="../admin/index.html">engineering</a> · <a href="../llms.txt">llms.txt</a> · CC BY 4.0 · <a href="../telemetry/index.md">this page as markdown</a></p>
+    <p class="partnote">The games count usage anonymously while you play — no cookies, no analytics script, nothing that identifies you. <a href="../telemetry/index.html" style="display:inline;padding:0">What is sent, and how to stop it</a>.</p>
+    <p class="verline">site <a href="../admin/versions.html">v0.1.1</a> · <a href="../admin/index.html">engineering</a> · <a href="../llms.txt">llms.txt</a> · CC BY 4.0 · <a href="../telemetry/index.md">this page as markdown</a></p>
   </div>
   <div>
     <h4>Play</h4>

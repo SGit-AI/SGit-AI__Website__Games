@@ -2,7 +2,7 @@
 
 > Why this family builds games: a game is the only artefact that makes somebody state a belief before they are told the answer. The catalogue, the method, and how to build one as a vault.
 
-*Source: <https://games.sgit.ai/index.html> · site v0.1.0 · this file is generated from the same content
+*Source: <https://games.sgit.ai/index.html> · site v0.1.1 · this file is generated from the same content
 as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links
 below point at them.*
 
@@ -22,7 +22,7 @@ That delta is the [RiskMandate.ai](https://riskmandate.ai) idea — grant versus
 
 ## Play the first one
 
-> **These games phone home, and you should know before you play.** Opening a vault does not normally send anything anywhere — that is the platform default, and every other vault this family publishes honours it. These send **anonymous usage events** while you play: which screens you reach, the answers you give, your score. No name, no id, no fingerprint, no URL, no referrer. Every page carries a notice and a pause switch. [What is sent, exactly](telemetry/index.md).
+> The games count usage anonymously while you play — which screens people reach, which answers are common. No cookies, no analytics script, no id, nothing that identifies you, and a pause switch on every screen. [What is sent, and why a vault doing it at all is unusual](telemetry/index.md).
 
 *[A live vault surface here in the HTML page — the game running out of vault `4evnlwrj`. In this markdown twin, [open it in the vault UI](https://dev.vault.sgraph.ai/#f94c8b1d42352d95703ac3d39032735d9b4e388d16ab5b87c948928d8e111118%3A4evnlwrj).]*
 

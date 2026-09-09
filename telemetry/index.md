@@ -2,7 +2,7 @@
 
 > The games send anonymous usage events over two write-only append lanes. What is in an event, what is deliberately absent, what it proves, and how to stop it.
 
-*Source: <https://games.sgit.ai/telemetry/index.html> · site v0.1.0 · this file is generated from the same content
+*Source: <https://games.sgit.ai/telemetry/index.html> · site v0.1.1 · this file is generated from the same content
 as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links
 below point at them.*
 
@@ -12,11 +12,13 @@ below point at them.*
 
 # What our games send
 
-> **These games phone home, and you should know before you play.** Opening a vault does not normally send anything anywhere — that is the platform default, and every other vault this family publishes honours it. These send **anonymous usage events** while you play: which screens you reach, the answers you give, your score. No name, no id, no fingerprint, no URL, no referrer. Every page carries a notice and a pause switch. [What is sent, exactly](../telemetry/index.md).
+> The games count usage anonymously while you play — which screens people reach, which answers are common. No cookies, no analytics script, no id, nothing that identifies you, and a pause switch on every screen. [What is sent, and why a vault doing it at all is unusual](../telemetry/index.md).
 
-## The default this breaks
+## The default this breaks — and the one it does not
 
-Opening a vault does not normally send anything anywhere. That is the platform default and every other vault this family publishes honours it. These games do not, and the notice belongs above the fold rather than in a footnote — particularly in a vault whose own subject is informed consent.
+Opening a vault does not normally send anything anywhere. That is the platform default and every other vault this family publishes honours it. These games do not, which is why the fact is stated wherever the games appear rather than left to a privacy page nobody opens.
+
+**It is worth being proportionate about the size of this.** What leaves is a count of how far people got and which answers are common. There is no cookie, no analytics script, no account, no id, no fingerprint, no URL and no referrer — which is **less than a default web-server access log**, and considerably less than the analytics running on almost every site a reader will visit today. The reason it is disclosed at all is not that it is invasive; it is that a vault sending anything is a departure from a platform promise, and departures get stated.
 
 ## What is in an event
 

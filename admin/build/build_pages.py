@@ -47,7 +47,8 @@ SITE = {
                 'the profiles the questions come from · '
                 f'<a href="{PLAYER_SITE}">↗ what-can-it-do.games.sgit.ai</a> — play the first '
                 'game · <a href="https://sgit.ai/network/index.html">↗ the network</a>'),
-    "telemetry_note": '⚠ The games on this site send anonymous usage events while you play. '
+    "telemetry_note": 'The games count usage anonymously while you play — no cookies, no '
+                      'analytics script, nothing that identifies you. '
                       '<a href="{up}telemetry/index.html" style="display:inline;padding:0">'
                       'What is sent, and how to stop it</a>.',
 }
@@ -105,6 +106,18 @@ FOOTER = [
 ]
 
 VERSION_LOG = [
+    ("v0.1.1", "2026-09-09",
+     "The telemetry notice got proportionate. It was an amber warning panel, which was the "
+     "wrong size for what it says: anonymous counting with no cookies, no analytics script and "
+     "nothing that identifies anyone is LESS than a default web-server access log and far less "
+     "than the analytics on almost every site a reader will visit today. Dressing that as a "
+     "hazard implies a risk that is not there, and a page that over-warns about something "
+     "ordinary teaches people to skim the next notice. It is now one quiet line in the reading "
+     "column, still before the thing it describes and still enforced by the release gate. The "
+     "telemetry page states the comparison outright rather than leaving the reader to guess "
+     "the scale, and says why the notice exists at all: not because the counting is invasive, "
+     "but because a vault sending anything departs from a platform promise, and departures get "
+     "stated."),
     ("v0.1.0", "2026-09-08",
      "First publish. The argument (a game is the only artefact that makes somebody state a "
      "belief before they are told the answer), the catalogue with a five-rung maturity ladder "
@@ -122,12 +135,11 @@ KEY_NOTE = (f"**Open it yourself.** Read key `{READKEY[:12]}…{READKEY[-6:]}:{V
             f"[Open it read-only in a new tab]({VAULT_UI}), or clone it with `sgit clone`. "
             f"It is a read key: it cannot write, which is what makes publishing it safe.")
 
-DISCLOSE = ("**These games phone home, and you should know before you play.** Opening a vault "
-            "does not normally send anything anywhere — that is the platform default, and every "
-            "other vault this family publishes honours it. These send **anonymous usage events** "
-            "while you play: which screens you reach, the answers you give, your score. No name, "
-            "no id, no fingerprint, no URL, no referrer. Every page carries a notice and a pause "
-            "switch. [What is sent, exactly](/telemetry/index.html).")
+DISCLOSE = (
+    "The games count usage anonymously while you play — which screens people reach, which "
+    "answers are common. No cookies, no analytics script, no id, nothing that identifies you, "
+    "and a pause switch on every screen. [What is sent, and why a vault doing it at all is "
+    "unusual](/telemetry/index.html).")
 
 
 def versions_table():
@@ -792,11 +804,18 @@ PAGES = {
     ("crumb", "[Home](index.html) / What our games send"),
     ("h1", "What our games send"),
     ("disclose", DISCLOSE),
-    ("h2", "The default this breaks"),
+    ("h2", "The default this breaks — and the one it does not"),
     ("p", "Opening a vault does not normally send anything anywhere. That is the platform "
           "default and every other vault this family publishes honours it. These games do not, "
-          "and the notice belongs above the fold rather than in a footnote — particularly in a "
-          "vault whose own subject is informed consent."),
+          "which is why the fact is stated wherever the games appear rather than left to a "
+          "privacy page nobody opens."),
+    ("p", "**It is worth being proportionate about the size of this.** What leaves is a count "
+          "of how far people got and which answers are common. There is no cookie, no "
+          "analytics script, no account, no id, no fingerprint, no URL and no referrer — which "
+          "is **less than a default web-server access log**, and considerably less than the "
+          "analytics running on almost every site a reader will visit today. The reason it is "
+          "disclosed at all is not that it is invasive; it is that a vault sending anything is "
+          "a departure from a platform promise, and departures get stated."),
     ("h2", "What is in an event"),
     ("table", ["Carried", "Deliberately absent"],
      [["which screen you reached", "your name, or any id for you"],
