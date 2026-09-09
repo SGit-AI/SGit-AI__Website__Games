@@ -128,6 +128,17 @@ FOOTER = [
 ]
 
 VERSION_LOG = [
+    ("v0.3.0", "2026-09-09",
+     "This site goes back to being the generic one. It points at the games; the material "
+     "specific to any single game belongs with that game. So the Licence to Operate embed and "
+     "the long RiskMandate exposition move to what-can-it-do.games.sgit.ai, where a reader who "
+     "has just played that game actually wants them, and grant vs. mandate keeps the method "
+     "claim and links across. The telemetry notice also moves off the top of the front page to "
+     "the foot of it: what it describes is less than a default web-server access log, and a "
+     "notice a reader has to step over to reach the game treats something ordinary as an "
+     "obstacle. Also fixes the nav, which prefixed the page's up-path to absolute hrefs and so "
+     "emitted ../https://… for any off-site menu entry — the footer had always handled that "
+     "and the nav had not; the link check caught it the moment one was added."),
     ("v0.2.0", "2026-09-09",
      "These games are part of RiskMandate, and the site now says so and shows where the join "
      "is. RiskMandate is the business risk layer for autonomous systems — it begins where "
@@ -214,12 +225,12 @@ PAGES = {
           f"RiskMandate governs the right to act: what an agent may do, granted by whom, for "
           f"how long. A form would ask you for your half of that and you would answer "
           f"aspirationally. A game gets it out of you as a by-product of playing."),
-    ("p", f"And its answer to what you do with a delta is the mechanic worth borrowing: "
-          f"[**there is no deny button**]({RM_ACCEPT}). The agent already has the access, so "
-          f"the risk cannot be denied — only accepted, in a direction, for an interval, by "
-          f"somebody named. [Where the two meet](method/grant-vs-mandate.html)."),
+    ("p", f"What happens to a delta once you have one is RiskMandate's answer rather than "
+          f"this site's, and the game that produces one carries it: "
+          f"[what to do next]({PLAYER_SITE}/what-next/index.html). Here, the relevant question "
+          f"is the narrower one — [why a game gets it out of you at all]"
+          f"(method/grant-vs-mandate.html)."),
     ("h2", "Play the first one"),
-    ("disclose", DISCLOSE),
     ("embed", {"vault": VAULT, "readkey": READKEY, "open_url": VAULT_UI, "breakout": True,
                "label": "What Can It Do?, running out of the vault"}),
     ("p", f"That is the real game, running out of the encrypted vault it is published in — no "
@@ -269,6 +280,10 @@ PAGES = {
     ]),
     ("note", "Everything on this site is checkable, because the games are published as a vault "
              "rather than described. " + KEY_NOTE),
+    # Foot of the page, not between the reader and the game. See the note in the player site's
+    # build_pages.py: this is anonymous counting, less than a default server log, and a notice
+    # placed where you have to step over it treats an ordinary thing as an obstacle.
+    ("disclose", DISCLOSE),
   ]},
 # ---------------------------------------------------------------------------
 "games/index.html": {
@@ -323,8 +338,9 @@ PAGES = {
           f"policy. It is the best demonstration in this family of what the games are pointing "
           f"at, and it is **not a game**: it never makes you commit to a belief before showing "
           f"you the answer. Listing it above would blur the one distinction this site is built "
-          f"on, so it lives on "
-          f"[the grant-vs-mandate page](method/grant-vs-mandate.html) instead, embedded."),
+          f"on. It is embedded on the player site instead, beside the game whose output it "
+          f"prices: [what-can-it-do.games.sgit.ai/licence-to-operate]"
+          f"({PLAYER_SITE}/licence-to-operate/index.html)."),
     ("h2", "Coming, and deliberately not built yet"),
     ("p", "The game authors' own *next* list is short and honest: fit the point values from "
           "play data, show a returning player their previous calibration, export the mandate "
@@ -726,34 +742,17 @@ PAGES = {
           f"[risk scenarios]({RM_SCENARIOS}) ask *how long will you accept this?* about "
           f"situations, where this game asks *can it, and do you want it to?* about "
           f"capabilities. Same question, two ends of it."),
-    ("h2", "The worked example: when the delta has a price"),
-    ("p", "The strongest demonstration of all this is not a game and does not pretend to be. "
-          "**Licence to Operate** is a published vault holding one agent's grant of **12 "
-          "capabilities**, its mandate of **4** — read the customer's record, search the help "
-          "centre, generate, and *draft, never send* — and the **8-capability delta** in "
-          "between, which includes `mail:send` and `shell:exec`. Nobody asked for those; "
-          "nothing insures them; the agent can reach them."),
-    ("p", "Then it prices the gap. A customer cannot log in, you pick the reply, and every "
-          "option carries its cost before you commit: one inside the band, one that draws on "
-          "the pool, one outside cover entirely. Underneath is a real rate table — a normal "
-          "band, an ask-above threshold, a per-action ceiling, a pool with an untouchable "
-          "reserve. It answers *does this agent have the licence to operate* by letting you "
-          "spend it."),
-    ("disclose", "Unlike the games, this vault sends **nothing at all** — no telemetry of any "
-                 "kind. It also declares read and no write at any path, so the app that "
-                 "simulates spending against a policy is structurally incapable of editing the "
-                 "policy it is spending against. Not because it is well behaved: because it "
-                 "never asked for the grant that would let it."),
-    ("embed", {"vault": LTO_VAULT, "readkey": LTO_READKEY, "open_url": LTO_UI, "breakout": True,
-               "label": "Licence to Operate — the simulation, running out of its vault"}),
-    ("p", f"[Open it in its own tab]({LTO_UI}) — it is an interactive simulation and has far "
-          f"more room there — or read [the full write-up with its audit]({LTO_PAGE})."),
-    ("h3", "Why it is not in the catalogue"),
-    ("p", "Because it is a **simulation, not a game**, by this site's own definition: it never "
-          "makes you commit to a belief before showing you the answer. You explore a priced "
-          "space and learn the shape of it, which is valuable and is a different thing. "
-          "[The catalogue](games/index.html) lists things that score a stated prediction; "
-          "putting this beside them would blur the one distinction the site is built on."),
+    ("h2", "The worked example lives with the game"),
+    ("p", f"The strongest demonstration of all this is **Licence to Operate** — a published "
+          f"vault holding one agent's grant of 12 capabilities, its mandate of 4, and the "
+          f"8-capability delta in between, where every reply carries its cost before you "
+          f"commit. It is not a game by this site's definition (it never makes you commit to a "
+          f"belief before showing you the answer), and it is specific to the subject *What Can "
+          f"It Do?* covers rather than to games in general — so it is embedded on the player "
+          f"site, next to the game whose output it prices: "
+          f"[what-can-it-do.games.sgit.ai/licence-to-operate]"
+          f"({PLAYER_SITE}/licence-to-operate/index.html) · "
+          f"[the write-up with its audit]({LTO_PAGE})."),
     ("h2", "What is not built"),
     ("p", "The mandate draft the game hands a player does not export into any of these shapes. "
           "It is copyable text. Turning it into something a policy engine, a risk register or "

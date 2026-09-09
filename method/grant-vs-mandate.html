@@ -23,7 +23,7 @@
   <a class="brand" href="../index.html">games<span>.sgit.ai</span></a>
   <a class="parent" href="https://sgit.ai" title="sgit.ai — the parent project: the vault layer the games ship in">↗ part of <b>sgit.ai</b></a>
   <span class="stage-pill">research site</span>
-  <a class="ver" href="../admin/versions.html" title="Site release history">v0.2.0</a>
+  <a class="ver" href="../admin/versions.html" title="Site release history">v0.3.0</a>
   <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Menu">Menu</button>
   <div class="nav-items">
     <div class="ni ni-has">
@@ -81,14 +81,8 @@
   <p>These games are part of <a href="https://riskmandate.ai"><b>RiskMandate</b></a> — <em>the business risk layer for autonomous systems</em> — and they exist at one specific point in its argument. RiskMandate's own framing is that <a href="https://riskmandate.ai/v0/v0.11/v0.11.0/index.html">the grant is not the mandate</a>: a mandate is <em>the right to act</em>, granted by a named accountable owner, scoped to what the agent may do and reach, <b>time-bound, never standing</b>. The game is how you get a real person to state their half of that without asking them to fill in a form.</p>
   <p>What happens to the delta afterwards is the part the game deliberately does not do, and RiskMandate's answer to it is the one mechanic worth borrowing whatever you build: <a href="https://riskmandate.ai/v0/v0.10/v0.10.0/index.html"><b>there is no deny button</b></a>. For a deployed agent the access already exists, so a materialised risk cannot be denied — <em>"pretending you can is how risk registers drift into fiction."</em> It can only be <b>accepted</b>, in a direction and for an interval, by somebody named, and underwritten upward until it aggregates into one board-level view.</p>
   <p>Which makes the interval the decision rather than a field on a form: accept something for an hour and it is fixed within the hour. <a href="https://riskmandate.ai/how-it-works.html">How it works</a> reduces it to three verbs — <b>accept, fund, or fix</b> — and the <a href="https://riskmandate.ai/scenarios.html">risk scenarios</a> ask <em>how long will you accept this?</em> about situations, where this game asks <em>can it, and do you want it to?</em> about capabilities. Same question, two ends of it.</p>
-  <h2 id="the-worked-example-when-the-delta-has-a-price">The worked example: when the delta has a price</h2>
-  <p>The strongest demonstration of all this is not a game and does not pretend to be. <b>Licence to Operate</b> is a published vault holding one agent's grant of <b>12 capabilities</b>, its mandate of <b>4</b> — read the customer's record, search the help centre, generate, and <em>draft, never send</em> — and the <b>8-capability delta</b> in between, which includes <code>mail:send</code> and <code>shell:exec</code>. Nobody asked for those; nothing insures them; the agent can reach them.</p>
-  <p>Then it prices the gap. A customer cannot log in, you pick the reply, and every option carries its cost before you commit: one inside the band, one that draws on the pool, one outside cover entirely. Underneath is a real rate table — a normal band, an ask-above threshold, a per-action ceiling, a pool with an untouchable reserve. It answers <em>does this agent have the licence to operate</em> by letting you spend it.</p>
-  <div class="disclose">Unlike the games, this vault sends <b>nothing at all</b> — no telemetry of any kind. It also declares read and no write at any path, so the app that simulates spending against a policy is structurally incapable of editing the policy it is spending against. Not because it is well behaved: because it never asked for the grant that would let it.</div>
-  <div class="sgv-app sgv-breakout" data-vault="posrhzp3" data-readkey="d990a52efb9af32c8463e2962f3ca5ccf92b3b6e8ea788e55009073c29b4da29" data-label="Licence to Operate — the simulation, running out of its vault"></div>
-  <p><a href="https://dev.vault.sgraph.ai/#d990a52efb9af32c8463e2962f3ca5ccf92b3b6e8ea788e55009073c29b4da29%3Aposrhzp3">Open it in its own tab</a> — it is an interactive simulation and has far more room there — or read <a href="https://sgit.ai/demos/vaults/licence-to-operate/index.html">the full write-up with its audit</a>.</p>
-  <h3 id="why-it-is-not-in-the-catalogue">Why it is not in the catalogue</h3>
-  <p>Because it is a <b>simulation, not a game</b>, by this site's own definition: it never makes you commit to a belief before showing you the answer. You explore a priced space and learn the shape of it, which is valuable and is a different thing. <a href="../games/index.html">The catalogue</a> lists things that score a stated prediction; putting this beside them would blur the one distinction the site is built on.</p>
+  <h2 id="the-worked-example-lives-with-the-game">The worked example lives with the game</h2>
+  <p>The strongest demonstration of all this is <b>Licence to Operate</b> — a published vault holding one agent's grant of 12 capabilities, its mandate of 4, and the 8-capability delta in between, where every reply carries its cost before you commit. It is not a game by this site's definition (it never makes you commit to a belief before showing you the answer), and it is specific to the subject <em>What Can It Do?</em> covers rather than to games in general — so it is embedded on the player site, next to the game whose output it prices: <a href="https://what-can-it-do.games.sgit.ai/licence-to-operate/index.html">what-can-it-do.games.sgit.ai/licence-to-operate</a> · <a href="https://sgit.ai/demos/vaults/licence-to-operate/index.html">the write-up with its audit</a>.</p>
   <h2 id="what-is-not-built">What is not built</h2>
   <p>The mandate draft the game hands a player does not export into any of these shapes. It is copyable text. Turning it into something a policy engine, a risk register or RiskMandate itself could consume is on the game's own next list, and <b>saying it is done would be the easiest overclaim on this site to make.</b> Today the handover from a player's delta to a time-bound acceptance is a person retyping it.</p>
 </main>
@@ -99,7 +93,7 @@
     <p>Why this family builds games, and the games it has. Each one ships as an encrypted vault you can open, clone and argue with — <a href="../maturity/index.html" style="display:inline;padding:0">every one carries a maturity label with a test behind it</a>.</p>
     <p class="netline"><a href="https://riskmandate.ai"><b>↗ RiskMandate.ai</b></a> — the business risk layer these games are part of · <a href="https://sgit.ai">↗ sgit.ai</a> — the vault layer the games ship in · <a href="https://pki.sgit.ai">↗ pki.sgit.ai</a> — the mesh and the profiles the questions come from · <a href="https://what-can-it-do.games.sgit.ai">↗ what-can-it-do.games.sgit.ai</a> — play the first game · <a href="https://sgit.ai/network/index.html">↗ the network</a></p>
     <p class="partnote">The games count usage anonymously while you play — no cookies, no analytics script, nothing that identifies you. <a href="../telemetry/index.html" style="display:inline;padding:0">What is sent, and how to stop it</a>.</p>
-    <p class="verline">site <a href="../admin/versions.html">v0.2.0</a> · <a href="../admin/index.html">engineering</a> · <a href="../llms.txt">llms.txt</a> · CC BY 4.0 · <a href="../method/grant-vs-mandate.md">this page as markdown</a></p>
+    <p class="verline">site <a href="../admin/versions.html">v0.3.0</a> · <a href="../admin/index.html">engineering</a> · <a href="../llms.txt">llms.txt</a> · CC BY 4.0 · <a href="../method/grant-vs-mandate.md">this page as markdown</a></p>
   </div>
   <div>
     <h4>Play</h4>
@@ -129,6 +123,5 @@
     <a href="../llms.txt">llms.txt</a>
   </div>
 </div></footer>
-<script src="../assets/vault-app-embed.js" defer></script>
 </body>
 </html>

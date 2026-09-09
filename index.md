@@ -2,7 +2,7 @@
 
 > Why this family builds games: a game is the only artefact that makes somebody state a belief before they are told the answer. The catalogue, the method, and how to build one as a vault.
 
-*Source: <https://games.sgit.ai/index.html> · site v0.2.0 · this file is generated from the same content
+*Source: <https://games.sgit.ai/index.html> · site v0.3.0 · this file is generated from the same content
 as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links
 below point at them.*
 
@@ -20,11 +20,9 @@ The first games ask one question in two directions. You have given an AI agent a
 
 That delta is the whole subject of [**RiskMandate**](https://riskmandate.ai) — *the business risk layer for autonomous systems* — which is the project these games are part of. RiskMandate governs the right to act: what an agent may do, granted by whom, for how long. A form would ask you for your half of that and you would answer aspirationally. A game gets it out of you as a by-product of playing.
 
-And its answer to what you do with a delta is the mechanic worth borrowing: [**there is no deny button**](https://riskmandate.ai/v0/v0.10/v0.10.0/index.html). The agent already has the access, so the risk cannot be denied — only accepted, in a direction, for an interval, by somebody named. [Where the two meet](method/grant-vs-mandate.md).
+What happens to a delta once you have one is RiskMandate's answer rather than this site's, and the game that produces one carries it: [what to do next](https://what-can-it-do.games.sgit.ai/what-next/index.html). Here, the relevant question is the narrower one — [why a game gets it out of you at all](method/grant-vs-mandate.md).
 
 ## Play the first one
-
-> The games count usage anonymously while you play — which screens people reach, which answers are common. No cookies, no analytics script, no id, nothing that identifies you, and a pause switch on every screen. [What is sent, and why a vault doing it at all is unusual](telemetry/index.md).
 
 *[A live vault surface here in the HTML page — the game running out of vault `4evnlwrj`. In this markdown twin, [open it in the vault UI](https://dev.vault.sgraph.ai/#f94c8b1d42352d95703ac3d39032735d9b4e388d16ab5b87c948928d8e111118%3A4evnlwrj).]*
 
@@ -53,6 +51,8 @@ Games arrive half-built and stay that way for a while, and a catalogue that hide
 - **That the mandate is a mandate.** It is what one person said while playing, badged in the game itself as *a draft you wrote while playing*.
 
 > Everything on this site is checkable, because the games are published as a vault rather than described. **Open it yourself.** Read key `f94c8b1d4235…111118:4evnlwrj` — the full string is on [the vault's page at sgit.ai](https://sgit.ai/demos/vaults/agent-permission-games/). [Open it read-only in a new tab](https://dev.vault.sgraph.ai/#f94c8b1d42352d95703ac3d39032735d9b4e388d16ab5b87c948928d8e111118%3A4evnlwrj), or clone it with `sgit clone`. It is a read key: it cannot write, which is what makes publishing it safe.
+
+> The games count usage anonymously while you play — which screens people reach, which answers are common. No cookies, no analytics script, no id, nothing that identifies you, and a pause switch on every screen. [What is sent, and why a vault doing it at all is unusual](telemetry/index.md).
 
 ---
 

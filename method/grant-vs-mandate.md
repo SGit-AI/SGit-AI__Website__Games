@@ -2,7 +2,7 @@
 
 > The grant is what the agent can do. The mandate is what you wanted it to do. The delta is the thing nobody writes down — so the game extracts it as a by-product of play.
 
-*Source: <https://games.sgit.ai/method/grant-vs-mandate.html> · site v0.2.0 · this file is generated from the same content
+*Source: <https://games.sgit.ai/method/grant-vs-mandate.html> · site v0.3.0 · this file is generated from the same content
 as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links
 below point at them.*
 
@@ -37,21 +37,9 @@ What happens to the delta afterwards is the part the game deliberately does not 
 
 Which makes the interval the decision rather than a field on a form: accept something for an hour and it is fixed within the hour. [How it works](https://riskmandate.ai/how-it-works.html) reduces it to three verbs — **accept, fund, or fix** — and the [risk scenarios](https://riskmandate.ai/scenarios.html) ask *how long will you accept this?* about situations, where this game asks *can it, and do you want it to?* about capabilities. Same question, two ends of it.
 
-## The worked example: when the delta has a price
+## The worked example lives with the game
 
-The strongest demonstration of all this is not a game and does not pretend to be. **Licence to Operate** is a published vault holding one agent's grant of **12 capabilities**, its mandate of **4** — read the customer's record, search the help centre, generate, and *draft, never send* — and the **8-capability delta** in between, which includes `mail:send` and `shell:exec`. Nobody asked for those; nothing insures them; the agent can reach them.
-
-Then it prices the gap. A customer cannot log in, you pick the reply, and every option carries its cost before you commit: one inside the band, one that draws on the pool, one outside cover entirely. Underneath is a real rate table — a normal band, an ask-above threshold, a per-action ceiling, a pool with an untouchable reserve. It answers *does this agent have the licence to operate* by letting you spend it.
-
-> Unlike the games, this vault sends **nothing at all** — no telemetry of any kind. It also declares read and no write at any path, so the app that simulates spending against a policy is structurally incapable of editing the policy it is spending against. Not because it is well behaved: because it never asked for the grant that would let it.
-
-*[A live vault surface here in the HTML page — the game running out of vault `posrhzp3`. In this markdown twin, [open it in the vault UI](https://dev.vault.sgraph.ai/#d990a52efb9af32c8463e2962f3ca5ccf92b3b6e8ea788e55009073c29b4da29%3Aposrhzp3).]*
-
-[Open it in its own tab](https://dev.vault.sgraph.ai/#d990a52efb9af32c8463e2962f3ca5ccf92b3b6e8ea788e55009073c29b4da29%3Aposrhzp3) — it is an interactive simulation and has far more room there — or read [the full write-up with its audit](https://sgit.ai/demos/vaults/licence-to-operate/index.html).
-
-### Why it is not in the catalogue
-
-Because it is a **simulation, not a game**, by this site's own definition: it never makes you commit to a belief before showing you the answer. You explore a priced space and learn the shape of it, which is valuable and is a different thing. [The catalogue](../games/index.md) lists things that score a stated prediction; putting this beside them would blur the one distinction the site is built on.
+The strongest demonstration of all this is **Licence to Operate** — a published vault holding one agent's grant of 12 capabilities, its mandate of 4, and the 8-capability delta in between, where every reply carries its cost before you commit. It is not a game by this site's definition (it never makes you commit to a belief before showing you the answer), and it is specific to the subject *What Can It Do?* covers rather than to games in general — so it is embedded on the player site, next to the game whose output it prices: [what-can-it-do.games.sgit.ai/licence-to-operate](https://what-can-it-do.games.sgit.ai/licence-to-operate/index.html) · [the write-up with its audit](https://sgit.ai/demos/vaults/licence-to-operate/index.html).
 
 ## What is not built
 
